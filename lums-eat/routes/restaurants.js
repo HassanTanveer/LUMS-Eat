@@ -10,70 +10,69 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json(`Error: ${err}`))
 });
 
-router.route('/User').get((req, res) => {
-    Restaurant.findOne({RestaurantID: req.body.RestaurantID})
-        .then(ResResp => {
-            Orders.findOne({RestaurantID: ResResp.RestaurantID})
-                .then(OrderResp => {
-                    User.findOne({userID: OrderResp.userID})
-                        .then(UserResp => res.json(UserResp))
-                })
-                .catch(err => console.log("Can't retrive orders"))
-        })
-        .catch(err => res.status(400).json(`Error: ${err}`));
-});
-
-
-router.route('/:id').get((req, res) => {
-    Restaurant.findById(req.params.id)
-        .then(Restaurant => res.json(Restaurant))
-        .catch(err => res.status(400).json(`Error: ${err}`));
+router.route('/id').get((req, res) => {
+    Restaurant.getbyID(req, (err, resp) => {
+        if(err != null){
+            res.status(400).json(`Error occured: while fetching: ${err}`)
+        }
+        if(resp != null)
+            res.status(200).json(resp)
+        else
+            res.status(200).json(`No restaurant with ID: ${req.body.RestaurantID}`)
+    })
 });
 
 router.route('/add').post((req, res) => {
-    const RestaurantID = req.body.RestaurantID;
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
-    const rating = req.body.rating;
-    const imageurl = req.body.imageurl;
-    const address = req.body.address;
-    const number = req.body.number;
-    const category = req.body.category;
-    const description  = req.body.description;
-    const openingtime = req.body.openingtime;
-    const closingtime = req.body.closingtime;
-    
-    const newRestaurant = new Restaurant({
-        RestaurantID,
-        name,
-        email,
-        password,
-        address,
-        number,
-        imageurl,
-        rating,
-        category,
-        description,
-        openingtime,
-        closingtime
-    });
-
-    newRestaurant.save()
-        .then(() => res.json('Restaurant added!'))
-        .catch((err) => res.status(400).json(`Error: ${err}`));
+    Restaurant.all(req, (err, resp)=>{
+        if(err != null){
+            res.status(400).json(err)
+        }  
+        else
+            res.status(200).json(resp)
+    })
 })
 
-router.route('/:id').delete((req, res) => {
-    Restaurant.findByIdAndDelete(req.params.id)
-        .then(() => res.json("Restuarant deleted"))
+router.route('/delete').delete((req, res) => {
+    Restaurant.findByIdAndDelete(req.body.RestaurantID)
+        .then(() => res.status(200).json("Restuarant deleted"))
         .catch((err) => res.status(400).json(`Error: ${err}`))
 })
 
 router.route('/update/').post((req, res) => {
-    Restaurant.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true, useFindAndModify: false})
-        .then((response) => res.json(response))
-        .catch((err) => res.status(400).json(`Error: ${err}`))
+    Restaurant.findOneAndUpdate({RestaurantID: req.body.RestaurantID}, req.body.update, {useFindAndModify: false})
+        .then((response) => {
+            Restaurant.getbyID(req, (err, resp) => {
+                if(err != null)
+                    res.status(200).json(`Error in fetching details: ${err}`)
+                if(resp != null)
+                    res.status(200).json(resp)
+                else
+                    res.status(400).json(`No restaurant with ID: ${req.body.RestaurantID}`)
+            })
+        })
+        .catch((err) => res.status(400).json(`Error in updating: ${err}`))
 })
+
+router.route('/Orders').get((req, res) =>{
+    Restaurant.findOrders(req, (err, resp) => {
+        if(err != null)
+            res.status(400).json(err)
+        if(resp != null)
+            res.status(200).json(resp)
+        else
+            res.status(200).json("No orders found")
+    })
+})
+
+router.route('/User').get((req, res) => {
+    Restaurant.findUserbyOrder(req.orderID, (err, resp) => {
+        if(err != null)
+            res.status(400).json(err)
+        if(resp != null)
+            res.status(200).json(resp)
+        else
+            res.status(200).json("No user found")
+    })
+});
 
 module.exports = router;

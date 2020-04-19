@@ -26,6 +26,7 @@ router.route('/add').post((req, res) => {
     const category = req.body.category;
     const availability = req.body.availability;
     const price = req.body.price;
+    const imageurl = req.body.imageurl;
     const newItem = new Menu({
         ItemID,
         RestaurantID,
@@ -33,7 +34,8 @@ router.route('/add').post((req, res) => {
         description,
         category,
         availability,
-        price
+        price,
+        imageurl
     });
 
     newItem.save()

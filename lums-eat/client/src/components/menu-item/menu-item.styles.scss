@@ -43,6 +43,7 @@
 
   .content {
     height: 90px;
+    width: 20%;
     padding: 0 25px;
     display: flex;
     flex-direction: column;
@@ -56,13 +57,14 @@
     .title {
       font-weight: bold;
       margin: 0 6px 0;
-      font-size: 22px;
-      color: #4a4a4a;
+      font-size: 27px;
+      color: blue($color: #000000);
     }
 
     .subtitle {
+
       font-weight: lighter;
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 }

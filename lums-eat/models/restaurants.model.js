@@ -21,7 +21,7 @@ const restaurantsSchema = new Schema({
     timestamps: true,
 });
 
-    restaurantsSchema.statics.all = function all(req, callback){
+    restaurantsSchema.statics.all = req => new Promise((resolve, reject) => {
             const RestaurantID = req.body.RestaurantID;
             const name = req.body.name;
             const email = req.body.email;
@@ -51,31 +51,33 @@ const restaurantsSchema = new Schema({
             });
 
             newRestaurant.save()
-                .then(res => callback(null, res))
-                .catch(err => callback(err.errmsg, null))    
-    }
+                .then(res => resolve(res))
+                .catch(err => reject(err.errmsg))    
+    })
 
-    restaurantsSchema.statics.getbyID = function getbyID (req, callback) {
-            Restaurants.findOne({RestaurantID: req.body.RestaurantID})
-                .then(RestRes => callback(null, RestRes))
-                .catch(err => callback(err, null))
-    }
+    restaurantsSchema.statics.getbyID = req => new Promise((resolve, reject) => {
+        Restaurants.findOne({RestaurantID: req.body.RestaurantID})
+            .then(RestRes => {
+                RestRes?resolve(RestRes):resolve(`No restaurant with ID: ${req.body.RestaurantID}`)
+            })
+            .catch(err => reject(`An error occured: ${err}`))
+    })
 
-    restaurantsSchema.statics.findOrders = function findOrders (req, callback) {
+    restaurantsSchema.statics.findOrders = req => new Promise ((resolve, reject) => {
         Restaurants.findOne({RestaurantID: req.body.RestaurantID})
         .then(ResResp => {
             Orders.findOne({RestaurantID: ResResp.RestaurantID})
-                .then(OrderResp => callback(null, OrderResp))
-                .catch(err => callback(`An error occured: ${err}`, null))
+                .then(OrderResp => OrderResp?resolve(OrderResp):resolve(`No orders found`))
+                .catch(err => reject(`An error occured: ${err}`))
         })
-        .catch(err => callback("Can't find the restaurant", null));
-    }
+        .catch(err => reject("Can't find the restaurant"));
+    })
 
-    restaurantsSchema.statics.findUserbyOrder = function findbyOrder (order_ID, callback) {
+    restaurantsSchema.statics.findUserbyOrder = order_ID => new Promise((resolve, reject) => {
         User.findOne({OrderID: order_ID})
-            .then(UserResp => callback(null, UserResp))
-            .catch(err => callback(`An error occured: ${err}`, null))
-    }
+            .then(UserResp => resolve(UserResp))
+            .catch(err => reject(`An error occured: ${err}`))
+    })
 
 const Restaurants = mongoose.model('Restaurants', restaurantsSchema);
 

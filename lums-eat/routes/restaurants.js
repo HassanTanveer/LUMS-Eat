@@ -11,25 +11,15 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/id').get((req, res) => {
-    Restaurant.getbyID(req, (err, resp) => {
-        if(err != null){
-            res.status(400).json(`Error occured: while fetching: ${err}`)
-        }
-        if(resp != null)
-            res.status(200).json(resp)
-        else
-            res.status(200).json(`No restaurant with ID: ${req.body.RestaurantID}`)
-    })
+    Restaurant.getbyID(req)
+        .then(resp => res.status(200).json(resp))
+        .catch(err => res.status(400).json(err))
 });
 
 router.route('/add').post((req, res) => {
-    Restaurant.all(req, (err, resp)=>{
-        if(err != null){
-            res.status(400).json(err)
-        }  
-        else
-            res.status(200).json(resp)
-    })
+    Restaurant.all(req)
+        .then(resp => res.status(200).json(resp))
+        .catch(err => res.status(400).json(err))
 })
 
 router.route('/delete').delete((req, res) => {
@@ -54,25 +44,15 @@ router.route('/update/').post((req, res) => {
 })
 
 router.route('/Orders').get((req, res) =>{
-    Restaurant.findOrders(req, (err, resp) => {
-        if(err != null)
-            res.status(400).json(err)
-        if(resp != null)
-            res.status(200).json(resp)
-        else
-            res.status(200).json("No orders found")
-    })
+    Restaurant.findOrders(req)
+        .then(resp => res.status(200).json(resp))
+        .catch(err => res.status(400).json(err))
 })
 
 router.route('/User').get((req, res) => {
-    Restaurant.findUserbyOrder(req.orderID, (err, resp) => {
-        if(err != null)
-            res.status(400).json(err)
-        if(resp != null)
-            res.status(200).json(resp)
-        else
-            res.status(200).json("No user found")
-    })
+    Restaurant.findUserbyOrder(req.orderID)
+        .then(resp => res.status(200).json(resp))
+        .catch(err => res.status(400).json(err))
 });
 
 module.exports = router;

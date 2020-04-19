@@ -40,6 +40,11 @@ const menuSchema = new Schema({
         required: true,
         unique: true,
     },
+    imageurl: {
+        type: String,
+        required: false,
+        unique: false,
+    },
    
 }, {
     timestamps: true,

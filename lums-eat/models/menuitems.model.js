@@ -38,7 +38,7 @@ const menuSchema = new Schema({
     price: {
         type: Number,
         required: true,
-        unique: true,
+        unique: false,
     },
     imageurl: {
         type: String,

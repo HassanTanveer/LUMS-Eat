@@ -18,6 +18,12 @@ router.route('/update/').post((req, res) => {
         .catch((err) => res.status(400).json(`Error in updating: ${err}`))
 })
 
+router.route('/delete').delete((req, res) => {
+    Menu.findOneAndDelete({ItemID: req.body.ItemID})
+        .then(() => res.status(200).json("Item deleted"))
+        .catch((err) => res.status(400).json(`Error: ${err}`))
+})
+
 router.route('/add').post((req, res) => {
     const ItemID = req.body.ItemID;
     const RestaurantID = req.body.RestaurantID;

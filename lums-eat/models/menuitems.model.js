@@ -44,7 +44,7 @@ const menuSchema = new Schema({
         type: String,
         required: false,
         unique: false,
-    },
+    },  
    
 }, {
     timestamps: true,

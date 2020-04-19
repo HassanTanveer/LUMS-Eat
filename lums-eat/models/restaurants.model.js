@@ -66,7 +66,7 @@ const restaurantsSchema = new Schema({
     restaurantsSchema.statics.findOrders = req => new Promise ((resolve, reject) => {
         Restaurants.findOne({RestaurantID: req.body.RestaurantID})
         .then(ResResp => {
-            Orders.findOne({RestaurantID: ResResp.RestaurantID})
+            Orders.find({RestaurantID: ResResp.RestaurantID})
                 .then(OrderResp => OrderResp?resolve(OrderResp):resolve(`No orders found`))
                 .catch(err => reject(`An error occured: ${err}`))
         })

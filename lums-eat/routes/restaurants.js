@@ -31,14 +31,9 @@ router.route('/delete').delete((req, res) => {
 router.route('/update/').post((req, res) => {
     Restaurant.findOneAndUpdate({RestaurantID: req.body.RestaurantID}, req.body.update, {useFindAndModify: false})
         .then((response) => {
-            Restaurant.getbyID(req, (err, resp) => {
-                if(err != null)
-                    res.status(200).json(`Error in fetching details: ${err}`)
-                if(resp != null)
-                    res.status(200).json(resp)
-                else
-                    res.status(400).json(`No restaurant with ID: ${req.body.RestaurantID}`)
-            })
+            Restaurant.getbyID(req)
+                .then(resp => resp?res.status(200).json(resp):res.status(200).json(`No restaurant with ID: ${req.body.RestaurantID}`))
+                .catch(err => res.status(400).json(`Error in fetching details: ${err}`))
         })
         .catch((err) => res.status(400).json(`Error in updating: ${err}`))
 })
@@ -54,5 +49,17 @@ router.route('/User').get((req, res) => {
         .then(resp => res.status(200).json(resp))
         .catch(err => res.status(400).json(err))
 });
+
+router.route('/OrderUser').get((req, res) =>{
+    Restaurant.findOrders(req)
+        .then(resp => {
+            Restaurant.findUserbyOrder(resp.orderID)
+            .then(userresp => res.status(200).json(userresp))
+            .catch(err => res.status(400).json(err))
+        })
+        .catch(err => res.status(400).json(err))
+})
+
+
 
 module.exports = router;

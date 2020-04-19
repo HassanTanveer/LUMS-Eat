@@ -2,11 +2,21 @@ const router = require('express').Router();
 
 let Menu = require('../models/menuitems.model');
 
-router.route('/').get((req, res) => {
-    Menu.find()
-        .then(orders => res.status(200).json(orders))
+router.route('/find').get((req, res) => {
+    Menu.find({RestaurantID: req.body.RestaurantID})
+        .then(menuresp => res.status(200).json(menuresp))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
+
+router.route('/update/').post((req, res) => {
+    Menu.findOneAndUpdate({ItemID: req.body.ItemID}, req.body.update, {useFindAndModify: false})
+        .then((response) => {
+            Menu.find({ItemID: req.body.ItemID})
+                .then(resp => resp?res.status(200).json(resp):res.status(200).json(`No menu with ID: ${req.body.ItemID}`))
+                .catch(err => res.status(400).json(`Error in fetching details: ${err}`))
+        })
+        .catch((err) => res.status(400).json(`Error in updating: ${err}`))
+})
 
 router.route('/add').post((req, res) => {
     const ItemID = req.body.ItemID;

@@ -23,7 +23,7 @@ router.route('/add').post((req, res) => {
 })
 
 router.route('/delete').delete((req, res) => {
-    Restaurant.findByIdAndDelete(req.body.RestaurantID)
+    Restaurant.findOneAndDelete({RestaurantID: req.body.RestaurantID})
         .then(() => res.status(200).json("Restuarant deleted"))
         .catch((err) => res.status(400).json(`Error: ${err}`))
 })

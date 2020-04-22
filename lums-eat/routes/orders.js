@@ -5,7 +5,10 @@ let Orders = require('../models/orders.model');
 router.route('/').get((req, res) => {
     Orders.find()
         .then(orders => res.json(orders))
-        .catch(err => res.status(400).json(`Error: ${err}`));
+        .catch(err => res.status(400).json({
+            'Status': 'Failed',
+            'Message': `${err}`
+        }))
 });
 
 router.route('/add').post((req, res) => {
@@ -26,8 +29,14 @@ router.route('/add').post((req, res) => {
         Type});
 
     newOrder.save()
-        .then(() => res.json('Order added!'))
-        .catch((err) => res.status(400).json(`Error: ${err}`));
+        .then(() => res.json({
+            'Status': 'Success',
+            'Message': `Done`
+        }))
+        .catch((err) => res.status(400).json({
+            'Status': 'Failed',
+            'Message': `${err}`
+        }))
     
 })
 

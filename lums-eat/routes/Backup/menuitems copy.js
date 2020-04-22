@@ -15,11 +15,11 @@ router.route('/update/').post((req, res) => {
     Menu.findOneAndUpdate({ItemID: req.body.ItemID}, req.body.update, {useFindAndModify: false})
         .then((response) => {
             Menu.find({ItemID: req.body.ItemID})
-                .then(resp => res.status(200).json(resp))
-                .catch(err => res.status(400).json({
-                    'Status': 'Failed',
-                    'Message': `${err}`
+                .then(resp => resp?res.status(200).json(resp):res.status(200).json({
+                    'Status': 'Empty',
+                    'Message': 'No restaurant with this ID'
                 }))
+                .catch(err => res.status(400).json(`Error in fetching details: ${err}`))
         })
         .catch((err) => res.status(400).json({
             'Status': 'Failed',

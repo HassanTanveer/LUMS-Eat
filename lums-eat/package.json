@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.9",
     "node-sass": "^4.13.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "babel-eslint": "10.0.1"
   }
 }

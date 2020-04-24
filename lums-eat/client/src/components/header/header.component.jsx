@@ -8,8 +8,13 @@ import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import {selectCartHidden} from '../../redux/cart/cart.selectors';
+<<<<<<< HEAD
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import {selectCurrentUser} from '../../redux/user/user.selectors';
+=======
+import { ReactComponent as Logo } from '../../assets/logo.svg';
+import {selectCurrentUser} from '../../redux/user/user.selectors.js';
+>>>>>>> d87835cf49f44dbea2b9c6a3554341b4695981e7
 import './header.styles.scss';
 
 const Header = ({ currentUser, hidden }) => (
@@ -21,7 +26,16 @@ const Header = ({ currentUser, hidden }) => (
       <Link className='title' to='/'>{"EAT"}</Link>
     </Link>
     <div className='options'>
+<<<<<<< HEAD
       
+=======
+      <Link className='option' to='/shop'>
+        SHOP
+      </Link>
+      <Link className='option' to='/analytics'>
+        RESTAURANT ANALYTICS
+      </Link>
+>>>>>>> d87835cf49f44dbea2b9c6a3554341b4695981e7
       <Link className='option' to='/restaurant'>
         RESTAURANT
       </Link>

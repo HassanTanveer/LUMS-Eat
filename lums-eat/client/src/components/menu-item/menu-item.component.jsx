@@ -8,7 +8,7 @@ const MenuItem = ({ RestaurantID, name, imageurl, category, rating,  history, li
   <div
   
     className={`menu-item`}
-    onClick={() => history.push(`${match.url}${linkUrl}`)}
+    onClick={() => history.push(`${match.url}${'shop/'}${RestaurantID}`)}
 
    
   >

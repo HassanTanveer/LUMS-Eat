@@ -8,27 +8,20 @@ import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import {selectCartHidden} from '../../redux/cart/cart.selectors';
-<<<<<<< HEAD
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import {selectCurrentUser} from '../../redux/user/user.selectors';
-=======
-import { ReactComponent as Logo } from '../../assets/logo.svg';
-import {selectCurrentUser} from '../../redux/user/user.selectors.js';
->>>>>>> 672285194c6afcb9b9cc2b854ed9eecd4f7ba27c
 import './header.styles.scss';
 
 const Header = ({ currentUser, hidden }) => (
   <div className='header'>
     <Link className='logo-container' to='/'>
       <Logo className='logo' />
-      <Link className='title1'>{"  "}</Link>
-      <Link className='title1'>{"LUMS"}</Link>
-      <Link className='title'>{"EAT"}</Link>
+      <Link className='title1' to='/'>{"  "} </Link>
+      <Link className='title1' to='/'>{"LUMS"}</Link>
+      <Link className='title' to='/'>{"EAT"}</Link>
     </Link>
     <div className='options'>
-      <Link className='option' to='/shop'>
-        SHOP
-      </Link>
+      
       <Link className='option' to='/restaurant'>
         RESTAURANT
       </Link>

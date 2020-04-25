@@ -13,6 +13,21 @@ const ordersSchema = new Schema({
         required: true,
         unique: false,
     },
+    userContact: {
+        type: Number,
+        required: true,
+        unique: false,
+    },
+    userAddress: {
+        type: String,
+        required: true,
+        unique: false,
+    },
+    items: {
+        type: Array,
+        required: true,
+        unique: false,
+    },
     RestaurantID: {
         type: String,
         required: true,

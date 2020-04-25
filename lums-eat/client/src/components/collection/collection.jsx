@@ -1,6 +1,6 @@
 
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import './collection.styles.scss';
 
 import CollectionItem from '../../components/collection-item/collection-item.component';

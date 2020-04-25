@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 let Orders = require('../models/orders.model');
 let Users = require('../models/user.model');
-
+let Menu = require('../models/menuitems.model');
 
 router.route('/').get((req, res) => {
     Orders.find()
@@ -28,6 +28,9 @@ router.route('/all').get((req, res) => {
 router.route('/add').post((req, res) => {
     const OrderID = req.body.OrderID;
     const userID = req.body.userID;
+    const userContact = req.body.userContact;
+    const userAddress = req.body.userAddress;
+    const items = req.body.items;
     const RestaurantID = req.body.RestaurantID;
     const time = req.body.time;
     const totalPrice = req.body.totalPrice;
@@ -37,6 +40,9 @@ router.route('/add').post((req, res) => {
     const newOrder = new Orders({
         OrderID,
         userID,
+        userContact,
+        userAddress,
+        items,
         RestaurantID,
         time,
         totalPrice,
@@ -59,6 +65,15 @@ router.route('/add').post((req, res) => {
 router.route('/update/').post((req, res) => {
     Orders.findOneAndUpdate({OrderID: req.body.OrderID}, req.body.update, {useFindAndModify: false})
         .then((response) => res.json(response))
+        .catch((err) => res.status(400).json({
+            'Status': 'Failed',
+            'Message': `${err}`
+        }))
+})
+
+router.route('/:OrderID/items').get((req, res) => {
+    Orders.findOne({OrderID: req.params.OrderID})
+        .then((response) => res.status(200).json(response.items))
         .catch((err) => res.status(400).json({
             'Status': 'Failed',
             'Message': `${err}`

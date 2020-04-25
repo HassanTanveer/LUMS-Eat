@@ -1,9 +1,9 @@
 import React from 'react';
 
-// import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
-// import CollectionPage from '../collection/collection.component';
+import CollectionPage from '../collection/collection.component';
 import Collection from '../../components/collection/collection';
 
 const ShopPage = ({ match }) => (

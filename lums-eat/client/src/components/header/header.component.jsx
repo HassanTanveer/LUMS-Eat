@@ -21,6 +21,7 @@ const Header = ({ currentUser, hidden }) => (
       <Link className='title' to='/'>{"EAT"}</Link>
     </Link>
     <div className='options'>
+
       <Link className='option' to='/analytics'>
         RESTAURANT ANALYTICS
       </Link>

@@ -30,21 +30,17 @@ class AnalyticsView extends React.Component {
   render() {
     return (
       <div>
-        <div className='options'>
-          <Link className='option' to='/analytics'>
-            DAILY
-          </Link>
-          <Link className='option' to='/analytics'>
-            WEEKLY
-          </Link>
-          <Link className='option' to='/analytics'>
-            MONTHLY
-          </Link>
-        </div>
-
         <div className='restaurant-menu'>
           <div className="top">
-            Orders
+            <Link className='top' to='/analytics'>
+              DAILY
+            </Link>
+            <Link className='top' to='/analytics'>
+              WEEKLY
+            </Link>
+            <Link className='top' to='/analytics'>
+              MONTHLY
+            </Link>
           </div>
           <Table responsive>
             <thead>

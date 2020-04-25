@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
-import CollectionItem from '../../components/collection-item/collection-item.component';
+// import CollectionItem from '../../components/collection-item/collection-item.component';
 
 import './collection.styles.scss';
 
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 
 import Collection from '../../components/collection/collection';
 

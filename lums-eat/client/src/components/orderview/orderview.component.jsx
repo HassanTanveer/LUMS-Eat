@@ -38,9 +38,12 @@ class OrderView extends React.Component {
             <thead>
               <tr className = 'font'>
                 <th>Order number</th>
+                <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
                 <th>User ID</th>
+                <th>User Contact</th>
+                <th>User Address</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
@@ -63,9 +66,12 @@ class OrderView extends React.Component {
             <thead>
               <tr className = 'font'>
                 <th>Order number</th>
+                <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
                 <th>User ID</th>
+                <th>User Contact</th>
+                <th>User Address</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>

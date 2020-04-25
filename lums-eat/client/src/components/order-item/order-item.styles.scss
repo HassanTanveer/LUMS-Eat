@@ -12,7 +12,7 @@
   font-weight: bold;
   background-color: green;
   border-radius: 10px;
-  padding: 7px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -20,6 +20,18 @@
   font-weight: bold;
   background-color: orange;
   border-radius: 10px;
-  padding: 7px;
+  padding: 10px;
   cursor: pointer;
 }
+
+.inside{
+  padding-left: 4px;
+  padding-top: 1px;
+  font-size: 20px;
+}
+
+.items{
+  flex-direction: row;
+  display: flex;
+}
+

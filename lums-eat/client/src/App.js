@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,6 +10,7 @@ import HomePage from './pages/homepage/homepage.component';
 import RestaurantPage from './pages/restaurantpage/restaurantpage.component';
 import AnalyticsPage from './pages/analyticspage/analyticspage.component';
 import ShopPage from './pages/shop/shop.component';
+import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
 import CheckoutPage from './pages/checkout/checkout.component.jsx';
 import { setCurrentUser } from './redux/user/user.actions';
@@ -36,11 +37,7 @@ class App extends React.Component {
           <Route exact path = '/restaurant' component={RestaurantPage} />
           <Route exact path = '/analytics' component={AnalyticsPage} />
           <Route path='/shop' component={ShopPage} />
-          <Route
-           
-            path='/signin'
-            
-          />
+          <Route path='/signin' component={SignInAndSignUpPage} />
         </Switch>
       </div>
     );

@@ -1,5 +1,5 @@
 .collection-item {
-  width: 20vw;
+  width: 95%;
   display: flexbox;
   flex-direction: column;
   height: 350px;
@@ -15,10 +15,11 @@
   }
 
   .custom-button {
-    width: 80%;
+    width: 81%;
     opacity: 0.7;
     position: absolute;
     top: 255px;
+    left: 30px;
     display: none;
   }
 
@@ -41,12 +42,16 @@
     font-size: 18px;
 
     .name {
-      width: 90%;
+      text-align: start;
+      width: 60%;
+      // padding: 0px 5px;
       margin-bottom: 15px;
     }
 
     .price {
-      width: 10%;
+      text-align: end;
+      // padding: 0px 5px;
+      width: 20%;
     }
   }
 }

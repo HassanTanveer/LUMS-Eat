@@ -16,7 +16,6 @@ const ShopPage = ({ match }) => (
       </Switch>
     </BrowserRouter>
     
- /> 
   </div>
 );
 

@@ -43,8 +43,20 @@ const OrderItem = ({ OrderID, items, totalPrice, status, Type, userID, userConta
                         axios.post('/orders/update', change)
                         .then((res) => window.location.reload())
                         .catch(err => console.log(err))
-                  }}
+                    }}
                     >Dispatch</span>;
+                case "Complete": return <span className = 'complete' onClick = {
+                    () => {
+                        let change = {
+                            "OrderID": OrderID,
+                            "update": {
+                                "status": "Pending"
+                            }}
+                        axios.post('/orders/update', change)
+                        .then((res) => window.location.reload())
+                        .catch(err => console.log(err))
+                    }}
+                    >Undo</span>;
                 default:      return <span className = 'button' onClick ={() => alert('button')}>button</span>;
         }
         })()}

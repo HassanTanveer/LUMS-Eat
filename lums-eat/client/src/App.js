@@ -8,8 +8,10 @@ import './App.css';
 
 import HomePage from './pages/homepage/homepage.component';
 import RestaurantPage from './pages/restaurantpage/restaurantpage.component';
+import OrdersPage from './pages/orderspage/orderspage.component';
 import AnalyticsPage from './pages/analyticspage/analyticspage.component';
 import ShopPage from './pages/shop/shop.component';
+import MenuUpdate from './pages/menu-update/menu-update.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
 import CheckoutPage from './pages/checkout/checkout.component.jsx';
@@ -36,6 +38,8 @@ class App extends React.Component {
           <Route exact path = '/checkout' component={CheckoutPage} />
           <Route exact path = '/restaurant' component={RestaurantPage} />
           <Route exact path = '/analytics' component={AnalyticsPage} />
+          <Route exact path = '/orders' component={OrdersPage} />
+          <Route exact path = '/menu-update' component={MenuUpdate} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/signin' component={SignInAndSignUpPage} />
         </Switch>

@@ -1,33 +1,33 @@
 import React from 'react';
 
-import OrderItem from '../order-item/order-item.component';
-import NewOrderItem from '../new-order-item/new-order-item.component';
+import OrderTable from '../ordertable/ordertable.component';
+// import NewOrderItem from '../new-order-item/new-order-item.component';
 import Table from 'react-bootstrap/Table';
 
-import './orderview.styles.scss';
+import './orderpage.styles.scss';
 
-class OrderView extends React.Component {
+class OrderPage extends React.Component {
   constructor() {
     super();
 
       this.state={
-      sections: [],
-      newsections: [],
-      complete: []
+        active: [],
+        unconfirmed: [],
+        complete: []
       }
     
   }
 
   componentDidMount(){
-    fetch('/orders/all')
+    fetch('/users/neworders')
     .then(res=> res.json())
-    .then(sections => this.setState({sections}))
+    .then(unconfirmed => this.setState({unconfirmed}))
 
-    fetch('/orders/new')
+    fetch('/users/pendingorders')
     .then(res=> res.json())
-    .then(newsections => this.setState({newsections}))
+    .then(active => this.setState({active}))
 
-    fetch('/orders/complete')
+    fetch('/users/completedorders')
     .then(res=> res.json())
     .then(complete => this.setState({complete}))
   }
@@ -37,7 +37,7 @@ class OrderView extends React.Component {
       <div>
         <div className='restaurant-menu'>
           <div className="top">
-            New Orders
+            Pending Confirmation <span className="new-number">{this.state.active.length}</span>
           </div>
           <Table responsive>
             <thead>
@@ -46,17 +46,14 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User ID</th>
-                <th>User Contact</th>
-                <th>User Address</th>
+                <th>Address</th>
                 <th>Status</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {this.state.newsections.map(({ id, ...otherSectionProps }) => (
+              {this.state.unconfirmed.map(({ id, ...otherSectionProps }) => (
                 <tr>
-                <NewOrderItem key={id} {...otherSectionProps} />
+                <OrderTable key={id} {...otherSectionProps} />
                 </tr>
               ))}
             </tbody>
@@ -65,7 +62,7 @@ class OrderView extends React.Component {
 
         <div className='restaurant-menu'>
           <div className="top">
-            Orders <span className="number">{this.state.sections.length}</span> 
+            Active Orders <span className="active-number">{this.state.active.length}</span> 
           </div>
           <Table responsive>
             <thead>
@@ -74,17 +71,14 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User ID</th>
-                <th>User Contact</th>
-                <th>User Address</th>
+                <th>Address</th>
                 <th>Status</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {this.state.sections.map(({ id, ...otherSectionProps }) => (
+              {this.state.active.map(({ id, ...otherSectionProps }) => (
                 <tr>
-                <OrderItem key={id} {...otherSectionProps} />
+                <OrderTable key={id} {...otherSectionProps} />
                 </tr>
               ))}
             </tbody>
@@ -93,7 +87,7 @@ class OrderView extends React.Component {
 
         <div className='restaurant-menu'>
           <div className="top">
-            Completed Orders <span className="number">{this.state.complete.length}</span> 
+            Completed Orders <span className="completed-number">{this.state.complete.length}</span> 
           </div>
           <Table responsive>
             <thead>
@@ -102,17 +96,14 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User ID</th>
-                <th>User Contact</th>
-                <th>User Address</th>
+                <th>Address</th>
                 <th>Status</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {this.state.complete.map(({ id, ...otherSectionProps }) => (
                 <tr>
-                <OrderItem key={id} {...otherSectionProps} />
+                <OrderTable key={id} {...otherSectionProps} />
                 </tr>
               ))}
             </tbody>
@@ -124,4 +115,4 @@ class OrderView extends React.Component {
   }
 }
 
-export default OrderView;
+export default OrderPage;

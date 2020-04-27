@@ -3,7 +3,16 @@ const router = require('express').Router();
 let Menu = require('../models/menuitems.model');
 
 router.route('/find/:id').get((req, res) => {
-    Menu.find({RestaurantID: req.params.id})
+    Menu.find({RestaurantID: req.params.id, availability: "Yes"})
+        .then(menuresp => res.status(200).json(menuresp))
+        .catch(err => res.status(400).json({
+            'Status': 'Failed',
+            'Message': `${err}`
+        }))
+});
+
+router.route('/all').get((req, res) => {
+    Menu.find({availability: ["Yes", "No"]})
         .then(menuresp => res.status(200).json(menuresp))
         .catch(err => res.status(400).json({
             'Status': 'Failed',

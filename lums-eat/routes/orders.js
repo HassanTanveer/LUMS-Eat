@@ -26,6 +26,12 @@ router.route('/all').get((req, res) => {
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
+router.route('/complete').get((req, res) => {
+    Orders.find({status: "Complete"})
+        .then(orders => res.json(orders))
+        .catch(err => res.status(400).json(`Error: ${err}`));
+});
+
 router.route('/add').post((req, res) => {
     const OrderID = req.body.OrderID;
     const userID = req.body.userID;

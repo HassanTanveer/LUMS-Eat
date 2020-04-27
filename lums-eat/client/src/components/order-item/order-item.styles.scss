@@ -10,13 +10,21 @@
 .disp{
   color: white;
   font-weight: bold;
-  background-color: green;
+  background-color: rgb(40, 240, 40);
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
 }
 
 .pend{
+  font-weight: bold;
+  background-color: orange;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.complete{
   font-weight: bold;
   background-color: orange;
   border-radius: 10px;

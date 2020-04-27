@@ -15,10 +15,7 @@ class Collection extends React.Component {
         collection: [],
         
         }
-
-        
-  
-        
+ 
       
     }
   
@@ -27,8 +24,8 @@ class Collection extends React.Component {
       
      //console.log(`This is match ${this.props.match.params.id}`)
       fetch(`/menu/find/${this.props.match.params.id}`)
-      .then(res=> res.json())
-      .then(collection => this.setState({collection}))
+        .then(res=> res.json())
+        .then(collection => this.setState({collection}))
     }
   
     render() {

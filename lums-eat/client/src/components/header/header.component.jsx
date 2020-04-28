@@ -30,6 +30,9 @@ const Header = ({ currentUser, hidden }) => (
       <Link className='option' to='/menu-update'>
         MENU AVAILABILITY
       </Link>
+      <Link className='option' to='/feedback'>
+         FEEDBACK
+      </Link>
       <Link className='option' to='/orders'>
         ORDERS
       </Link>

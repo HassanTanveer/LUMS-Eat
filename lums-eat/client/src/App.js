@@ -17,6 +17,7 @@ import Header from './components/header/header.component';
 import CheckoutPage from './pages/checkout/checkout.component.jsx';
 import { setCurrentUser } from './redux/user/user.actions';
 import {selectCurrentUser} from './redux/user/user.selectors';
+import FeedbacksPage from './pages/feedbackpage/feedbackpage.component';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -40,6 +41,7 @@ class App extends React.Component {
           <Route exact path = '/analytics' component={AnalyticsPage} />
           <Route exact path = '/orders' component={OrdersPage} />
           <Route exact path = '/menu-update' component={MenuUpdate} />
+          <Route exact path = '/feedback' component={FeedbacksPage} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/signin' component={SignInAndSignUpPage} />
         </Switch>

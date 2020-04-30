@@ -4,8 +4,6 @@ import { Switch, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Provider } from "react-redux";
-// import store from "./store";
 
 import './App.css';
 
@@ -39,10 +37,9 @@ class App extends React.Component {
 
   render() {
     return (
-      // <Provider store={store}>
+      <Switch>
       <div>
         <Header />
-        <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path = '/checkout' component={CheckoutPage} />
           <Route exact path = '/restaurant' component={RestaurantPage} />
@@ -56,22 +53,21 @@ class App extends React.Component {
           <Route path='/auth' component={Authentication} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
-        </Switch>
       </div>
-      // </Provider>
+      </Switch>
     );
   }
 }
 
-// const mapStateToProps = createStructuredSelector({
-//   currentUser: selectCurrentUser
-// })
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+})
 
-// const mapDispatchToProps = dispatch => ({
-//   setCurrentUser: user => dispatch(setCurrentUser(user))
-// });
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
 
 export default connect(
-  // mapStateToProps,
-  // mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App);

@@ -36,6 +36,9 @@ const Header = ({ currentUser, hidden }) => (
       <Link className='option' to='/orders'>
         ORDERS
       </Link>
+      <Link className='option' to='/add-menu'>
+        Add menu
+      </Link>
       {currentUser ? (
         <div className='option'>
           SIGN OUT

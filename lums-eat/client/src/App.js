@@ -18,6 +18,7 @@ import CheckoutPage from './pages/checkout/checkout.component.jsx';
 import { setCurrentUser } from './redux/user/user.actions';
 import {selectCurrentUser} from './redux/user/user.selectors';
 import FeedbacksPage from './pages/feedbackpage/feedbackpage.component';
+import AddMenu from './pages/add-menu/add-menu.component';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -44,6 +45,7 @@ class App extends React.Component {
           <Route exact path = '/feedback' component={FeedbacksPage} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/signin' component={SignInAndSignUpPage} />
+          <Route path='/add-menu' component={AddMenu} />
         </Switch>
       </div>
     );

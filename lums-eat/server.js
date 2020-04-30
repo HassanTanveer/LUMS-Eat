@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
+const passport = require("passport");
 
 require('dotenv').config();
 
@@ -43,6 +44,11 @@ app.use('/users', usersRoute);
 app.use('/orders', ordersRoute);
 app.use('/menu', menuRoute);
 app.use('/feedback', feedbackRoute);
+
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))

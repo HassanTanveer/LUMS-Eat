@@ -1,19 +1,25 @@
-import React from 'react';
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import MenuItem from '../menu-item/menu-item.component';
 
 import './directory.styles.scss';
 
-class Directory extends React.Component {
+class Directory extends Component {  
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+  
   constructor() {
     super();
-
       this.state = {
         sections: [],
         search: ''
       }
     
   }
+  
 
   updateSearch(event) {
     this.setState({search: event.target.value})
@@ -26,6 +32,7 @@ class Directory extends React.Component {
   }
 
   render() {
+    const { user } = this.props.auth;
     let filteredRestaurants = this.state.sections.filter(
       (MenuItem) => {
         return MenuItem.name.toUpperCase().indexOf(this.state.search.toUpperCase()) !== -1;
@@ -33,6 +40,7 @@ class Directory extends React.Component {
     )
     return (
       <div className='directory-menu'>
+        <b>Hey there, {user.name}</b> 
         <div className='search'>
           <input type = "text"
               class = 'search'
@@ -52,4 +60,13 @@ class Directory extends React.Component {
   }
 }
 
-export default Directory;
+Directory.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+)(Directory);

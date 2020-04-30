@@ -4,6 +4,7 @@ let Restaurant = require('../models/restaurants.model');
 let Orders = require('../models/orders.model');
 let User = require('../models/user.model');
 
+//Gets all the restaurants
 router.route('/').get((req, res) => {
     Restaurant.find()
         .then(RestaurantFind => res.json(RestaurantFind))
@@ -13,6 +14,7 @@ router.route('/').get((req, res) => {
         }))
 });
 
+//Gets a specific restaurant by its ID
 router.route('/id').get((req, res) => {
     Restaurant.getbyID(req)
         .then(resp => res.status(200).json(resp))
@@ -22,6 +24,7 @@ router.route('/id').get((req, res) => {
         }))
 });
 
+//Adds a new restaurant
 router.route('/add').post((req, res) => {
     Restaurant.all(req)
         .then(resp => res.status(200).json(resp))
@@ -31,6 +34,7 @@ router.route('/add').post((req, res) => {
         }))
 })
 
+//Delets a restaurant
 router.route('/delete').delete((req, res) => {
     Restaurant.findOneAndDelete({RestaurantID: req.body.RestaurantID})
         .then(() => res.status(200).json({
@@ -43,6 +47,7 @@ router.route('/delete').delete((req, res) => {
         }))
 })
 
+//Updates restaurant information
 router.route('/update/').post((req, res) => {
     Restaurant.findOneAndUpdate({RestaurantID: req.body.RestaurantID}, req.body.update, {useFindAndModify: false})
         .then((response) => {
@@ -59,6 +64,7 @@ router.route('/update/').post((req, res) => {
         }))
 })
 
+//Gets the orders of the restaurants
 router.route('/Orders').get((req, res) =>{
     Restaurant.findOrders(req)
         .then(resp => res.status(200).json(resp))
@@ -68,6 +74,7 @@ router.route('/Orders').get((req, res) =>{
         }))
 })
 
+//Gets the users that have orders pending from a restuarant
 router.route('/User').get((req, res) => {
     Restaurant.findUserbyOrder(req.orderID)
         .then(resp => res.status(200).json(resp))
@@ -77,6 +84,7 @@ router.route('/User').get((req, res) => {
         }))
 });
 
+//Gets the user of a specific order
 router.route('/OrderUser').get((req, res) =>{
     Restaurant.findOrders(req)
         .then(resp => {

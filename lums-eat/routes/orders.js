@@ -5,6 +5,7 @@ let Users = require('../models/user.model');
 let Menu = require('../models/menuitems.model');
 
 
+//Gets all the orders
 router.route('/').get((req, res) => {
     Orders.find()
         .then(orders => res.json(orders))
@@ -14,24 +15,28 @@ router.route('/').get((req, res) => {
         }))
 });
 
+//Gets the orders with the status "New"
 router.route('/new').get((req, res) => {
     Orders.find({status: "New"})
         .then(orders => res.json(orders))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
+//Gets the orders with the status "Pending" or "Dispatched"
 router.route('/all').get((req, res) => {
     Orders.find({status: ["Pending", "Dispatched"]})
         .then(orders => res.json(orders))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
+//Gets the orders with the status "Complete"
 router.route('/complete').get((req, res) => {
     Orders.find({status: "Complete"})
         .then(orders => res.json(orders))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
+//Adds a new order
 router.route('/add').post((req, res) => {
     const OrderID = req.body.OrderID;
     const userID = req.body.userID;
@@ -69,6 +74,7 @@ router.route('/add').post((req, res) => {
     
 })
 
+//Updates the order information
 router.route('/update/').post((req, res) => {
     Orders.findOneAndUpdate({OrderID: req.body.OrderID}, req.body.update, {useFindAndModify: false})
         .then((response) => res.json(response))
@@ -78,6 +84,7 @@ router.route('/update/').post((req, res) => {
         }))
 })
 
+//Gets the items of a specific order
 router.route('/:OrderID/items').get((req, res) => {
     Orders.findOne({OrderID: req.params.OrderID})
         .then((response) => res.status(200).json(response.items))

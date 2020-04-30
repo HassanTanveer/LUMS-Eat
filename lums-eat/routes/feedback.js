@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 let Fback = require('../models/feedback.model')
 
+//Gets the feedbacks of a specific restaurant
 router.route('/byrestaurant/:RestaurantID').get((req, res) => {
     Fback.find({RestaurantID: req.params.RestaurantID})
         .then(feedbackresp => res.status(200).json(feedbackresp))
@@ -11,6 +12,7 @@ router.route('/byrestaurant/:RestaurantID').get((req, res) => {
         }))
 });
 
+//Gets the feedbacks provided by a specific users
 router.route('/byuser/:UserID').get((req, res) => {
     Fback.find({UserID: req.params.UserID})
         .then(feedbackresp => res.status(200).json(feedbackresp))
@@ -20,6 +22,7 @@ router.route('/byuser/:UserID').get((req, res) => {
         }))       
 })
 
+//Gets all the feedbacks
 router.route('/all').get((req, res) => {
     Fback.find()
         .then(feedbackresp => res.status(200).json(feedbackresp))
@@ -29,6 +32,7 @@ router.route('/all').get((req, res) => {
         }))
 });
 
+//Add new feedback
 router.route('/add').post((req, res) => {
     const UserID = req.body.UserID
     const ItemID = req.body.ItemID;

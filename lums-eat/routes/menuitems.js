@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 let Menu = require('../models/menuitems.model');
 
+//Gets a specific menu item
 router.route('/find/:id').get((req, res) => {
     Menu.find({RestaurantID: req.params.id, availability: "Yes"})
         .then(menuresp => res.status(200).json(menuresp))
@@ -11,6 +12,7 @@ router.route('/find/:id').get((req, res) => {
         }))
 });
 
+//Gets all the menu items
 router.route('/all').get((req, res) => {
     Menu.find({availability: ["Yes", "No"]})
         .then(menuresp => res.status(200).json(menuresp))
@@ -20,6 +22,7 @@ router.route('/all').get((req, res) => {
         }))
 });
 
+//Updates a menu item
 router.route('/update/').post((req, res) => {
     Menu.findOneAndUpdate({ItemID: req.body.ItemID}, req.body.update, {useFindAndModify: false})
         .then((response) => {
@@ -36,6 +39,7 @@ router.route('/update/').post((req, res) => {
         }))
 })
 
+//Deletes a menu item
 router.route('/delete').delete((req, res) => {
     Menu.findOneAndDelete({ItemID: req.body.ItemID})
         .then(resp => res.status(200).json({
@@ -48,6 +52,7 @@ router.route('/delete').delete((req, res) => {
         }))
 })
 
+//Add a new menu item
 router.route('/add').post((req, res) => {
     const ItemID = req.body.ItemID;
     const RestaurantID = req.body.RestaurantID;

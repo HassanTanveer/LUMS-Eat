@@ -1,8 +1,11 @@
 import React from 'react';
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from "react-redux";
+// import store from "./store";
 
 import './App.css';
 
@@ -19,6 +22,9 @@ import { setCurrentUser } from './redux/user/user.actions';
 import {selectCurrentUser} from './redux/user/user.selectors';
 import FeedbacksPage from './pages/feedbackpage/feedbackpage.component';
 import AddMenu from './pages/add-menu/add-menu.component';
+import Authentication from './pages/authentication/authentication.component';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -33,6 +39,7 @@ class App extends React.Component {
 
   render() {
     return (
+      // <Provider store={store}>
       <div>
         <Header />
         <Switch>
@@ -46,21 +53,25 @@ class App extends React.Component {
           <Route path='/shop' component={ShopPage} />
           <Route path='/signin' component={SignInAndSignUpPage} />
           <Route path='/add-menu' component={AddMenu} />
+          <Route path='/auth' component={Authentication} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
         </Switch>
       </div>
+      // </Provider>
     );
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
-})
+// const mapStateToProps = createStructuredSelector({
+//   currentUser: selectCurrentUser
+// })
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
+// const mapDispatchToProps = dispatch => ({
+//   setCurrentUser: user => dispatch(setCurrentUser(user))
+// });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  // mapStateToProps,
+  // mapDispatchToProps
 )(App);

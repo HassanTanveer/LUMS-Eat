@@ -37,7 +37,7 @@ class OrderPage extends React.Component {
       <div>
         <div className='restaurant-menu'>
           <div className="top">
-            Pending Confirmation <span className="new-number">{this.state.active.length}</span>
+            Pending Confirmation <span className="new-number">{this.state.unconfirmed.length}</span>
           </div>
           <Table responsive>
             <thead>

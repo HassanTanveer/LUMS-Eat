@@ -35,11 +35,13 @@ const usersRoute = require('./routes/users');
 const restaurantRoute = require('./routes/restaurants');
 const ordersRoute = require('./routes/orders');
 const menuRoute = require('./routes/menuitems');
+const feedbackRoute = require('./routes/feedback');
 
 app.use('/restaurants', restaurantRoute);
 app.use('/users', usersRoute);
 app.use('/orders', ordersRoute);
 app.use('/menu', menuRoute);
+app.use('/feedback', feedbackRoute);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))

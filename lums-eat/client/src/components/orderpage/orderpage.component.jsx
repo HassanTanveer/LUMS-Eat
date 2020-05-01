@@ -19,6 +19,7 @@ class OrderPage extends React.Component {
   }
 
   componentDidMount(){
+    console.log(localStorage.email)
     fetch('/users/neworders')
     .then(res=> res.json())
     .then(unconfirmed => this.setState({unconfirmed}))

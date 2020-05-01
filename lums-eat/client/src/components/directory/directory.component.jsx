@@ -10,7 +10,7 @@ class Directory extends Component {
     e.preventDefault();
     this.props.logoutUser();
   };
-  
+
   constructor() {
     super();
       this.state = {
@@ -40,10 +40,14 @@ class Directory extends Component {
     )
     return (
       <div className='directory-menu'>
-        <b>Hey there, {user.name}</b> 
+        {user.name ? (
+          <b>Hey there, {user.name}</b>
+        ) : (
+          <b>Hey there!</b>
+        )}
         <div className='search'>
           <input type = "text"
-              class = 'search'
+              className = 'search'
               placeholder = "search..."
               value ={this.state.search} 
               onChange = {this.updateSearch.bind(this)}/>

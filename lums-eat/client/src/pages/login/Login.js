@@ -14,7 +14,15 @@ class Login extends Component {
       errors: {}
     };
   }
-componentWillReceiveProps(nextProps) {
+
+componentDidMount() {
+  // If logged in and user navigates to Login page, should redirect them to dashboard
+  if (this.props.auth.isAuthenticated) {
+    this.props.history.push("/");
+  }
+}
+
+UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/"); // push user to dashboard when they login
     }
@@ -85,7 +93,7 @@ return (
                 <label htmlFor="password">Password</label>
                 <span className="red-text">
                   {errors.password}
-                  {errors.passwordincorrect}
+                  {errors.passwordincorrect}    
                 </span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -109,6 +117,7 @@ return (
     );
   }
 }
+
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,

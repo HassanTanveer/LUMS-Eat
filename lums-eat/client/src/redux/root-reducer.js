@@ -13,5 +13,5 @@ export default combineReducers({
   shop: shopReducer,
   directory: directoryReducer,
   auth: authReducer,
-  error: errorReducer
+  errors: errorReducer
 });

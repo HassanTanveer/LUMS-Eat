@@ -2,14 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// import {createStructuredSelector} from 'reselect';
-import PropTypes from "prop-types";
-
+import {createStructuredSelector} from 'reselect';
+// import PropTypes from "prop-types";
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import {selectCartHidden} from '../../redux/cart/cart.selectors';
 import {ReactComponent as Logo } from '../../assets/logo.svg';
-// import {selectCurrentUser} from '../../redux/user/user.selectors.js';
+import { setUserLoading, logoutUser } from "../../redux/actions/authActions";
 import './header.styles.scss';
 
 const Header = ({ currentUser, hidden }) => (
@@ -42,7 +41,7 @@ const Header = ({ currentUser, hidden }) => (
         ADD MENU
       </Link>
       {currentUser ? (
-        <div className='option'>
+        <div className='option' onClick = {() => logoutUser()}>
           LOG OUT
         </div>
       ) : (
@@ -58,13 +57,17 @@ const Header = ({ currentUser, hidden }) => (
 
 
 
-Header.propTypes = {
-  auth: PropTypes.object.isRequired,
+// Header.propTypes = {
+//   auth: PropTypes.object.isRequired,
   
-};
-const mapStateToProps = state => ({
-  auth: state.auth,
-  currentUser: state.auth.user,
+// };
+// const mapStateToProps = state => ({
+//   auth: state.auth,
+//   hidden: selectCartHidden
+// })
+
+const mapStateToProps = createStructuredSelector({
+  currentUser:setUserLoading,
   hidden: selectCartHidden
 })
 

@@ -6,6 +6,7 @@ import {
   SET_CURRENT_USER,
   USER_LOADING
 } from "./types";
+
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
@@ -24,10 +25,13 @@ export const loginUser = userData => dispatch => {
     .post("/users/login", userData)
     .then(res => {
       // Save to localStorage
-// Set token to localStorage
+      // Set token to localStorage
       console.log(res.data)
       const { token } = res.data;
+      const { email } = res.data;
+      // console.log(email)
       localStorage.setItem("jwtToken", token);
+      localStorage.setItem("email", email);
       // Set token to Auth header
       setAuthToken(token);
       // Decode token to get user data
@@ -59,6 +63,7 @@ export const setUserLoading = () => {
 export const logoutUser = () => dispatch => {
   // Remove token from local storage
   localStorage.removeItem("jwtToken");
+  localStorage.removeItem("email");
   // Remove auth header for future requests
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false

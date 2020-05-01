@@ -61,7 +61,6 @@ class Directory extends Component {
         </div>
         <hr/>
         <div className='directory-menu'>
-          {/* <Search/> */}
           {filteredRestaurants.map(({ id, ...otherSectionProps }) => (
             <MenuItem key={id} {...otherSectionProps} />
           ))}

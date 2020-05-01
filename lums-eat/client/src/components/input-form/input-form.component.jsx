@@ -98,7 +98,7 @@ class InputForm extends React.Component {
                               className = 'itemid'
                               placeholder="Enter item ID"
                               required
-                              value = {this.state.name}
+                              value = {this.state.ItemID}
                               onChange = {this.updateID.bind(this)} />
             </Form.Group>
 

@@ -14,4 +14,4 @@ const CollectionPage = () => (
      <Collection />
  );
 
-export default CollectionPage;
+export default CollectionPage

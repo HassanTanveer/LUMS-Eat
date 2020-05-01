@@ -6,13 +6,7 @@ import './collection-preview.styles.scss';
 
 const CollectionPreview = ({ items }) => {
  
-  let button;
-  let temp= items[0].category
-  //  {
-  //   <h1 className='title'> {temp} </h1>
-   
-  //    } 
-    
+  
 
   return(
   <div className='collection-preview'>

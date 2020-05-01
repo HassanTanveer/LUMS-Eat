@@ -57,8 +57,8 @@ class Collection extends React.Component {
     return (
       
   
-      <div className='collection-page'>
-      <h2 className='title'>{this.props.match.params.id} </h2>
+      <div className= 'collection-page' >
+      <h2 className='title'> {this.props.match.params.id} </h2>
       <div className='collections-overview'>
 
       

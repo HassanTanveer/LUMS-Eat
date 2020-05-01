@@ -1,6 +1,5 @@
 .collection-page {
-  display: flexbox;
-  flex-direction: column;
+ 
 
   .title {
     position: center;
@@ -23,5 +22,12 @@
     & .collection-item {
       margin-bottom: 30px;
     }
+  }
+
+.title {
+    position: center;
+    font-size: 40px;
+    margin: 0 auto 30px;
+    text-transform: uppercase;
   }
 }

@@ -32,15 +32,28 @@ export const loginUser = userData => dispatch => {
       const { userID } = res.data;
       const { name } = res.data;
       const { isRest } = res.data;
+      const { restID } = res.data;
+      const { address } = res.data;
+      const { number } = res.data;
 
       // console.log("isRest", isRest)
       if(isRest){
+        localStorage.setItem("jwtToken", token);
+        localStorage.setItem("RestaurantID", restID);
+        localStorage.setItem("email", email);
+        localStorage.setItem("name", name);
         localStorage.setItem("isRest", isRest);
       }
-      localStorage.setItem("jwtToken", token);
-      localStorage.setItem("email", email);
-      localStorage.setItem("userID", userID);
-      localStorage.setItem("name", name);
+      else{
+        localStorage.setItem("jwtToken", token);
+        localStorage.setItem("userID", userID);
+        localStorage.setItem("email", email);
+        localStorage.setItem("name", name);
+        localStorage.setItem("address", address);
+        localStorage.setItem("number", number);
+      }
+      
+
 
       console.log(localStorage)
       // Set token to Auth header
@@ -78,6 +91,9 @@ export const logoutUser = () => dispatch => new Promise ((resolve, reject) => {
   localStorage.removeItem("name");
   localStorage.removeItem("userID");
   localStorage.removeItem("isRest");
+  localStorage.removeItem("RestaurantID");
+  localStorage.removeItem("address");
+  localStorage.removeItem("number");
   // Remove auth header for future requests
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false

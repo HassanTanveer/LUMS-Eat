@@ -6,7 +6,7 @@ import AvailRestaurant from '../avail-rest/avail-rest.component';
 import Table from 'react-bootstrap/Table';
 
 import './availability.styles.scss';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 
 class MenuUpdate extends React.Component {
   constructor() {

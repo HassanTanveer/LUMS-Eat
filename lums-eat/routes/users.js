@@ -121,7 +121,8 @@ router.post("/login", (req, res) => {
                     email: user.email,
                     name: user.name,
                     userID: user.userID,
-                    // isRest: null
+                    address: user.address,
+                    number: user.number
                 });
                 }
             );

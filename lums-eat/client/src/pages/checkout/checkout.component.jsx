@@ -15,7 +15,7 @@ const CheckoutPage = ({ cartItems, total }) => {
   
    
     let button;
-    if (total!=0) {
+    if (total!==0) {
       button= <CustomButton > Place Order </CustomButton>
        } 
       

@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../redux/actions/authActions.js";
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 import classnames from "classnames";
 class Register extends Component {
@@ -13,6 +15,7 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
+      address: "",
       userID: '_' + Math.random().toString(36).substr(2, 9),
       errors: {}
     };
@@ -92,6 +95,22 @@ return (
                 />
                 <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
+              </div>
+              <div className="input-field col s12">
+              {/* <select onChange={this.onChange} value={this.state.address}>
+                <option value="M1">M1</option>
+                <option value="M2">M2</option>
+                <option value="M3">M3</option>
+                <option value="M4">M4</option>
+                <option value="M5">M5</option>
+                <option value="M6">M6</option>
+                <option value="M7">M7</option>
+              </select> */}
+              <DropdownButton id="dropdown-basic-button" title="Address">
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </DropdownButton>
               </div>
               <div className="input-field col s12">
                 <input

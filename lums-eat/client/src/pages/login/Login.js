@@ -63,7 +63,7 @@ this.props.loginUser(userData); // since we handle the redirect within our compo
   };
 render() {
     const { errors } = this.state;
-    console.log(this.state.isRestuarant)
+    // console.log(this.state.isRestuarant)
 return (
 
       <div className="container">

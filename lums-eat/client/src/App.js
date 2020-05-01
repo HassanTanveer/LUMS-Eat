@@ -29,6 +29,7 @@ import Register from './pages/register/Register';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
+console.log(localStorage)
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth

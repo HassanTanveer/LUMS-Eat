@@ -67,7 +67,6 @@ router.post("/login", (req, res) => {
                 const payload = {
                     id: rest.id,
                     name: rest.name,
-                    isRest: "true"
                 };
                 // Sign token
                 jwt.sign(
@@ -83,7 +82,7 @@ router.post("/login", (req, res) => {
                         email: rest.email,
                         name: rest.name,
                         restID: rest.RestaurantID,
-                        isRest: true
+                        isRest: "true"
                     });
                     }
                 );

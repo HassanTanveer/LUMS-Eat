@@ -68,14 +68,14 @@ class OrderPage extends React.Component {
           </div>
           <Table responsive>
             <thead>
-              <tr className = 'font'>
-                <th>Order number</th>
-                <th>Items</th>
-                <th>Total Price</th>
-                <th>Order Type</th>
-                <th>Address</th>
-                <th>Status</th>
-              </tr>
+                <tr className = 'font'>
+                  <th>Order number</th>
+                  <th>Items</th>
+                  <th>Total Price</th>
+                  <th>Order Type</th>
+                  <th>Address</th>
+                  <th>Status</th>
+                </tr>
             </thead>
             <tbody>
               {this.state.active.map(({ id, ...otherSectionProps }) => (
@@ -93,14 +93,14 @@ class OrderPage extends React.Component {
           </div>
           <Table responsive>
             <thead>
-              <tr className = 'font'>
-                <th>Order number</th>
-                <th>Items</th>
-                <th>Total Price</th>
-                <th>Order Type</th>
-                <th>Address</th>
-                <th>Status</th>
-              </tr>
+                <tr className = 'font'>
+                  <th>Order number</th>
+                  <th>Items</th>
+                  <th>Total Price</th>
+                  <th>Order Type</th>
+                  <th>Address</th>
+                  <th>Status</th>
+                </tr>
             </thead>
             <tbody>
               {this.state.complete.map(({ id, ...otherSectionProps }) => (

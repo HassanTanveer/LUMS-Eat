@@ -55,7 +55,7 @@ onChange = e => {
 onSubmit = e => {
     e.preventDefault();
 const userData = {
-      email: this.state.email,
+      email: (this.state.email).toLowerCase(),
       password: this.state.password,
       isRest: this.state.isRest
     };

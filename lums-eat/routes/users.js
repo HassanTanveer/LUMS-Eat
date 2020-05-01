@@ -27,7 +27,8 @@ router.post("/register", (req, res) => {
             // userID: req.body.userID,
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            userID: req.body.userID
             });
     // Hash password before saving in database
             bcrypt.genSalt(10, (err, salt) => {
@@ -79,7 +80,9 @@ router.post("/login", (req, res) => {
                 res.json({
                     success: true,
                     token: "Bearer " + token,
-                    email: user.email
+                    email: user.email,
+                    name: user.name,
+                    userID: user.userID
                 });
                 }
             );
@@ -131,8 +134,8 @@ router.route('/add').post((req, res) => {
 })
 
 //Will be modified after implementation of the authentication system
-router.route('/neworders').get((req, res) => {
-    Order.find({status: "New"})
+router.route('/neworders/:userID').get((req, res) => {
+    Order.find({userID:req.params.userID, status: "New"})
         .then(orders => res.status(200).json(orders))
         .catch(err => res.status(400).json({
             'Status': 'Failed',
@@ -141,8 +144,8 @@ router.route('/neworders').get((req, res) => {
 });
 
 //Will be modified after implementation of the authentication system
-router.route('/pendingorders').get((req, res) => {
-    Order.find({status: ["Pending", "Dispatched"]})
+router.route('/pendingorders/:userID').get((req, res) => {
+    Order.find({userID:req.params.userID, status: ["Pending", "Dispatched"]})
         .then(orders => res.status(200).json(orders))
         .catch(err => res.status(400).json({
             'Status': 'Failed',
@@ -151,14 +154,16 @@ router.route('/pendingorders').get((req, res) => {
 });
 
 //Will be modified after implementation of the authentication system
-router.route('/completedorders').get((req, res) => {
-    Order.find({status: "Complete"})
+router.route('/completedorders/:userID').get((req, res) => {
+    Order.find({userID:req.params.userID, status: "Complete"})
         .then(orders => res.status(200).json(orders))
         .catch(err => res.status(400).json({
             'Status': 'Failed',
             'Message': `${err}`
         }))
 });
+
+
 
 
 module.exports = router;

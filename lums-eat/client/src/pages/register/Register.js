@@ -13,6 +13,7 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
+      userID: '_' + Math.random().toString(36).substr(2, 9),
       errors: {}
     };
   }
@@ -40,7 +41,8 @@ const newUser = {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
+      userID: this.state.userID
     };
 this.props.registerUser(newUser, this.props.history); 
   };

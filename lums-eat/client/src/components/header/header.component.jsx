@@ -34,14 +34,22 @@ const Header = ({ currentUser, hidden }) => (
       <Link className='option' to='/feedback'>
          FEEDBACK
       </Link>
-      <Link className='option' to='/orders'>
-        ORDERS
-      </Link>
       <Link className='option' to='/add-menu'>
         ADD MENU
       </Link>
-      {currentUser ? (
-        <div className='option' onClick = {() => logoutUser()}>
+      {localStorage.email ? (
+        <Link className='option' to='/orders'>
+        ORDERS
+        </Link>) : (
+          <Link className='option' to='/login'>
+          ORDERS
+          </Link>
+      )}
+      {localStorage.email ? (
+        <div className='option' onClick = {() => {
+            logoutUser()
+              .then(window.location.reload())
+        }}>
           LOG OUT
         </div>
       ) : (

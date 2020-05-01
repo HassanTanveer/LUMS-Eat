@@ -84,7 +84,7 @@ router.route('/User').get((req, res) => {
         }))
 });
 
-//Gets the user of a specific order
+//Gets the user of a specific orders
 router.route('/OrderUser').get((req, res) =>{
     Restaurant.findOrders(req)
         .then(resp => {

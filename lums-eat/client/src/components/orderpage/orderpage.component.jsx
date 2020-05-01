@@ -19,18 +19,19 @@ class OrderPage extends React.Component {
   }
 
   componentDidMount(){
-    console.log(localStorage.email)
-    fetch('/users/neworders')
-    .then(res=> res.json())
-    .then(unconfirmed => this.setState({unconfirmed}))
-
-    fetch('/users/pendingorders')
-    .then(res=> res.json())
-    .then(active => this.setState({active}))
-
-    fetch('/users/completedorders')
-    .then(res=> res.json())
-    .then(complete => this.setState({complete}))
+    if(localStorage.userID){
+      fetch(`/users/neworders/${localStorage.userID}`)
+      .then(res=> res.json())
+      .then(unconfirmed => this.setState({unconfirmed}))
+  
+      fetch(`/users/pendingorders/${localStorage.userID}`)
+      .then(res=> res.json())
+      .then(active => this.setState({active}))
+  
+      fetch(`/users/completedorders/${localStorage.userID}`)
+      .then(res=> res.json())
+      .then(complete => this.setState({complete}))
+    }
   }
 
   render() {

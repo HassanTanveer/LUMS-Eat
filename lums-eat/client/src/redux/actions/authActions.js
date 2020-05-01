@@ -33,8 +33,10 @@ export const loginUser = userData => dispatch => {
       const { name } = res.data;
       const { isRest } = res.data;
 
-      console.log("isRest", isRest)
-      localStorage.setItem("isRest", isRest);
+      // console.log("isRest", isRest)
+      if(isRest){
+        localStorage.setItem("isRest", isRest);
+      }
       localStorage.setItem("jwtToken", token);
       localStorage.setItem("email", email);
       localStorage.setItem("userID", userID);

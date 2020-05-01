@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-
+import CustomButton from '../../components/custom-button/custom-button.components'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
 import {
@@ -11,7 +11,18 @@ import {
 
 import './checkout.styles.scss';
 
-const CheckoutPage = ({ cartItems, total }) => (
+const CheckoutPage = ({ cartItems, total }) => {
+  
+   
+    let button;
+    if (total!=0) {
+      button= <CustomButton > Place Order </CustomButton>
+       } 
+      
+  
+
+  
+  return(
   <div className='checkout-page'>
     <div className='checkout-header'>
       <div className='header-block'>
@@ -35,9 +46,12 @@ const CheckoutPage = ({ cartItems, total }) => (
     ))}
     <div className='total'>TOTAL: Rs.{total}</div>
     
+    {button}
     
+
   </div>
-);
+  )
+};
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,

@@ -3,9 +3,17 @@
   flex-direction: column;
 
   .title {
-    font-size: 38px;
+    position: center;
+    font-size: 40px;
     margin: 0 auto 30px;
+    text-transform: uppercase;
   }
+  .collections-overview {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
 
   .items {
     display: grid;

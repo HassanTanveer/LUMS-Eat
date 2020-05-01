@@ -3,6 +3,10 @@ import React from "react";
 // import ReactDOM from "react-dom";
 import './collection.styles.scss';
 
+import _ from 'lodash';
+
+import CollectionPreview from '../../components/collection-preview/collection-preview'
+
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
 
@@ -29,6 +33,24 @@ class Collection extends React.Component {
     }
   
     render() {
+      let button;
+    
+      
+      let temp =  _.groupBy(this.state.collection, 'category')
+       
+     // let temp3= Object(temp).map(item=> console.log)
+
+     let temp2  =(Object.values(temp))
+     let temp3= Object.values(temp2)
+
+     button= temp2.map((items => (
+      //<CollectionItem key={item.ItemId} item={item} />
+      <CollectionPreview items={items} />))
+     // items.map(item=> (<CollectionItem key={item.ItemId} item={item} />))
+    )
+      
+
+     
        
         
  
@@ -37,11 +59,13 @@ class Collection extends React.Component {
   
       <div className='collection-page'>
       <h2 className='title'>{this.props.match.params.id} </h2>
-      <div className='items'>
-        {this.state.collection.map(item => (
-          <CollectionItem key={item.ItemId} item={item} />
-        ))}
-      </div>
+      <div className='collections-overview'>
+
+      
+      
+        {button}
+        </div>
+      
     </div>
     );
     }

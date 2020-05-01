@@ -29,7 +29,6 @@ import Register from './pages/register/Register';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
-
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -64,7 +63,7 @@ class App extends React.Component {
     return (
       <Switch>
       <div>
-        <Header />
+          <Header/>
           <Route exact path='/' component={HomePage} />
           <Route exact path = '/checkout' component={CheckoutPage} />
           <Route exact path = '/restaurant' component={RestaurantPage} />

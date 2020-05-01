@@ -14,9 +14,7 @@ const restaurantsSchema = new Schema({
     imageurl: {type: String, required: false, unique: false},
     rating: {type: Number, required: false, unique:false},
     category: {type: String, required: true, unique: false},
-    description: {type: String, required: true, unique: false},
-    openingtime: {type: String, required: true, unique: false},
-    closingtime: {type: String, required: true, unique: false},
+    status: {type: String, required: true, unique: false},
 }, {
     timestamps: true,
 });

@@ -20,7 +20,8 @@ const MenuItem = ({ RestaurantID, name, imageurl, category, rating,  history, li
     />
     <div className='content'>
       <h1 className='title'>{name.toUpperCase()}</h1>
-    <span className='subtitle'>{category} {rating} <span className="fa fa-star checked"></span></span>
+      <span className='subtitle'>{category} </span>
+      <span className='subtitle'  >{rating} <span className="fa fa-star checked"></span> </span> 
    
 
     </div>

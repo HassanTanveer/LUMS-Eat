@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import MenuItem from '../menu-item/menu-item.component';
+import { logoutUser } from "../../redux/actions/authActions";
 
 import './directory.styles.scss';
 
@@ -31,6 +32,11 @@ class Directory extends Component {
     .then(sections => this.setState({sections}))
   }
 
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+
   render() {
     const { user } = this.props.auth;
     let filteredRestaurants = this.state.sections.filter(
@@ -40,6 +46,7 @@ class Directory extends Component {
     )
     return (
       <div className='directory-menu'>
+        <button onClick = {this.onLogoutClick}>Log out</button>
         {user.name ? (
           <b>Hey there, {user.name}</b>
         ) : (
@@ -65,6 +72,7 @@ class Directory extends Component {
 }
 
 Directory.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
@@ -73,4 +81,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
+  { logoutUser }
 )(Directory);

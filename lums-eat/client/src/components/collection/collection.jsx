@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 import CollectionPreview from '../../components/collection-preview/collection-preview'
 
-import CollectionItem from '../../components/collection-item/collection-item.component';
+// import CollectionItem from '../../components/collection-item/collection-item.component';
 
 
 class Collection extends React.Component {
@@ -41,7 +41,7 @@ class Collection extends React.Component {
      // let temp3= Object(temp).map(item=> console.log)
 
      let temp2  =(Object.values(temp))
-     let temp3= Object.values(temp2)
+    //  let temp3= Object.values(temp2)
 
      button= temp2.map((items => (
       //<CollectionItem key={item.ItemId} item={item} />

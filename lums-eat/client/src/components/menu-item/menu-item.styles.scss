@@ -42,7 +42,7 @@
   }
 
   .content {
-    height: 90px;
+    height: 20%;
     width: 20%;
     padding: 0 25px;
     display: flex;
@@ -55,15 +55,27 @@
     position: absolute;
 
     .title {
-      font-weight: bold;
+
+      @media (min-width:600px) {
+        font-size: 10px;
+      }
+
+      @media (min-width:800px) {
+          font-size: 10px;
+      }
+      
+      @media (min-width:1080px) {
+          /* Never get larger than this */
+          font-size: 40px;
+      }
+      font-weight: bolder;
       margin: 0 6px 0;
-      font-size: 40px;
+      // font-size: 40px;
       color: black;
     }
 
     .subtitle {
-
-      font-weight: lighter;
+      font-weight: bold;
       font-size: 16px;
     }
   }

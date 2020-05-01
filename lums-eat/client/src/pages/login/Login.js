@@ -11,20 +11,37 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      isRest: false,
       errors: {}
     };
+    this.handleChecked = this.handleChecked.bind(this);
   }
 
 componentDidMount() {
   // If logged in and user navigates to Login page, should redirect them to dashboard
   if (this.props.auth.isAuthenticated) {
-    this.props.history.push("/");
+    if(!localStorage.isRest){
+      this.props.history.push("/");
+    } else {
+      this.props.history.push("/restaurant");
+
+    }
   }
+}
+
+handleChecked () {
+  this.setState({isRest: !this.state.isRest});
 }
 
 UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/"); // push user to dashboard when they login
+      if(!localStorage.isRest){
+        this.props.history.push("/");
+      }
+      else{
+        this.props.history.push("/restaurant");
+      }
+       // push user to dashboard when they login
     }
 if (nextProps.errors) {
       this.setState({
@@ -39,13 +56,16 @@ onSubmit = e => {
     e.preventDefault();
 const userData = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      isRest: this.state.isRest
     };
 this.props.loginUser(userData); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
   };
 render() {
     const { errors } = this.state;
+    console.log(this.state.isRestuarant)
 return (
+
       <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
@@ -96,6 +116,12 @@ return (
                   {errors.passwordincorrect}    
                 </span>
               </div>
+              <p style ={{ paddingLeft: "11.250px" }}>
+              <label>
+                <input type="checkbox" onChange={ this.handleChecked }/>
+                <span>Login as Restuarant?</span>
+              </label>
+              </p>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{

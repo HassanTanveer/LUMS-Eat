@@ -3,6 +3,9 @@ import React from 'react';
 import OrderItem from '../order-item/order-item.component';
 import NewOrderItem from '../new-order-item/new-order-item.component';
 import Table from 'react-bootstrap/Table';
+import { logoutUser } from "../../redux/actions/authActions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import './orderview.styles.scss';
 
@@ -32,9 +35,16 @@ class OrderView extends React.Component {
     .then(complete => this.setState({complete}))
   }
 
+  onLogoutClick = e => {
+      e.preventDefault();
+      this.props.logoutUser();
+  };
+
   render() {
     return (
       <div>
+        <button onClick={this.onLogoutClick}> Logout
+        </button>
         <div className='restaurant-menu'>
           <div className="top">
             New Orders
@@ -124,4 +134,14 @@ class OrderView extends React.Component {
   }
 }
 
-export default OrderView;
+OrderView.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(OrderView);

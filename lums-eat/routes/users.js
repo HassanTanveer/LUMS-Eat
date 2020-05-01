@@ -6,6 +6,8 @@ const keys = require("../config/keys");
 
 let User = require('../models/user.model');
 let Order = require('../models/orders.model');
+let Restaurant = require('../models/restaurants.model');
+
 
 // Load input validation
 const validateRegisterInput = require("../validation/register");
@@ -53,7 +55,50 @@ router.post("/login", (req, res) => {
         return res.status(400).json(errors);
         }
     const email = req.body.email;
-        const password = req.body.password;
+    const password = req.body.password;
+    const isRest = req.body.isRest;
+
+    console.log(isRest)
+    if(isRest){
+        // Find restaurant by email
+        Restaurant.findOne({ email }).then(rest => {
+            // Check if restaurant exists
+            if (!rest) {
+                return res.status(404).json({ emailnotfound: "Email not found" });
+            }
+        // Check password
+            if(password == rest.password){
+                const payload = {
+                    id: rest.id,
+                    name: rest.name,
+                    isRest: "true"
+                };
+                // Sign token
+                jwt.sign(
+                    payload,
+                    keys.secretOrKey,
+                    {
+                    expiresIn: 31556926 // 1 year in seconds
+                    },
+                    (err, token) => {
+                    res.json({
+                        success: true,
+                        token: "Bearer " + token,
+                        email: rest.email,
+                        name: rest.name,
+                        restID: rest.RestaurantID,
+                        isRest: true
+                    });
+                    }
+                );
+                } else {
+                return res
+                    .status(400)
+                    .json({ passwordincorrect: "Password incorrect" });
+                }
+            });
+    }
+    if(!isRest){
     // Find user by email
         User.findOne({ email }).then(user => {
         // Check if user exists
@@ -82,7 +127,8 @@ router.post("/login", (req, res) => {
                     token: "Bearer " + token,
                     email: user.email,
                     name: user.name,
-                    userID: user.userID
+                    userID: user.userID,
+                    // isRest: null
                 });
                 }
             );
@@ -93,6 +139,7 @@ router.post("/login", (req, res) => {
             }
         });
         });
+    }
 });
 
 //Gets all the users

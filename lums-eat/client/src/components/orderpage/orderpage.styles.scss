@@ -2,6 +2,13 @@
   table-layout: fixed;
 }
 
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 .restaurant-menu {
     width: 100%;
     display: flex;

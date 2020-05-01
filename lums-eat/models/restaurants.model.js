@@ -30,8 +30,7 @@ const restaurantsSchema = new Schema({
             const number = req.body.number;
             const category = req.body.category;
             const description  = req.body.description;
-            const openingtime = req.body.openingtime;
-            const closingtime = req.body.closingtime;
+            const status = req.body.status;
             
             const newRestaurant = new Restaurants({
                 RestaurantID,
@@ -44,8 +43,7 @@ const restaurantsSchema = new Schema({
                 rating,
                 category,
                 description,
-                openingtime,
-                closingtime
+                status
             });
 
             newRestaurant.save()

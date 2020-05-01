@@ -1,17 +1,20 @@
 import React from 'react';
 
 import AvailItem from '../avail-item/avail-item.component';
+import AvailRestaurant from '../avail-rest/avail-rest.component';
 // import NewOrderItem from '../new-order-item/new-order-item.component';
 import Table from 'react-bootstrap/Table';
 
 import './availability.styles.scss';
+import bodyParser from 'body-parser';
 
 class MenuUpdate extends React.Component {
   constructor() {
     super();
 
       this.state={
-        state: []
+        state: [],
+        body: {},
       }
     
   }
@@ -21,11 +24,19 @@ class MenuUpdate extends React.Component {
     .then(res=> res.json())
     .then(state => this.setState({state}))
 
+    fetch('/restaurants/s/zakir')
+    .then(res=> res.json())
+    .then(body => this.setState({body}))
   }
 
   render() {
     return (
       <div>
+        <div className='restaurant-menu'>
+          <div className="top">
+            Restaurant Availability <AvailRestaurant {...this.state.body} />
+          </div>
+        </div>
         <div className='restaurant-menu'>
           <div className="top">
             Menu Items

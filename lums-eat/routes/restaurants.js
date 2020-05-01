@@ -24,6 +24,16 @@ router.route('/id').get((req, res) => {
         }))
 });
 
+//Get restaurant's status
+router.route('/s/:RestaurantID').get((req, res) => {
+    Restaurant.findOne({RestaurantID: req.params.RestaurantID})
+    .then(statusresp => res.json(statusresp))
+    .catch((err) => res.status(400).json({
+        'Status': 'Failed',
+        'Message': `${err}`
+    }))
+})
+
 //Adds a new restaurant
 router.route('/add').post((req, res) => {
     Restaurant.all(req)

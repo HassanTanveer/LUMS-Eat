@@ -13,7 +13,7 @@ class OrderPage extends React.Component {
       this.state={
         active: [],
         unconfirmed: [],
-        complete: []
+        complete: [],
       }
     
   }

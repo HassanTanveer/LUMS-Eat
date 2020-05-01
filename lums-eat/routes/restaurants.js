@@ -6,7 +6,7 @@ let User = require('../models/user.model');
 
 //Gets all the restaurants
 router.route('/').get((req, res) => {
-    Restaurant.find()
+    Restaurant.find({status: "Open"})
         .then(RestaurantFind => res.json(RestaurantFind))
         .catch(err => res.status(400).json({
             'Status': 'Failed',

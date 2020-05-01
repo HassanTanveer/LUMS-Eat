@@ -23,7 +23,7 @@ const AvailRestaurant = ({RestaurantID, name, email, password, address, number, 
                             "update": {
                                 "status": "Close"
                             }}
-                        axios.post('/restaurants/update', change)
+                        axios.post('/restaurants/update/', change)
                             .then((res) => window.location.reload())
                             .catch(err => console.log(err))
                     }}
@@ -35,7 +35,7 @@ const AvailRestaurant = ({RestaurantID, name, email, password, address, number, 
                             "update": {
                                 "status": "Open"
                             }}
-                        axios.post('/restaurants/update', change)
+                        axios.post('/restaurants/update/', change)
                         .then((res) => window.location.reload())
                         .catch(err => console.log(err))
                     }}

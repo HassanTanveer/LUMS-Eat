@@ -1,8 +1,12 @@
 import React from 'react';
+import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 
 import OrderTable from '../ordertable/ordertable.component';
 // import NewOrderItem from '../new-order-item/new-order-item.component';
 import Table from 'react-bootstrap/Table';
+import { connect } from "react-redux";
+import { logoutUser } from "../../redux/actions/authActions";
 
 import './orderpage.styles.scss';
 
@@ -14,8 +18,7 @@ class OrderPage extends React.Component {
         active: [],
         unconfirmed: [],
         complete: [],
-      }
-    
+      } 
   }
 
   componentDidMount(){
@@ -37,6 +40,11 @@ class OrderPage extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <Link className='FeedbackButton' to='/userfeedback'>
+              Give Feedback
+          </Link>
+        </div>
         <div className='restaurant-menu'>
           <div className="top">
             Pending Confirmation <span className="new-number">{this.state.unconfirmed.length}</span>
@@ -117,4 +125,17 @@ class OrderPage extends React.Component {
   }
 }
 
-export default OrderPage;
+OrderPage.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(OrderPage);
+
+// export default OrderPage;

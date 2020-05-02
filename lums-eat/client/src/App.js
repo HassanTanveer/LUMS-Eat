@@ -22,6 +22,7 @@ import Header from './components/header/header.component';
 import CheckoutPage from './pages/checkout/checkout.component.jsx';
 import {selectCurrentUser} from './redux/user/user.selectors';
 import FeedbacksPage from './pages/feedbackpage/feedbackpage.component';
+import UserFeedback from './pages/userfeedback/userfeedback.component';
 import AddMenu from './pages/add-menu/add-menu.component';
 import Authentication from './pages/authentication/authentication.component';
 import Login from './pages/login/Login';
@@ -72,6 +73,7 @@ class App extends React.Component {
           <Route exact path = '/orders' component={OrdersPage} />
           <Route exact path = '/menu-update' component={MenuUpdate} />
           <Route exact path = '/feedback' component={FeedbacksPage} />
+          <Route exact path = '/userfeedback' component={UserFeedback} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/signin' component={SignInAndSignUpPage} />
           <Route path='/add-menu' component={AddMenu} />

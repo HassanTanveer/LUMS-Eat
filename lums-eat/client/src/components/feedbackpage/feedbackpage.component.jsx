@@ -17,7 +17,7 @@ class FeedbackPage extends React.Component {
   }
 
   componentDidMount(){
-    fetch('/feedback/all')
+    fetch(`/feedback/byrestaurant/${localStorage.RestaurantID}`)
     .then(res=> res.json())
     .then(allfeedback => this.setState({allfeedback}))
   }

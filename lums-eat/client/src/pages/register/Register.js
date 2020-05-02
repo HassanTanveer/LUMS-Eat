@@ -3,10 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../redux/actions/authActions.js";
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
-
 import classnames from "classnames";
+
 class Register extends Component {
   constructor() {
     super();
@@ -16,6 +14,7 @@ class Register extends Component {
       password: "",
       password2: "",
       address: "",
+      number: "",
       userID: '_' + Math.random().toString(36).substr(2, 9),
       errors: {}
     };
@@ -45,6 +44,8 @@ const newUser = {
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
+      address: this.state.address,
+      number: this.state.number,
       userID: this.state.userID
     };
 this.props.registerUser(newUser, this.props.history); 
@@ -58,7 +59,7 @@ return (
             <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
               home
-            </Link>
+            </Link> 
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below
@@ -95,22 +96,27 @@ return (
                 />
                 <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
-              </div>
-              <div className="input-field col s12">
-              {/* <select onChange={this.onChange} value={this.state.address}>
-                <option value="M1">M1</option>
-                <option value="M2">M2</option>
-                <option value="M3">M3</option>
-                <option value="M4">M4</option>
-                <option value="M5">M5</option>
-                <option value="M6">M6</option>
-                <option value="M7">M7</option>
-              </select> */}
-              <DropdownButton id="dropdown-basic-button" title="Address">
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-              </DropdownButton>
+              </div> 
+              <div class="input-field col s12">
+                <select class="browser-default" 
+                  onChange={this.onChange}
+                  value={this.state.address}
+                  error={errors.address}
+                  id="address"
+                  type="address"
+                >
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="F1">F1</option>
+                  <option value="F2">F2</option>
+                  <option value="F3">F3</option>
+                  <option value="M1">M1</option>
+                  <option value="M2">M2</option>
+                  <option value="M3">M3</option>
+                  <option value="M4">M4</option>
+                  <option value="M5">M5</option>
+                  <option value="M6">M6</option>
+                  <option value="M7">M7</option>
+                </select>
               </div>
               <div className="input-field col s12">
                 <input
@@ -139,6 +145,20 @@ return (
                 />
                 <label htmlFor="password2">Confirm Password</label>
                 <span className="red-text">{errors.password2}</span>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.number}
+                  error={errors.number}
+                  id="number"
+                  type="number"
+                  className={classnames("", {
+                    invalid: errors.number
+                  })}
+                />
+                <label htmlFor="number">Number (923...)</label>
+                <span className="red-text">{errors.number}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button

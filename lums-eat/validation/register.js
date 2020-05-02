@@ -8,6 +8,7 @@ module.exports = function validateRegisterInput(data) {
     data.email = !isEmpty(data.email) ? data.email : "";
     data.password = !isEmpty(data.password) ? data.password : "";
     data.password2 = !isEmpty(data.password2) ? data.password2 : "";
+    data.number = !isEmpty(data.number) ? data.number : "";
     // Name checks
     if (Validator.isEmpty(data.name)) {
         errors.name = "Name field is required";
@@ -30,6 +31,24 @@ module.exports = function validateRegisterInput(data) {
     }
     if (!Validator.equals(data.password, data.password2)) {
         errors.password2 = "Passwords must match";
+    }
+    if (Validator.isDecimal(data.password)) {
+        errors.password = "Password should contain both alphabets and numbers";
+    }
+    if (Validator.isAlpha(data.password)) {
+        errors.password = "Password should contain both alphabets and numbers";
+    }
+    if (Validator.isLowercase(data.password)) {
+        errors.password = "Password should contain atleat one uppercase alphabet";
+    }
+    if (Validator.isEmpty(data.number)) {
+        errors.number = "Number is required";
+    }
+    if (Validator.isMobilePhone(data.number)) {
+        errors.number = "Enter a valid number";
+    }
+    if (!Validator.isLength(data.number, { min: 12, max: 12 })) {
+        errors.number = "Enter a valid number";
     }
     return {
         errors,

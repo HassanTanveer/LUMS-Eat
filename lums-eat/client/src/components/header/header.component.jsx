@@ -20,23 +20,18 @@ const Header = ({ currentUser, hidden, check }) => {
 
   console.log(localStorage)
   
-    if( localStorage.isRest!="true") {
+    if( !localStorage.isRest) {
       if(localStorage.email) {
         button=  <Link className='option' to='/orders'>
         ORDERS
       </Link>} 
-   
-       
-       button= <Link className='option' to='/login'>
+      else{
+        button= <Link className='option' to='/login'>
         ORDERS
       </Link>  
-    
-  }
+      }
+    }
        
-
-    
-  
-  
   return(
   <div className='header'>
     {localStorage.isRest ? (
@@ -62,14 +57,14 @@ const Header = ({ currentUser, hidden, check }) => {
         RESTAURANT ANALYTICS
       </Link>
       ) : 
-      (console.log('asj')) }
+      (console.log('Not rest')) }
       
       {localStorage.isRest ?(
       <Link className='option' to='/restaurant'>
         RESTAURANT
       </Link>
       ) : 
-      (console.log('asj')) }
+      (console.log('Not rest')) }
 
       
       {localStorage.isRest ?(
@@ -77,7 +72,7 @@ const Header = ({ currentUser, hidden, check }) => {
         MENU AVAILABILITY
       </Link>
       ) : 
-      (console.log('asj')) }  
+      (console.log('Not rest')) }  
 
      
       {localStorage.isRest ?(
@@ -85,10 +80,9 @@ const Header = ({ currentUser, hidden, check }) => {
         ADD
       </Link>
       ) : 
-      (console.log('asj')) }
+      (console.log('Not rest')) }
      {localStorage.email ? (
        <Logout />
-    
      ):
      (
       <Link className='option' to='/login'>

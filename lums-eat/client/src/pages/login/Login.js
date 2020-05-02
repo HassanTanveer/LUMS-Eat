@@ -22,11 +22,10 @@ componentDidMount() {
   if (this.props.auth.isAuthenticated) {
     if(!localStorage.isRest){
       //console.log(this.props.location.pathname)
-      this.props.history.push('/');
-    } else {
-      
+      this.props.history.push('/');}
+    
+     else {
       this.props.history.push("/restaurant");
-
     }
   }
 }
@@ -43,7 +42,7 @@ UNSAFE_componentWillReceiveProps(nextProps) {
       else{
         this.props.history.push("/restaurant");
       }
-       // push user to dashboard when they login
+       // push user to homepage when they login
     }
 if (nextProps.errors) {
       this.setState({

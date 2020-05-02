@@ -44,7 +44,6 @@ class Directory extends Component {
     )
     return (
       <div className='directory-menu'>
-        <button onClick = {this.onLogoutClick}>Log out</button>
         {user.name ? (
           <b>Hey there, {user.name}</b>
         ) : (

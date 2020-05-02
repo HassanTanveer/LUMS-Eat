@@ -21,6 +21,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
         <span className='empty-message'>Your cart is empty</span>
       )}
     </div>
+    {localStorage.email ?(
     <CustomButton
       onClick={() => {
         history.push('/checkout');
@@ -28,7 +29,16 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
       }}
     >
       GO TO CHECKOUT
-    </CustomButton>
+    </CustomButton>): 
+    
+    (<CustomButton
+      onClick={() => {
+        history.push('/login');
+        dispatch(toggleCartHidden());
+      }}
+    >
+      GO TO CHECKOUT
+    </CustomButton>)}
   </div>
 );
 

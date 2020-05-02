@@ -21,7 +21,7 @@ const CollectionItem = ({ item, addItem, history, match }) => {
       />
       <div className='collection-footer'>
         <span className='name'>{name}</span>
-        <span className='price'>PKR {price}</span>
+        <span className='price'>Rs{price}</span>
       </div>
       {localStorage.email ?(
       <CustomButton onClick={() => addItem(item)} inverted>

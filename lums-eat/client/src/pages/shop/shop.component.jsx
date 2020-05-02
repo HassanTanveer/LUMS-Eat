@@ -11,8 +11,7 @@ const ShopPage = ({ match }) => (
      <BrowserRouter>
       <Switch>
     <Route exact path={`${match.path}`} component={CollectionsOverview} />
-    <Route exact path="/shop/:id" render = {props => <Collection {...props}  /> }  />
-       
+    <Route exact path="/shop/:id" render = {props => <Collection {...props}  /> }  />       
       </Switch>
     </BrowserRouter>
     

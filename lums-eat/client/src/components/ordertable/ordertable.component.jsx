@@ -4,7 +4,7 @@ import './ordertable.styles.scss';
 
 // const axios = require('axios')
 
-const OrderTable = ({ OrderID, items, totalPrice, status, Type, userAddress,  history, linkUrl, match }) => {
+const OrderTable = ({ OrderID, items, totalPrice, status, Type, userAddress, RestaurantID,  history, linkUrl, match }) => {
   return(
     <>
         <td className = 'font'>{OrderID}</td>
@@ -14,6 +14,7 @@ const OrderTable = ({ OrderID, items, totalPrice, status, Type, userAddress,  hi
             })}
         </td>
         <td className = 'font'>{totalPrice}</td>
+        <td className = 'font'>{RestaurantID}</td>
         <td className = 'font'>{Type}</td>
         <td className = 'font'>{userAddress}</td>
         <td className = 'font'>{status}</td>        

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import OrderTable from '../ordertable/ordertable.component';
+import ComleteOrderTable from '../completeordertable/completeordertable.component';
 // import NewOrderItem from '../new-order-item/new-order-item.component';
 import Table from 'react-bootstrap/Table';
 import { connect } from "react-redux";
@@ -40,11 +41,11 @@ class OrderPage extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        {/* <div>
           <Link className='FeedbackButton' to='/userfeedback'>
               Give Feedback
           </Link>
-        </div>
+        </div> */}
         <div className='restaurant-menu'>
           <div className="top">
             Pending Confirmation <span className="new-number">{this.state.unconfirmed.length}</span>
@@ -55,6 +56,7 @@ class OrderPage extends React.Component {
                 <th>Order number</th>
                 <th>Items</th>
                 <th>Total Price</th>
+                <th>Restaurant</th>
                 <th>Order Type</th>
                 <th>Address</th>
                 <th>Status</th>
@@ -80,6 +82,7 @@ class OrderPage extends React.Component {
                   <th>Order number</th>
                   <th>Items</th>
                   <th>Total Price</th>
+                  <th>Restaurant</th>
                   <th>Order Type</th>
                   <th>Address</th>
                   <th>Status</th>
@@ -105,15 +108,17 @@ class OrderPage extends React.Component {
                   <th>Order number</th>
                   <th>Items</th>
                   <th>Total Price</th>
+                  <th>Restaurant</th>
                   <th>Order Type</th>
                   <th>Address</th>
                   <th>Status</th>
+                  <th>Feedback</th>
                 </tr>
             </thead>
             <tbody>
               {this.state.complete.map(({ id, ...otherSectionProps }) => (
                 <tr>
-                <OrderTable key={id} {...otherSectionProps} />
+                <ComleteOrderTable key={id} {...otherSectionProps} />
                 </tr>
               ))}
             </tbody>

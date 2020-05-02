@@ -18,9 +18,7 @@ class Directory extends Component {
         sections: [],
         search: ''
       }
-    
   }
-  
 
   updateSearch(event) {
     this.setState({search: event.target.value})

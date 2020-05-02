@@ -8,12 +8,36 @@ import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import {selectCartHidden} from '../../redux/cart/cart.selectors';
 import {ReactComponent as Logo } from '../../assets/logo.svg';
-import { setUserLoading, logoutUser } from "../../redux/actions/authActions";
+import { setUserLoading } from "../../redux/actions/authActions";
 import './header.styles.scss';
+import { logoutUser } from "../../redux/actions/authActions";
+import Logout from '../../components/logout/logout';
 
 console.log(localStorage.isRest)
-const Header = ({ currentUser, hidden, check }) => (
+const Header = ({ currentUser, hidden, check }) => {
 
+  let button
+
+  console.log(localStorage)
+  
+    if( localStorage.isRest!="true") {
+      if(localStorage.email) {
+        button=  <Link className='option' to='/orders'>
+        ORDERS
+      </Link>} 
+   
+       
+       button= <Link className='option' to='/login'>
+        ORDERS
+      </Link>  
+    
+  }
+       
+
+    
+  
+  
+  return(
   <div className='header'>
     {localStorage.isRest ? (
       <Link className='logo-container' to='/restaurant'>
@@ -29,55 +53,59 @@ const Header = ({ currentUser, hidden, check }) => (
         <Link className='title' to='/'>{"EAT"}</Link>
       </Link>
     )}
-    
-    {localStorage.isRest ? (
-      <div className='options'>
-        <Link className='option' to='/analytics'>
-            RESTAURANT ANALYTICS
-        </Link>
-        <Link className='option' to='/restaurant'>
-            RESTAURANT
-        </Link>
-        <Link className='option' to='/menu-update'>
-            MENU AVAILABILITY
-        </Link>
-        <Link className='option' to='/feedback'>
-            FEEDBACK
-        </Link>
-        <Link className='option' to='/add-menu'>
-            ADD MENU
-        </Link>
-      </div>) : (
+
+<div className='options'>
+      {button}
+
+      {localStorage.isRest ?(
+      <Link className='option' to='/analytics'>
+        RESTAURANT ANALYTICS
+      </Link>
+      ) : 
+      (console.log('asj')) }
       
-      <div className='options'>
-      {localStorage.email ? (
-        <Link className='option' to='/orders'>
-            ORDERS
-        </Link>) : (
-        <Link className='option' to='/login'>
-            ORDERS
-        </Link>
-      )}
-      </div>
-    )}
-    <div className='options'>   
-      {localStorage.email ? (
-        <div className='option' onClick = {() => {
-            logoutUser()
-                .then(window.location.reload())
-        }}>
-            LOG OUT
-        </div>
-      ) : (
-        <Link className='option' to='/login'>
-            LOGIN
-        </Link>
-      )}
+      {localStorage.isRest ?(
+      <Link className='option' to='/restaurant'>
+        RESTAURANT
+      </Link>
+      ) : 
+      (console.log('asj')) }
+
+      
+      {localStorage.isRest ?(
+      <Link className='option' to='/feedback'>
+        MENU AVAILABILITY
+      </Link>
+      ) : 
+      (console.log('asj')) }  
+
+     
+      {localStorage.isRest ?(
+      <Link className='option' to='/add-menu'>
+        ADD
+      </Link>
+      ) : 
+      (console.log('asj')) }
+     {localStorage.email ? (
+       <Logout />
+    
+     ):
+     (
+      <Link className='option' to='/login'>
+      LOGIN
+    </Link>
+
+     )}
+      
       <CartIcon />
     </div>
+    
+   
     {hidden ? null : <CartDropdown />}
   </div>
-);
+
+  )
+};
 
 
 

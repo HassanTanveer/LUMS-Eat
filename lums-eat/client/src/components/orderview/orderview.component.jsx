@@ -43,8 +43,6 @@ class OrderView extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.onLogoutClick}> Logout
-        </button>
         <div className='restaurant-menu'>
           <div className="top">
             New Orders

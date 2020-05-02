@@ -1,14 +1,14 @@
 .collection-item {
-  width: 25%;
-  display: flexbox;
+  width: 20%;
+  display: flex;
   flex-direction: column;
-  height: 300px;
-  //align-items: center;
+  height: 350px;
+  align-items: center;
   position: relative;
 
   .image {
     width: 100%;
-    height: 100%;
+    height: 95%;
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
@@ -18,7 +18,7 @@
     width: 81%;
     opacity: 0.7;
     position: absolute;
-    top: 205px;
+    top: 255px;
     left: 30px;
     display: none;
   }
@@ -51,7 +51,7 @@
     .price {
       text-align: end;
       // padding: 0px 5px;
-      width: 20%;
+      width: 10%;
     }
   }
 }

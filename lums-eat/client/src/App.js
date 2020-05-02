@@ -82,7 +82,7 @@ class App extends React.Component {
           <Route path='/register' component={Register} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            </Switch>
+          </Switch>
       </div>
       </Switch>
     );

@@ -97,8 +97,13 @@ const Header = ({ currentUser, hidden, check }) => {
     </Link>
 
      )}
-      
+    
+    {localStorage.isRest ?(
+      (console.log('Not rest'))
+      ) : 
       <CartIcon />
+    }
+      
     </div>
     
    

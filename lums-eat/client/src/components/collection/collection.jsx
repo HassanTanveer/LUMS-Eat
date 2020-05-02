@@ -48,21 +48,12 @@ class Collection extends React.Component {
       <CollectionPreview items={items} />))
      // items.map(item=> (<CollectionItem key={item.ItemId} item={item} />))
     )
-      
-
-     
-       
-        
- 
     return (
-      
-  
+    
       <div className= 'collection-page' >
       <h2 className='title'> {this.props.match.params.id} </h2>
       <div className='collections-overview'>
 
-      
-      
         {button}
         </div>
       

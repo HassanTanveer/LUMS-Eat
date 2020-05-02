@@ -29,7 +29,9 @@ const OrderItem = ({ OrderID, items, totalPrice, status, Type, userID, userConta
                                 "status": "Complete"
                             }}
                         axios.post('/orders/update', change)
-                            .then((res) => window.location.reload())
+                            .then((res) => {
+                                window.location.reload()
+                            })
                             .catch(err => console.log(err))
                     }}
                     >Complete</span>;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {compose} from 'redux';
+// import {compose} from 'redux';
 import CustomButton from '../custom-button/custom-button.component';
 import { addItem } from '../../redux/cart/cart.actions';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import './collection-item.styles.scss';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const CollectionItem = ({ item, addItem, history, match }) => {
   const { name, price, imageurl } = item;

@@ -22,15 +22,15 @@ class OrderView extends React.Component {
   }
 
   componentDidMount(){
-    fetch('/orders/all')
+    fetch(`/orders/all/${localStorage.RestaurantID}`)
     .then(res=> res.json())
     .then(sections => this.setState({sections}))
 
-    fetch('/orders/new')
+    fetch(`/orders/new/${localStorage.RestaurantID}`)
     .then(res=> res.json())
     .then(newsections => this.setState({newsections}))
 
-    fetch('/orders/complete')
+    fetch(`/orders/complete/${localStorage.RestaurantID}`)
     .then(res=> res.json())
     .then(complete => this.setState({complete}))
   }

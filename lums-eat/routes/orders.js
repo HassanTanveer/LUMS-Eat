@@ -16,22 +16,22 @@ router.route('/').get((req, res) => {
 });
 
 //Gets the orders with the status "New"
-router.route('/new').get((req, res) => {
-    Orders.find({status: "New"})
+router.route('/new/:RestaurantID').get((req, res) => {
+    Orders.find({RestaurantID: req.params.RestaurantID, status: "New"})
         .then(orders => res.json(orders))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
 //Gets the orders with the status "Pending" or "Dispatched"
-router.route('/all').get((req, res) => {
-    Orders.find({status: ["Pending", "Dispatched"]})
+router.route('/all/:RestaurantID').get((req, res) => {
+    Orders.find({RestaurantID: req.params.RestaurantID, status: ["Pending", "Dispatched"]})
         .then(orders => res.json(orders))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
 //Gets the orders with the status "Complete"
-router.route('/complete').get((req, res) => {
-    Orders.find({status: "Complete"})
+router.route('/complete/:RestaurantID').get((req, res) => {
+    Orders.find({RestaurantID: req.params.RestaurantID, status: "Complete"})
         .then(orders => res.json(orders))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });

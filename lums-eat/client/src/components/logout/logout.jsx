@@ -12,11 +12,11 @@ class Logout extends Component {
 
   
 
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
      
     
-  } 
+  // } 
   
 
   updateSearch(event) {

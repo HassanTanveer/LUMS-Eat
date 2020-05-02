@@ -10,7 +10,6 @@ import {selectCartHidden} from '../../redux/cart/cart.selectors';
 import {ReactComponent as Logo } from '../../assets/logo.svg';
 import { setUserLoading } from "../../redux/actions/authActions";
 import './header.styles.scss';
-import 'react-notifications/lib/notifications.css';
 // import { logoutUser } from "../../redux/actions/authActions";
 import Logout from '../../components/logout/logout';
 

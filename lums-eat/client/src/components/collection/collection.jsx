@@ -1,12 +1,8 @@
-
 import React from "react";
-// import ReactDOM from "react-dom";
 import './collection.styles.scss';
-
 import _ from 'lodash';
-
 import CollectionPreview from '../../components/collection-preview/collection-preview'
-
+// import ReactDOM from "react-dom";
 // import CollectionItem from '../../components/collection-item/collection-item.component';
 
 

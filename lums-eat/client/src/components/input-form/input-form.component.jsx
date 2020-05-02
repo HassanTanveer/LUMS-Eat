@@ -11,11 +11,8 @@ class InputForm extends React.Component {
     super();
 
       this.state={
-        // check: [],
-        // check2: [],
-
         ItemID: '',
-        RestaurantID: 'zakir',
+        RestaurantID: localStorage.RestaurantID,
         name: '',
         description: '',
         category: '',
@@ -25,7 +22,7 @@ class InputForm extends React.Component {
 
         popupshow: false,
         text: 'Item Added',
-        text2: 'Item has been added to menu!'
+        text2: 'Item has been added to menu!',
       }  
   }
 
@@ -33,6 +30,7 @@ class InputForm extends React.Component {
   //   fetch('/menu/all')
   //   .then(res=> res.json())
   //   .then(check => this.setState({check}))
+  //   console.log(localStorage.RestaurantID);
   // }
 
   updateID(event) {

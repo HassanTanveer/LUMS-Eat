@@ -68,8 +68,15 @@ const Header = ({ currentUser, hidden, check }) => {
 
       
       {localStorage.isRest ?(
-      <Link className='option' to='/feedback'>
+      <Link className='option' to='/menu-update'>
         MENU AVAILABILITY
+      </Link>
+      ) : 
+      (console.log('Not rest')) } 
+
+      {localStorage.isRest ?(
+      <Link className='option' to='/feedback'>
+        FEEDBACK
       </Link>
       ) : 
       (console.log('Not rest')) }  

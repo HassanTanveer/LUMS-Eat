@@ -13,8 +13,8 @@ router.route('/find/:id').get((req, res) => {
 });
 
 //Gets all the menu items
-router.route('/all').get((req, res) => {
-    Menu.find({availability: ["Yes", "No"]})
+router.route('/all/:RestaurantID').get((req, res) => {
+    Menu.find({RestaurantID: req.params.RestaurantID, availability: ["Yes", "No"]})
         .then(menuresp => res.status(200).json(menuresp))
         .catch(err => res.status(400).json({
             'Status': 'Failed',

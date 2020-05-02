@@ -20,11 +20,11 @@ class MenuUpdate extends React.Component {
   }
 
   componentDidMount(){
-    fetch('/menu/all')
+    fetch(`/menu/all/${localStorage.RestaurantID}`)
     .then(res=> res.json())
     .then(state => this.setState({state}))
 
-    fetch('/restaurants/s/zakir')
+    fetch(`/restaurants/s/${localStorage.RestaurantID}`)
     .then(res=> res.json())
     .then(body => this.setState({body}))
   }

@@ -41,11 +41,11 @@ class Collection extends React.Component {
      // let temp3= Object(temp).map(item=> console.log)
 
      let temp2  =(Object.values(temp))
-    //  let temp3= Object.values(temp2)
+      //let temp3= Object.values(temp2)
 
      button= temp2.map((items => (
       //<CollectionItem key={item.ItemId} item={item} />
-      <CollectionPreview items={items} />))
+      <CollectionPreview key={items._id} items={items} />))
      // items.map(item=> (<CollectionItem key={item.ItemId} item={item} />))
     )
       

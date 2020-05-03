@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 // import { Link } from 'react-router-dom';
 
 import OrderTable from '../ordertable/ordertable.component';
-import ComleteOrderTable from '../completeordertable/completeordertable.component';
+import CompleteOrderTable from '../completeordertable/completeordertable.component';
 // import NewOrderItem from '../new-order-item/new-order-item.component';
 import Table from 'react-bootstrap/Table';
 import { connect } from "react-redux";
@@ -54,9 +54,9 @@ class OrderPage extends React.Component {
             <thead>
               <tr className = 'font'>
                 <th>Order number</th>
+                <th>Restaurant</th>
                 <th>Items</th>
                 <th>Total Price</th>
-                <th>Restaurant</th>
                 <th>Order Type</th>
                 <th>Address</th>
                 <th>Status</th>
@@ -80,9 +80,9 @@ class OrderPage extends React.Component {
             <thead>
                 <tr className = 'font'>
                   <th>Order number</th>
+                  <th>Restaurant</th>
                   <th>Items</th>
                   <th>Total Price</th>
-                  <th>Restaurant</th>
                   <th>Order Type</th>
                   <th>Address</th>
                   <th>Status</th>
@@ -106,9 +106,9 @@ class OrderPage extends React.Component {
             <thead>
                 <tr className = 'font'>
                   <th>Order number</th>
+                  <th>Restaurant</th>
                   <th>Items</th>
                   <th>Total Price</th>
-                  <th>Restaurant</th>
                   <th>Order Type</th>
                   <th>Address</th>
                   <th>Status</th>
@@ -118,7 +118,7 @@ class OrderPage extends React.Component {
             <tbody>
               {this.state.complete.map(({ id, ...otherSectionProps }) => (
                 <tr>
-                <ComleteOrderTable key={id} {...otherSectionProps} />
+                <CompleteOrderTable key={id} {...otherSectionProps} />
                 </tr>
               ))}
             </tbody>

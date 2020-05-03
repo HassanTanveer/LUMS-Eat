@@ -6,8 +6,8 @@ import {createStructuredSelector} from 'reselect';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./redux/utils/setAuthToken";
-import { setCurrentUser, logoutUser } from "./redux/actions/authActions";
-import store from './redux/store.js';
+import { setCurrentUser} from "./redux/actions/authActions";
+// import store from './redux/store.js';
 
 import './App.css';
 

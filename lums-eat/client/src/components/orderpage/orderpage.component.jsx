@@ -41,11 +41,13 @@ class OrderPage extends React.Component {
   render() {
     return (
       <div>
-        {/* <div>
-          <Link className='FeedbackButton' to='/userfeedback'>
-              Give Feedback
-          </Link>
-        </div> */}
+        <script type="text/javascript">
+            {setTimeout(function () { 
+              if(window.location.href === `${window.location.origin}/orders`){
+                window.location.reload();
+              }
+            }, 10000)}
+        </script>
         <div className='restaurant-menu'>
           <div className="top">
             Pending Confirmation <span className="new-number">{this.state.unconfirmed.length}</span>

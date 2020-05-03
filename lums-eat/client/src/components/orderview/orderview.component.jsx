@@ -43,6 +43,7 @@ class OrderView extends React.Component {
   render() {
     return (
       <div>
+        <meta http-equiv="refresh" content="10" />
         <div className='restaurant-menu'>
           <div className="top">
             New Orders

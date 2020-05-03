@@ -170,19 +170,18 @@ class UserFeedbackPage extends React.Component {
               <Button variant="primary" type="submit" block>
                   Submit
               </Button>
-
-              <Modal show={this.state.popupshow}>
-                <Modal.Header closeButton onClick={()=> this.setState({popupshow: false})}>
-                  <Modal.Title> {this.state.text} </Modal.Title>
-                </Modal.Header>
-                <Modal.Body> {this.state.text2} </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="primary" onClick={this.refresh}>
-                    Ok
-                  </Button>
-                </Modal.Footer>
-              </Modal>
           </Form>
+          <Modal show={this.state.popupshow}>
+            <Modal.Header closeButton onClick={()=> this.setState({popupshow: false})}>
+              <Modal.Title> {this.state.text} </Modal.Title>
+            </Modal.Header>
+            <Modal.Body> {this.state.text2} </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={this.refresh}>
+                Ok
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </dic>
     );

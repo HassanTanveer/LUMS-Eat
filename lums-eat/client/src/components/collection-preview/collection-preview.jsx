@@ -13,7 +13,7 @@ const CollectionPreview = ({ items }) => {
     <h1 className='title'> {items[0].category} </h1>
     <div className='items'>
       {items.map((item) => (
-          <CollectionItem key={item.id} item={item} />
+          <CollectionItem key={items.ItemsID} item={item} />
         ))}
     </div>
   </div>

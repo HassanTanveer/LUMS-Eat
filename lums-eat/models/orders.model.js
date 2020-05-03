@@ -13,6 +13,11 @@ const ordersSchema = new Schema({
         required: true,
         unique: false,
     },
+    userName: {
+        type: String,
+        required: true,
+        unique: false,
+    },
     userContact: {
         type: Number,
         required: true,

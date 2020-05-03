@@ -28,6 +28,7 @@ class Directory extends Component {
     fetch('/restaurants')
     .then(res=> res.json())
     .then(sections => this.setState({sections}))
+    
   }
 
   onLogoutClick = e => {
@@ -58,8 +59,9 @@ class Directory extends Component {
         </div>
         <hr/>
         <div className='directory-menu'>
-          {filteredRestaurants.map(({ id, ...otherSectionProps }) => (
-            <MenuItem key={id} {...otherSectionProps} />
+          {filteredRestaurants.map(({ _id, ...otherSectionProps }) => (
+         
+            <MenuItem key={_id} {...otherSectionProps} />
           ))}
         </div>
       </div>

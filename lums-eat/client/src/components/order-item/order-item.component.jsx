@@ -4,7 +4,7 @@ import './order-item.styles.scss';
 
 const axios = require('axios')
 
-const OrderItem = ({ OrderID, items, totalPrice, status, Type, userID, userContact, userAddress,  history, linkUrl, match }) => {
+const OrderItem = ({ OrderID, items, totalPrice, status, Type, userID, userName, userContact, userAddress,  history, linkUrl, match }) => {
   return(
     <>
         <td className = 'font'>{OrderID}</td>
@@ -15,7 +15,7 @@ const OrderItem = ({ OrderID, items, totalPrice, status, Type, userID, userConta
         </td>
         <td className = 'font'>{totalPrice}</td>
         <td className = 'font'>{Type}</td>
-        <td className = 'font'>{userID}</td>
+        <td className = 'font'>{userName}</td>
         <td className = 'font'>{userContact}</td>
         <td className = 'font'>{userAddress}</td>
         <td className = 'font'>{status}</td>

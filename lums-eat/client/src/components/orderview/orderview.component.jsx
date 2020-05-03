@@ -54,7 +54,7 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User ID</th>
+                <th>User Name</th>
                 <th>User Contact</th>
                 <th>User Address</th>
                 <th>Status</th>
@@ -82,7 +82,7 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User ID</th>
+                <th>User Name</th>
                 <th>User Contact</th>
                 <th>User Address</th>
                 <th>Status</th>
@@ -110,7 +110,7 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User ID</th>
+                <th>User Name</th>
                 <th>User Contact</th>
                 <th>User Address</th>
                 <th>Status</th>

@@ -40,6 +40,7 @@ router.route('/complete/:RestaurantID').get((req, res) => {
 router.route('/add').post((req, res) => {
     const OrderID = req.body.OrderID;
     const userID = req.body.userID;
+    const userName = req.body.userName;
     const userContact = req.body.userContact;
     const userAddress = req.body.userAddress;
     const items = req.body.items;
@@ -52,6 +53,7 @@ router.route('/add').post((req, res) => {
     const newOrder = new Orders({
         OrderID,
         userID,
+        userName,
         userContact,
         userAddress,
         items,

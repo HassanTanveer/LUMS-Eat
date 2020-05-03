@@ -30,20 +30,12 @@ class Collection extends React.Component {
   
     render() {
       let button;
-    
-      
       let temp =  _.groupBy(this.state.collection, 'category')
-       
-     // let temp3= Object(temp).map(item=> console.log)
+      let temp2  =(Object.values(temp))
 
-     let temp2  =(Object.values(temp))
-    //  let temp3= Object.values(temp2)
-
-     button= temp2.map((items => (
-      //<CollectionItem key={item.ItemId} item={item} />
-      <CollectionPreview items={items} />))
-     // items.map(item=> (<CollectionItem key={item.ItemId} item={item} />))
-    )
+      button= temp2.map((items => (
+        <CollectionPreview items={items} />))
+      )
     return (
     
       <div className= 'collection-page' >

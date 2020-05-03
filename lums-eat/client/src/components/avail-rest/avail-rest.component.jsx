@@ -8,8 +8,8 @@ const AvailRestaurant = ({RestaurantID, name, email, password, address, number, 
       <>
           <td>{(() => {
             switch (status) {
-                case "Open":   return <span className = 'font'>Open</span>;
-                case "Close": return <span className = 'font'>Closed</span>;
+                case "Open":   return <span className = 'font'>Currently Open</span>;
+                case "Close": return <span className = 'font'>Currently Closed</span>;
                 default: return <span className = 'font'>-</span>;
             }
             })()}

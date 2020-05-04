@@ -60,7 +60,7 @@ class UserFeedbackPage extends React.Component {
       }
     axios.post('/feedback/add', details)
       .then((res) => this.setState({text2: 'Feedback has been sent to restaurant!'}), this.setState({popupshow: true}))
-      .catch(err => this.setState({text: 'Error'}), this.setState({text2: 'Could not send feedback!'}), this.setState({popupshow: true}))
+      .catch(err => this.setState({text: 'Error'}), this.setState({text2: 'Feedback already submitted for this order'}), this.setState({popupshow: true}))
   }
 
   refresh = (event) => {
@@ -87,20 +87,12 @@ class UserFeedbackPage extends React.Component {
 
   render() {
     // const { user } = this.props.auth;
-    const { order } = this.props.location.state
-    const { restaurant } = this.props.location.state
-    const { item } = this.props.location.state
+    // const { order } = this.props.location.state
+    // const { restaurant } = this.props.location.state
+    // const { item } = this.props.location.state
     return (
       <dic className = 'restaurantpage'>
         <div className = 'check'>
-          {/* <h1>Submit Feedback</h1> */}
-          {/* {user.name ? (
-            <b>Hey there, {user.name}, {user.id}, {fromNotifications.check}</b>
-          ) : (
-            <b>Hey there!</b>
-          )} */}
-
-          {/* <h1>Provide Feedback</h1> */}
           <div className = 'center'>
             <h1>Submit Feedback</h1>
             <h1>Restaurant: {this.state.RestaurantID.toUpperCase()}</h1>
@@ -108,59 +100,7 @@ class UserFeedbackPage extends React.Component {
           </div>
 
           
-          {/* <Form onSubmit = {this.handleSubmit(user.name.toString())}> */}
           <Form onSubmit = {this.handleSubmit(localStorage.name)}>
-            {/* <Form.Group controlId="UserID">
-                  <Form.Label>User ID</Form.Label>
-                  <Form.Control type="name"
-                                className = 'userid'
-                                placeholder="Enter user ID"
-                                required
-                                // value = {this.state.UserID}
-                                value = {user.name}
-                                onChange = {this.updateUserID.bind(this)} 
-                                />
-              </Form.Group> */}
-
-              {/* <Form.Group controlId="ItemID">
-                  <Form.Label>Item ID</Form.Label>
-                  <Form.Control type="name"
-                                className = 'itemid'
-                                placeholder="Enter item ID"
-                                required
-                                value = {this.state.ItemID}
-                                onChange = {this.updateItemID.bind(this)}
-                                 />
-              </Form.Group> */}
-
-              {/* <Form.Group controlId="OrderID">
-                  <Form.Label>Order ID</Form.Label>
-                  <Form.Control type="name"
-                                className = 'orderid'
-                                placeholder="Enter order ID"
-                                required
-                                value = {this.state.OrderID}
-                                onChange = {this.updateOrderID.bind(this)} />
-              </Form.Group> */}
-
-              {/* <Form.Group controlId="Price">
-                  <Form.Label>Price</Form.Label>
-                  <Form.Control type="number"
-                                placeholder="Enter price in pkr"
-                                required
-                                value ={this.state.price}
-                                onChange = {this.updatePrice.bind(this)} />
-              </Form.Group> */}
-
-              {/* <Form.Group controlId="RestaurantID">
-                  <Form.Label>RestaurantID</Form.Label>
-                  <Form.Control type="name"
-                                placeholder="Enter Restaurant ID"
-                                required
-                                value ={this.state.RestaurantID}
-                                onChange = {this.updateRestaurantID.bind(this)} />
-              </Form.Group> */}
-
               <Form.Group controlId="Feedback">
                   <Form.Label>Feedback</Form.Label>
                   <Form.Control type="name"

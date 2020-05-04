@@ -60,14 +60,14 @@ class AnalyticsView extends React.Component {
 
         for (let c = 0; c < most.length; c++)
         {
-          if(most[c].key == check3[0])
+          if(most[c].key === check3[0])
           {
             most[c].value = most[c].value + parseInt(check3[1]);
             found = 1;
           }
         }
 
-        if(found == 0)
+        if(found === 0)
         {
           most.push({
             key:   check3[0],
@@ -98,7 +98,7 @@ class AnalyticsView extends React.Component {
   getCurrentDate(separator='-'){
 
     let newDate = new Date()
-    let date = newDate.getDate();
+    // let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
     

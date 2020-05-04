@@ -33,7 +33,7 @@ class FeedbackPage extends React.Component {
             <thead>
               <tr className = 'font'>
                 <th>User</th>
-                <th>Restaurant</th>
+                <th>Order ID</th>
                 <th>Feedback</th>
               </tr>
             </thead>

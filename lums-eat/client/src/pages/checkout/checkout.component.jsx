@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import CustomButton from '../../components/custom-button/custom-button.components'
+// import CustomButton from '../../components/custom-button/custom-button.components'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import PlaceOrder from '../../components/placeorder/placeorder';
 

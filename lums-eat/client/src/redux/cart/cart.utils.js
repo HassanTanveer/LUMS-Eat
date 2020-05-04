@@ -11,7 +11,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
   );
 
   
-    if(z==1){
+    if(z===1){
       return [...cartItems, { ...cartItemToAdd, quantity: 1}];
     
     }
@@ -40,7 +40,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
 
   
-  if(a==2){
+  if(a===2){
   
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
     }

@@ -11,27 +11,15 @@ class AnalyticsView extends React.Component {
 
       this.state={
       sections: [],
-      // newsections: []
       }
     
   }
 
   componentDidMount(){
-    // const date = this.getCurrentDate();
     fetch(`/orders/complete/${this.getCurrentDate()}/${localStorage.RestaurantID}`)
     .then(res=> res.json())
     .then(sections => this.setState({sections}))
   }
-
-  // countTotal = () => {
-  //   let total = 0
-
-  //   for (let i = 0; i < this.state.sections.length; i++) {
-  //     total = total + 1;
-  //   }
-
-  //   return total
-  // }
 
   totalPrice = () => {
     let total = 0
@@ -61,14 +49,14 @@ class AnalyticsView extends React.Component {
 
         for (let c = 0; c < most.length; c++)
         {
-          if(most[c].key == check3[0])
+          if(most[c].key === check3[0])
           {
             most[c].value = most[c].value + parseInt(check3[1]);
             found = 1;
           }
         }
 
-        if(found == 0)
+        if(found === 0)
         {
           most.push({
             key:   check3[0],
@@ -108,7 +96,6 @@ class AnalyticsView extends React.Component {
 
   render() {
 
-    // const total = this.countTotal();
     const revenue = this.totalPrice();
     const most = this.findHighest();
     const date = this.getCurrentDate();

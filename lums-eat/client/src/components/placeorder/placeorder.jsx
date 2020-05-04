@@ -1,34 +1,34 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
-import {
-    selectCartItems,
-    selectCartTotal
-  } from '../../redux/cart/cart.selectors';
+// import { connect } from "react-redux";
+// import { Link } from 'react-router-dom';
+// import { createStructuredSelector } from 'reselect';
+// import {
+    // selectCartItems,
+    // selectCartTotal
+//   } from '../../redux/cart/cart.selectors';
 
-  import store from '../../redux/store';
+  // import store from '../../redux/store';
 
   //import orders from '../../redux/actions/authActions'
 
   import { withRouter } from 'react-router-dom';
   import CustomButton from '../../components/custom-button/custom-button.components'
   import axios from "axios";
-  import {
-    GET_ERRORS,
-    SET_CURRENT_USER,
-    USER_LOADING
-  } from "../../redux/actions/types";
+  // import {
+  //   GET_ERRORS,
+  //   SET_CURRENT_USER,
+  //   USER_LOADING
+  // } from "../../redux/actions/types";
 
 
 class PlaceOrder extends Component { 
     
-   constructor() {
-     super();
+  //  constructor() {
+  //    super();
      
     
-   } 
+  //  } 
     orders1 = (newOrder, history) => dispatch => {
         console.log(newOrder)
         
@@ -61,30 +61,11 @@ class PlaceOrder extends Component {
   axios
       .post("/orders/add", newOrder)
       .then(res => this.props.history.push("/orders"))
-
-  //console.log(newOrder)
-
-
-  //this.orders1(newOrder, this.props.history)
-
-  
-   }
-    
-    
-
+  }
 
   render() {
- 
-   
-    
-   
-    
     return (
-      
         <CustomButton  onClick = {this.onOrder } > Place Order  </CustomButton>
-    
-     
-   
     );
       
   };

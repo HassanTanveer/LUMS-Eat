@@ -8,7 +8,7 @@ const FeedbackTable = ({ UserID, ItemID, OrderID, RestaurantID, Feedback,  histo
   return(
     <>
         <td className = 'font'>{UserID}</td>
-        <td className = 'font'>{RestaurantID}</td>
+        <td className = 'font'>{OrderID}</td>
         <td className = 'font'>{Feedback}</td>        
 
     </>

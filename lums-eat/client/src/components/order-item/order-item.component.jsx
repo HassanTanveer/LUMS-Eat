@@ -10,13 +10,12 @@ const OrderItem = ({ OrderID, items, totalPrice, status, Type, userID, userName,
         <td className = 'font'>{OrderID}</td>
         <td className = 'font'>
             {items.map(item => {
-                return <span className = 'items'>{item[0]} - <span className = 'inside'>{item[1]}</span></span>
+                return <span className = 'items'>{item.name} - <span className = 'inside'>{item.quantity}</span></span>
             })}
         </td>
         <td className = 'font'>{totalPrice}</td>
         <td className = 'font'>{Type}</td>
-        <td className = 'font'>{userName}</td>
-        <td className = 'font'>{userContact}</td>
+        <td className = 'font '><div className = 'middle'>{userName}</div>{userContact}</td>
         <td className = 'font'>{userAddress}</td>
         <td className = 'font'>{status}</td>
         <td>{(() => {
@@ -59,7 +58,7 @@ const OrderItem = ({ OrderID, items, totalPrice, status, Type, userID, userName,
                         .catch(err => console.log(err))
                     }}
                     >Undo</span>;
-                default:      return <span className = 'button' onClick ={() => alert('button')}>button</span>;
+                default: return <span className = 'button' onClick ={() => alert('button')}>button</span>;
         }
         })()}
         </td>

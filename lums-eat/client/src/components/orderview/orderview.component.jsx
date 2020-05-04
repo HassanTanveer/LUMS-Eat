@@ -49,7 +49,7 @@ class OrderView extends React.Component {
               if(window.location.href === `${window.location.origin}/restaurant`){
                 window.location.reload();
               }
-            }, 10000)}
+            }, 20000)}
         </script>
         <div className='restaurant-menu'>
           <div className="top">
@@ -62,7 +62,6 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User Name</th>
                 <th>User Contact</th>
                 <th>User Address</th>
                 <th>Status</th>
@@ -90,7 +89,6 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User Name</th>
                 <th>User Contact</th>
                 <th>User Address</th>
                 <th>Status</th>
@@ -118,7 +116,6 @@ class OrderView extends React.Component {
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
-                <th>User Name</th>
                 <th>User Contact</th>
                 <th>User Address</th>
                 <th>Status</th>

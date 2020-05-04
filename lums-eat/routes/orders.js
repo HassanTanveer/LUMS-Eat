@@ -44,17 +44,18 @@ router.route('/complete/:Date/:RestaurantID').get((req, res) => {
 
 //Adds a new order
 router.route('/add').post((req, res) => {
+    console.log(req.body)
     const OrderID = req.body.OrderID;
     const userID = req.body.userID;
     const userName = req.body.userName;
-    const userContact = req.body.userContact;
-    const userAddress = req.body.userAddress;
+    const userContact = req.body.number;
+    const userAddress = req.body.address;
     const items = req.body.items;
     const RestaurantID = req.body.RestaurantID;
-    const time = req.body.time;
-    const totalPrice = req.body.totalPrice;
+    const time = 2020-10-10;
+    const totalPrice = req.body.total;
     const status = req.body.status;
-    const Type = req.body.Type;
+    const Type = "Delivery";
 
     const newOrder = new Orders({
         OrderID,
@@ -75,10 +76,13 @@ router.route('/add').post((req, res) => {
             'Status': 'Success',
             'Message': `Done`
         }))
-        .catch((err) => res.status(400).json({
+        .catch((err) => {
+            console.log(err),
+            res.status(400).json({
             'Status': 'Failed',
             'Message': `${err}`
-        }))
+            })
+        })
     
 })
 

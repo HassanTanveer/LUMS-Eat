@@ -46,7 +46,7 @@ class OrderPage extends React.Component {
               if(window.location.href === `${window.location.origin}/orders`){
                 window.location.reload();
               }
-            }, 10000)}
+            }, 15000)}
         </script>
         <div className='restaurant-menu'>
           <div className="top">

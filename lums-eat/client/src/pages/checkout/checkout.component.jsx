@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-// import CustomButton from '../../components/custom-button/custom-button.components'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import PlaceOrder from '../../components/placeorder/placeorder';
 
-//import store from '../../redux/store';
 
 import {
   selectCartItems,
@@ -13,7 +11,6 @@ import {
 } from '../../redux/cart/cart.selectors';
 
 import './checkout.styles.scss';
-//import placeorder from '../../components/placeorder/placeorder';
 
 const CheckoutPage = ({ cartItems, total }) => {
   
@@ -23,13 +20,7 @@ const CheckoutPage = ({ cartItems, total }) => {
       button= <PlaceOrder items= {cartItems}  total= {total}/>
       
        } 
-
-//       console.log(store.getState())
-      
-    
-  
-
-  
+ 
   return(
   <div className='checkout-page'>
     <div className='checkout-header'>
@@ -55,10 +46,6 @@ const CheckoutPage = ({ cartItems, total }) => {
     <div className='total'>TOTAL: Rs.{total}</div>
     
     {button}
-
-    
-    
-
   </div>
   )
 };

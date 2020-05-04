@@ -112,8 +112,10 @@ class InputForm extends React.Component {
 
             <Form.Group controlId="Price">
                 <Form.Label>Price</Form.Label>
-                <Form.Control type="number"
+                <Form.Control type="name"
                               placeholder="Enter price in pkr"
+                              pattern="[0-9]*"
+                              // className = 'number'
                               required
                               value ={this.state.price}
                               onChange = {this.updatePrice.bind(this)} />

@@ -52,3 +52,19 @@
     }
   }
 }
+
+// .dropdown-tab {
+//   background-color: #F8A22F;
+// }
+
+.dropdown-item:active, .dropdown-item:focus{
+  // background-color: #edebeb;
+  // background-color: #F8A22F;
+  background-color: #f2f2f2;
+  outline: none;
+  // text: #ffffff;
+}
+
+.dropdown-toggle {
+  // background-color: #FFFFFF !important;
+}

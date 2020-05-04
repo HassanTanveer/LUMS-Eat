@@ -33,9 +33,12 @@
     "node-sass": "^4.13.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
     "react-notifications": "^1.6.0",
     "react-scripts": "^3.4.1",
+    "reactstrap": "^8.4.1",
     "redux-persist": "^6.0.0",
     "validator": "^13.0.0"
   }

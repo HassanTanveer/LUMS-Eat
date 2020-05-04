@@ -19,6 +19,41 @@ export const registerUser = (userData, history) => dispatch => {
       })
     );
 };
+
+export const changeInfo = (userData, history) => dispatch => {
+  axios
+    .post("/users/changeinfo", userData)
+    .then(res => {
+      localStorage.setItem("email", res.data.email);
+      localStorage.setItem("name", res.data.name);
+      localStorage.setItem("address", res.data.address);
+      localStorage.setItem("number", res.data.number);
+      // console.log(localStorage)
+      history.push("/")
+    }) // re-direct to login on success
+    .catch(err =>
+      {
+        dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })}
+    );
+};
+
+export const changePass = (userData, history) => dispatch => {
+  axios
+    .post("/users/changepass", userData)
+    .then(res => {
+      history.push("/")
+    }) // re-direct to login on success
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios

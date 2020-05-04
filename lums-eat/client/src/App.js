@@ -27,6 +27,7 @@ import AddMenu from './pages/add-menu/add-menu.component';
 import Authentication from './pages/authentication/authentication.component';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
+import ChangeInfo from './pages/change-user-info/change-user-info';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
@@ -80,6 +81,7 @@ class App extends React.Component {
           <Route path='/auth' component={Authentication} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
+          <Route path='/change-info' component={ChangeInfo} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>

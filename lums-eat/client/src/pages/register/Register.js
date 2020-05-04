@@ -109,6 +109,8 @@ return (
                   <option value="F1">F1</option>
                   <option value="F2">F2</option>
                   <option value="F3">F3</option>
+                  <option value="F4">F4</option>
+                  <option value="F5">F5</option>
                   <option value="M1">M1</option>
                   <option value="M2">M2</option>
                   <option value="M3">M3</option>

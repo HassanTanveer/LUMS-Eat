@@ -12,6 +12,85 @@ let Restaurant = require('../models/restaurants.model');
 // Load input validation
 const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
+const validateChangeInfoInput = require("../validation/changeinfo");
+const validateChangePassInput = require("../validation/changepass");
+
+router.post("/changeinfo", (req, res) => {
+    const { errors, isValid } = validateChangeInfoInput(req.body);
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+
+    const name = req.body.name;
+    const email = req.body.email;
+    const address = req.body.address;
+    const number = req.body.number;
+
+    const update = {
+        "name": name,
+        "email": email,
+        "address": address,
+        "number": number
+    }
+
+    User.findOneAndUpdate({userID: req.body.userID}, update, {useFindAndModify: false})
+        .then((response) => {
+            User.findOne({userID: req.body.userID})
+                .then(resp => res.status(200).json(resp))
+                .catch(err => res.status(400).json({
+                    'Status': 'Failed',
+                    'Message': `${err}`
+                }))
+        })
+        .catch((err) => res.status(400).json({
+            'Status': 'Failed',
+            'Message': `${err}`
+    }))
+});
+
+router.post("/changepass", (req, res) => {
+    const { errors, isValid } = validateChangePassInput(req.body);
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+    User.findOne({ userID: req.body.userID }).then(user => {
+        const oldpassword =  req.body.oldpassword
+        const newpassword =  req.body.newpassword
+        // Hash password before saving in database
+        bcrypt.compare(oldpassword, user.password).then(isMatch => {
+            if (isMatch) {
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(newpassword, salt, (err, hash) => {
+                        if (err) throw err;
+                        console.log(hash)
+                        update = {
+                            "password": hash
+                        };
+                        User.findOneAndUpdate({userID: req.body.userID}, update, {useFindAndModify: false})
+                        .then((response) => {
+                            User.findOne({userID: req.body.userID})
+                                .then(resp => res.status(200).json(resp))
+                                .catch(err => res.status(400).json({
+                                    'Status': 'Failed',
+                                    'Message': `${err}`
+                                }))
+                        })
+                        .catch((err) => res.status(400).json({
+                            'Status': 'Failed',
+                            'Message': `${err}`
+                        }))
+                    });
+                });
+            } else {
+            return res
+                .status(400)
+                .json({ passwordincorrect: "Old Password incorrect" });
+            }
+        });
+    });
+});
 
 //Registration route
 router.post("/register", (req, res) => {

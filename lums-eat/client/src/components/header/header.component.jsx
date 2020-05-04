@@ -1,4 +1,6 @@
-import React from 'react';
+// import React from 'react';
+import React, { useState } from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -19,6 +21,10 @@ console.log(localStorage.isRest)
 const Header = ({ currentUser, hidden, check }) => {
 
   let button
+  let button2
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(prevState => !prevState);
 
   console.log(localStorage)
   
@@ -26,11 +32,23 @@ const Header = ({ currentUser, hidden, check }) => {
       if(localStorage.email) {
         button=  <Link className='option' to='/orders'>
         ORDERS
-      </Link>} 
+      </Link>  
+    } 
       else{
         button= <Link className='option' to='/login'>
         ORDERS
       </Link>  
+      }
+    }
+
+    if( !localStorage.isRest) {
+      if(localStorage.email) {
+        button2 =  <Link className='option' to='/change-info'>
+        CHANGE USER INFORMATION
+      </Link>  
+    } 
+      else{
+        console.log(" ")
       }
     }
        
@@ -52,7 +70,8 @@ const Header = ({ currentUser, hidden, check }) => {
     )}
 
     <div className='options'>
-      {button}
+
+    {button}      
 
       {localStorage.isRest ?(
       <Link className='option' to='/analytics'>
@@ -84,20 +103,29 @@ const Header = ({ currentUser, hidden, check }) => {
       (console.log('Not rest')) }  
 
      
-      {localStorage.isRest ?(
+    {localStorage.isRest ?(
       <Link className='option' to='/add-menu'>
         ADD
       </Link>
       ) : 
-      (console.log('Not rest')) }
+      (console.log('Not rest')) 
+    }
+
      {localStorage.email ? (
-       <Logout />
+       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+       <DropdownToggle caret color = 'light'>
+         {localStorage.name}
+         </DropdownToggle>
+       <DropdownMenu right>
+         <DropdownItem>{button2}</DropdownItem>
+         <DropdownItem><Logout /></DropdownItem>
+       </DropdownMenu>
+     </Dropdown>
      ):
      (
       <Link className='option' to='/login'>
       LOGIN
-    </Link>
-
+      </Link>
      )}
 
     

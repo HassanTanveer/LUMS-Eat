@@ -169,7 +169,7 @@ return (
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <Button variant="primary" type="submit" block>
-                  Sign up
+                  Register
                 </Button>
                 
                 {/* <button

@@ -81,13 +81,8 @@ class InputForm extends React.Component {
   render() {
     return (
       <div className = 'check'>
-        <h1>Add Item to Menu</h1>
-        {/* <h1>
-          {this.state.check.map((item) =>
-            <h>{item.ItemID} </h>
-          )}
-        </h1> */}
-
+        <h4><b>Add Item to Menu</b> below</h4>
+    
         
         <Form onSubmit = {this.handleSubmit}>
           <Form.Group controlId="ItemID">

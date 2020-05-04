@@ -5,6 +5,18 @@ import { logoutUser } from "../../redux/actions/authActions";
 import { Link } from 'react-router-dom';
 import './logout.styles.scss';
 import { withRouter } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
+
+import {
+  selectCartItems
+
+} from '../../redux/cart/cart.selectors';
+
+import {
+  clearItemFromCart
+  
+} from '../../redux/cart/cart.actions';
+
 
 
 class Logout extends Component {  
@@ -12,11 +24,11 @@ class Logout extends Component {
 
   
 
-  // constructor() {
-  //   super();
+   constructor(props) {
+     super(props);
      
     
-  // } 
+   } 
   
 
   updateSearch(event) {
@@ -28,6 +40,11 @@ class Logout extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
+    this.props.cartItems.map(item => (
+      this.props.clearItem(item)
+      ))
+
+  
     //console.log(`{this.props.location.pathname}`)
     //this.props.history.push(`{this.props.location.pathname}`);
     this.props.history.push('/');
@@ -37,6 +54,8 @@ class Logout extends Component {
 
 
   render() {
+
+    
    
     return (
       <Link className='option'   onClick = {this.onLogoutClick } >
@@ -49,14 +68,27 @@ class Logout extends Component {
 
 Logout.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+
 };
-const mapStateToProps = state => ({
-  auth: state.auth
+
+
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems
+  
+  
 });
 
+const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(logoutUser()),
+  clearItem : item => dispatch(clearItemFromCart(item))
+});
+
+
+
 export default withRouter(connect(
-  mapStateToProps,
-  { logoutUser }
+  mapStateToProps, mapDispatchToProps
+  
+  
 )(Logout));
 

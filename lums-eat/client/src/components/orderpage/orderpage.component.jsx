@@ -27,10 +27,14 @@ class OrderPage extends React.Component {
       fetch(`/users/neworders/${localStorage.userID}`)
       .then(res=> res.json())
       .then(unconfirmed => this.setState({unconfirmed}))
+
+      console.log(this.state.unconfirmed)
   
       fetch(`/users/pendingorders/${localStorage.userID}`)
       .then(res=> res.json())
       .then(active => this.setState({active}))
+
+      console.log(this.state.active)
   
       fetch(`/users/completedorders/${localStorage.userID}`)
       .then(res=> res.json())

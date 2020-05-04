@@ -19,6 +19,18 @@ export const registerUser = (userData, history) => dispatch => {
       })
     );
 };
+
+export const orders = (newOrder, history) => dispatch => {
+  axios
+    .post("/orders/add", newOrder)
+    .then(res => history.push("/orders")) // re-direct to login on successful register
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios

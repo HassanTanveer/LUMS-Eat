@@ -36,6 +36,12 @@ router.route('/complete/:RestaurantID').get((req, res) => {
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
+router.route('/complete/:Date/:RestaurantID').get((req, res) => {
+    Orders.find({RestaurantID: req.params.RestaurantID, status: "Complete", createdAt: { $gte : new Date(req.params.Date).toISOString() } })
+        .then(orders => res.json(orders))
+        .catch(err => res.status(400).json(`Error: ${err}`));
+});
+
 //Adds a new order
 router.route('/add').post((req, res) => {
     const OrderID = req.body.OrderID;

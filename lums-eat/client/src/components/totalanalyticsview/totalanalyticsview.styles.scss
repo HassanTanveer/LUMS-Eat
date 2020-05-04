@@ -1,0 +1,47 @@
+.restaurant-menu {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+.font {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.top{
+  font-size: 26px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+
+  .top {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .top:hover {
+    color: #F8A22F;
+  }
+}
+
+.number{
+  padding: 0px 10px;
+  margin-left: 5px;
+  border-radius: 7px;
+  background-color: #F8A22F;
+}
+
+.options {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .option {
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+}
+

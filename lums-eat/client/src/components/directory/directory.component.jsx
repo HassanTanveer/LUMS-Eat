@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import MenuItem from '../menu-item/menu-item.component';
 import { logoutUser } from "../../redux/actions/authActions";
+import Form from 'react-bootstrap/Form';
 
 import './directory.styles.scss';
 
@@ -51,11 +52,19 @@ class Directory extends Component {
           <b>Hey there!</b>
         )}
         <div className='search'>
-          <input type = "text"
+          {/* <input type = "text"
               className = 'search'
               placeholder = "search..."
               value ={this.state.search} 
-              onChange = {this.updateSearch.bind(this)}/>
+              onChange = {this.updateSearch.bind(this)}/> */}
+          <Form>
+              <Form.Control type="name"
+                            block
+                            // className = 'search'
+                            placeholder="search..."
+                            value ={this.state.search} 
+                            onChange = {this.updateSearch.bind(this)}/>
+          </Form>
         </div>
         <hr/>
         <div className='directory-menu'>

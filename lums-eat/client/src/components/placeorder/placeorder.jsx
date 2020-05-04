@@ -1,22 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+
 import { createStructuredSelector } from 'reselect';
-
-
-  import store from '../../redux/store';
-
-  //import orders from '../../redux/actions/authActions'
-
-  import { withRouter } from 'react-router-dom';
+ import { withRouter } from 'react-router-dom';
   import CustomButton from '../../components/custom-button/custom-button.components'
   import axios from "axios";
-  import {
-    GET_ERRORS,
-    SET_CURRENT_USER,
-    USER_LOADING
-  } from "../../redux/actions/types";
 
   import {
     selectCartItems
@@ -30,12 +19,7 @@ import { createStructuredSelector } from 'reselect';
 
 
 class PlaceOrder extends Component { 
-    
-   constructor() {
-     super();
-     
-    
-   } 
+  
     orders1 = (newOrder, history) => dispatch => {
         console.log(newOrder)
         

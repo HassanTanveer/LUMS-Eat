@@ -47,14 +47,26 @@ export const changePass = (userData, history) => dispatch => {
       history.push("/")
     }) // re-direct to login on success
     .catch(err =>
+      {
+        dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })}
+    );
+};
+
+export const orders = (newOrder, history) => dispatch => {
+  axios
+    .post("/orders/add", newOrder)
+    .then(res => history.push("/orders")) // re-direct to login on successful register
+    .catch(err =>
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
       })
     );
 };
-
-// Login - get user token
+    // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
     .post("/users/login", userData)

@@ -11,7 +11,7 @@ import './collection-item.styles.scss';
 // import { Link } from 'react-router-dom';
 
 const CollectionItem = ({ item, addItem, history, match }) => {
-  const { name, price, imageurl } = item;
+  const { name, price, imageurl, RestaurantID } = item;
 
   return (
     <div className='collection-item'>

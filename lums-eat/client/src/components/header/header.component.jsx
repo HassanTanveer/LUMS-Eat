@@ -9,7 +9,8 @@ import {createStructuredSelector} from 'reselect';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import {selectCartHidden} from '../../redux/cart/cart.selectors';
-import {ReactComponent as Logo } from '../../assets/logo.svg';
+// import {ReactComponent as Logo } from '../../assets/logo.svg';
+import {ReactComponent as Logo } from '../../assets/LogoNew.svg';
 import { setUserLoading } from "../../redux/actions/authActions";
 import './header.styles.scss';
 // import { logoutUser } from "../../redux/actions/authActions";
@@ -57,15 +58,15 @@ const Header = ({ currentUser, hidden, check }) => {
     {localStorage.isRest ? (
       <Link className='logo-container' to='/restaurant'>
         <Logo className='logo' />
-        <Link className='title1' to='/restaurant'>{"  "} </Link>
+        {/* <Link className='title1' to='/restaurant'>{"  "} </Link>
         <Link className='title1' to='/restaurant'>{"LUMS"}</Link>
-        <Link className='title' to='/restaurant'>{"EAT"}</Link>
+        <Link className='title' to='/restaurant'>{"EAT"}</Link> */}
       </Link>) : (
       <Link className='logo-container' to='/'>
         <Logo className='logo' />
-        <Link className='title1' to='/'>{"  "} </Link>
+        {/* <Link className='title1' to='/'>{"  "} </Link>
         <Link className='title1' to='/'>{"LUMS"}</Link>
-        <Link className='title' to='/'>{"EAT"}</Link>
+        <Link className='title' to='/'>{"EAT"}</Link> */}
       </Link>
     )}
 

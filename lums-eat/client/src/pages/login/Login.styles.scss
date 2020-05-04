@@ -35,3 +35,37 @@
 .input-checkbox {
     color: #F8A22F !important;
 }
+
+.input-field input[type=email]:focus + label {
+    color: #F8A22F !important;
+}
+
+.input-field input[type=email]:focus {
+    border-color: #F8A22F !important;
+    box-shadow: 0 1px 0 0 #F8A22F !important;
+}
+
+.input-field input[type=email]:active {
+    border-color: #F8A22F !important;
+    box-shadow: 0 1px 0 0 #F8A22F !important;
+}
+
+.input-field input[type=password]:focus + label {
+    color: #F8A22F !important;
+}
+
+.input-field input[type=password]:focus {
+    border-color: #F8A22F !important;
+    box-shadow: 0 1px 0 0 #F8A22F !important;
+}
+
+.input-field input[type=password]:active {
+    border-color: #F8A22F !important;
+    box-shadow: 0 1px 0 0 #F8A22F !important;
+}
+
+.checkbox-blue-grey[type="checkbox"].filled-in:checked + span:not(.lever):after 
+{
+    border: 2px solid #F8A22F;  
+    background-color: #F8A22F;
+}

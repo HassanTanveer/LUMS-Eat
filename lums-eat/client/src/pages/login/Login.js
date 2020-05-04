@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/actions/authActions";
 import classnames from "classnames";
-//import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './Login.styles.scss';
 
@@ -121,7 +121,8 @@ return (
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
+              {/* <div className="input-field col s12"> */}
+              <div className="input-field col">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -157,7 +158,7 @@ return (
               </div>
               <p style ={{ paddingLeft: "11.250px" }}>
               <label>
-                <input class = "checkb" type="checkbox" onChange={ this.handleChecked }/>
+                <input class="filled-in checkbox-blue-grey" type="checkbox" onChange={ this.handleChecked }/>
                 <span>Login as Restuarant?</span>
               </label>
               </p>

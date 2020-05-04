@@ -45,8 +45,39 @@
 }
 
 
-// .input-field {
-//     color: #F8A22F !important;
-//     // background-color: #F8A22F;
-//     border-width: 2px !important;
-// }
+
+.input-field input[type=text]:focus + label {
+    color: #F8A22F !important;
+}
+
+.input-field input[type=text]:focus {
+    border-color: #F8A22F !important;
+    box-shadow: 0 1px 0 0 #F8A22F !important;
+}
+
+.input-field input[type=text]:active {
+    border-color: #F8A22F !important;
+    box-shadow: 0 1px 0 0 #F8A22F !important;
+}
+
+.input-field input[type=number]:focus + label {
+    color: #F8A22F !important;
+}
+
+.input-field input[type=number]:focus {
+    border-color: #F8A22F !important;
+    box-shadow: 0 1px 0 0 #F8A22F !important;
+}
+
+.input-field input[type=number]:active {
+    border-color: #F8A22F !important;
+    box-shadow: 0 1px 0 0 #F8A22F !important;
+}
+
+.browser-default:focus{
+    // box-shadow: 0 1px 0 0 #F8A22F !important;
+    // outline-color: #F8A22F;
+    outline: none;
+    border-color: #F8A22F;
+
+}

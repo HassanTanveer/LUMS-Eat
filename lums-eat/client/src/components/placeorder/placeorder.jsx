@@ -27,8 +27,8 @@ class PlaceOrder extends Component {
     console.log(newOrder)
     axios
         .post("/orders/add", newOrder)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .then(res => this.props.history.push("/orders"))
+        .catch(err => console.log)
   }
 
   render() {

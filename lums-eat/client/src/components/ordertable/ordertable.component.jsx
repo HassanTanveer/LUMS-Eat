@@ -21,7 +21,7 @@ const OrderTable = ({ OrderID, items, totalPrice, status, Type, userAddress, Res
         })()}</td>
         <td className = 'font'>
             {items.map(item => {
-                return <span className = 'items'>{item[0]} - <span className = 'inside'>{item[1]}</span></span>
+                return <span className = 'items'>{item.name} - <span className = 'inside'>{item.quantity}</span></span>
             })}
         </td>
         <td className = 'font'>{totalPrice}</td>

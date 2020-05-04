@@ -15,6 +15,8 @@ import './header.styles.scss';
 import Logout from '../../components/logout/logout';
 
 console.log(localStorage.isRest)
+
+
 const Header = ({ currentUser, hidden, check }) => {
 
   let button
@@ -50,7 +52,7 @@ const Header = ({ currentUser, hidden, check }) => {
       </Link>
     )}
 
-<div className='options'>
+    <div className='options'>
       {button}
 
       {localStorage.isRest ?(
@@ -98,6 +100,7 @@ const Header = ({ currentUser, hidden, check }) => {
     </Link>
 
      )}
+
     
     {localStorage.isRest ?(
       (console.log('Not rest'))

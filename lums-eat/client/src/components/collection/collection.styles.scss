@@ -3,7 +3,8 @@
 
   .title {
     position: center;
-    font-size: 40px;
+    font-size: 70px;
+    font-weight: bold;
     margin: 0 auto 30px;
     text-transform: uppercase;
   }
@@ -12,8 +13,6 @@
     flex-direction: column;
   }
   
-
-
   .items {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

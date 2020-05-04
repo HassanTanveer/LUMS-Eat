@@ -1,27 +1,26 @@
-.font {
-    font-size: 20px;
-    font-weight: bold;
-  }
   
   .button{
     cursor: pointer;
   }
   
+
   .close{
-    color: white;
+    color:black;
     font-weight: bold;
-    background-color: rgb(1, 158, 1);
+    font-size: 20px;
+    background-color: rgb(72, 255, 0);
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
   }
 
   .open{
+    font-size: 20px;
     color: white;
     font-weight: bold;
-    background-color: rgb(153, 149, 153);
+    background-color: rgb(46, 45, 46);
     border-radius: 10px;
-    padding: 10px;
+    padding: 7px;
     cursor: pointer;
   }
 

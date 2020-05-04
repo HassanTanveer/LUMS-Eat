@@ -23,7 +23,6 @@ componentDidMount() {
     if(!localStorage.isRest){
       //console.log(this.props.location.pathname)
       this.props.history.push('/');}
-    
      else {
       this.props.history.push("/restaurant");
     }

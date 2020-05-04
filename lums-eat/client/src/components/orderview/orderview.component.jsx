@@ -22,6 +22,7 @@ class OrderView extends React.Component {
   }
 
   componentDidMount(){
+
     fetch(`/orders/all/${localStorage.RestaurantID}`)
     .then(res=> res.json())
     .then(sections => this.setState({sections}))
@@ -43,6 +44,13 @@ class OrderView extends React.Component {
   render() {
     return (
       <div>
+        <script type="text/javascript">
+            {setTimeout(function () { 
+              if(window.location.href === `${window.location.origin}/restaurant`){
+                window.location.reload();
+              }
+            }, 10000)}
+        </script>
         <div className='restaurant-menu'>
           <div className="top">
             New Orders

@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import {compose} from 'redux';
 import CustomButton from '../custom-button/custom-button.component';
 import { addItem } from '../../redux/cart/cart.actions';
-// import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import './notifications.css';
 import './collection-item.styles.scss';
+// import {compose} from 'redux';
+// import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 
 const CollectionItem = ({ item, addItem, history, match }) => {
@@ -13,6 +15,7 @@ const CollectionItem = ({ item, addItem, history, match }) => {
 
   return (
     <div className='collection-item'>
+      <NotificationContainer/>
       <div
         className='image'
         style={{
@@ -21,18 +24,17 @@ const CollectionItem = ({ item, addItem, history, match }) => {
       />
       <div className='collection-footer'>
         <span className='name'>{name}</span>
-        <span className='price'>Rs{price}</span>
+        <span className='price'>PKR {price}</span>
       </div>
       {localStorage.email ?(
-      <CustomButton onClick={() => addItem(item)} inverted>
+      <CustomButton onClick={() => {addItem(item); NotificationManager.info('Item added to cart');}} inverted>
         Add to cart
       </CustomButton>):
-      (<CustomButton onClick={()=>  history.push('/login') }   >
+      (<CustomButton onClick={()=>  {history.push('/login'); window.location.reload()}}>
         Add to cart
       </CustomButton>
-    
       )
-}
+      }
     </div>
   );
 };

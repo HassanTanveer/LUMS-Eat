@@ -26,7 +26,6 @@ class UserFeedbackPage extends React.Component {
         text: 'Feedback Sent!',
         text2: 'Feedback has been sent to restaurant!'
 
-        // collection: []
       }  
   }
 
@@ -87,11 +86,13 @@ class UserFeedbackPage extends React.Component {
   }
 
   render() {
-    const { user } = this.props.auth;
+    // const { user } = this.props.auth;
+    const { order } = this.props.location.state
+    const { restaurant } = this.props.location.state
+    const { item } = this.props.location.state
     return (
       <dic className = 'restaurantpage'>
         <div className = 'check'>
-        {/* {fromNotifications.check} */}
           {/* <h1>Submit Feedback</h1> */}
           {/* {user.name ? (
             <b>Hey there, {user.name}, {user.id}, {fromNotifications.check}</b>
@@ -101,12 +102,14 @@ class UserFeedbackPage extends React.Component {
 
           {/* <h1>Provide Feedback</h1> */}
           <div className = 'center'>
+            <h1>Submit Feedback</h1>
             <h1>Restaurant: {this.state.RestaurantID.toUpperCase()}</h1>
             <h1>Order ID: {this.state.OrderID}</h1>
           </div>
 
           
-          <Form onSubmit = {this.handleSubmit(user.name.toString())}>
+          {/* <Form onSubmit = {this.handleSubmit(user.name.toString())}> */}
+          <Form onSubmit = {this.handleSubmit(localStorage.name)}>
             {/* <Form.Group controlId="UserID">
                   <Form.Label>User ID</Form.Label>
                   <Form.Control type="name"

@@ -20,7 +20,7 @@ import MonthAnalyticsPage from './pages/monthanalyticspage/monthanalyticspage.co
 import YearAnalyticsPage from './pages/yearanalyticspage/yearanalyticspage.component';
 import ShopPage from './pages/shop/shop.component';
 import MenuUpdate from './pages/menu-update/menu-update.component';
-import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+
 import Header from './components/header/header.component';
 import CheckoutPage from './pages/checkout/checkout.component.jsx';
 import {selectCurrentUser} from './redux/user/user.selectors';
@@ -82,7 +82,7 @@ class App extends React.Component {
           <Route exact path = '/feedback' component={FeedbacksPage} />
           <Route exact path = '/userfeedback' component={UserFeedback} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/signin' component={SignInAndSignUpPage} />
+          
           <Route path='/add-menu' component={AddMenu} />
           <Route path='/auth' component={Authentication} />
           <Route path='/login' component={Login} />

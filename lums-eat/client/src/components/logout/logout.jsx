@@ -24,11 +24,6 @@ class Logout extends Component {
 
   
 
-   constructor(props) {
-     super(props);
-     
-    
-   } 
   
 
   updateSearch(event) {

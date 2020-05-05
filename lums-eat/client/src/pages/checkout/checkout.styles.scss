@@ -29,13 +29,37 @@
     font-size: 36px;
   }
 
+  // button {
+  //   background-color: #d98d29 !important;
+  //   border-color: #d98d29 !important;
+  //   outline: none !important;
+  //   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #d98d29 !important;
+  //   margin-left: auto;
+  //   margin-top: 50px;
+  // }
+
   button {
-    background-color: #d98d29 !important;
-    border-color: #d98d29 !important;
-    outline: none !important;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #d98d29 !important;
+    color: #fff;
+    background-color: #F8A22F;
+    border-color: #f8a22f;
+    outline: none;
     margin-left: auto;
     margin-top: 50px;
+  }
+
+  button:hover {
+    color: #fff;
+    background-color: #d98d29;
+    border-color: #d98d29;
+    outline: none;
+  }
+
+  button:active, .btn-primary:focus {
+    color: #fff;
+    background-color: #d98d29;
+    border-color: #d98d29;
+    outline: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #d98d29;
   }
 
   .test-warning {

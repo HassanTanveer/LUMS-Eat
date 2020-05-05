@@ -138,6 +138,7 @@ class AnalyticsView extends React.Component {
                 <th>Number of orders</th>
                 <th>Most ordered item</th>
                 <th>Revenue</th>
+                <th></th>
                 {/* <th>Start Date</th> */}
                 {/* <th>Date</th> */}
               </tr>

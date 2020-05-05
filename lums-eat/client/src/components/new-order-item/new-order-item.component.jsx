@@ -42,7 +42,7 @@ const OrderItem = ({ OrderID, items, totalPrice, status, Type, userID, userName,
               }
             }
             axios.post('/orders/update', change)
-              .then((res) => console.log(res))
+              .then(() => window.location.reload())
               .catch(err => console.log(err))
           }}>Decline</span></td>
 

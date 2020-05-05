@@ -8,20 +8,36 @@
     color:black;
     font-weight: bold;
     font-size: 20px;
-    background-color: rgb(72, 255, 0);
-    border-radius: 10px;
+    // background-color: rgb(72, 255, 0);
+    background-color: rgba(190, 211, 0, 0.9);
+    // background-color: #eaf82f;
+    opacity: 1 !important;
+    border-radius: 5px;
     padding: 10px;
     cursor: pointer;
+  }
+
+  .close:hover{
+    // background-color: rgba(0, 200, 0, 0.9);
+    // background-color: #cbd627;
+    background-color: rgba(158, 175, 5, 0.9);
+
+    
   }
 
   .open{
     font-size: 20px;
     color: white;
     font-weight: bold;
-    background-color: rgb(46, 45, 46);
-    border-radius: 10px;
-    padding: 7px;
+    // background-color: rgb(46, 45, 46);
+    background-color: rgba(255, 0, 0, 0.9);
+    border-radius: 5px;
+    padding: 7px 10px;
     cursor: pointer;
+  }
+
+  .open:hover{
+    background-color: rgba(220, 0, 0, 0.9);
   }
 
   .inside{

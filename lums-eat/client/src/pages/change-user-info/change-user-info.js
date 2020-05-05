@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser, changeInfo, changePass } from "../../redux/actions/authActions.js";
 import classnames from "classnames";
+import Button from 'react-bootstrap/Button'
+import './Userinfo.styles.scss';
 import './notifications.css';
 
 class ChangeInfo extends Component {
@@ -60,10 +62,11 @@ render() {
     const { errors } = this.state;
 return (
 
-    <div>
+    <div className="check">
         <div className="container">
         <div className="row">
-            <div className="col s8 offset-s2">
+            {/* <div className="col s8 offset-s2"> */}
+            <div className="col s8">
             <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
               home
@@ -140,7 +143,10 @@ return (
                 </select>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+                <Button variant="primary" type="submit" block>
+                  Change Information
+                </Button>
+                {/* <button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -151,7 +157,7 @@ return (
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Change Information
-                </button>
+                </button> */}
               </div>
               </form>
             </div>
@@ -160,7 +166,8 @@ return (
 
         <div className="container">
         <div className="row">
-            <div className="col s8 offset-s2">
+            {/* <div className="col s8 offset-s2"> */}
+            <div className="col s8">
             <form noValidate onSubmit={this.onSubmit2}>
               <div className="input-field col s12">
                 <input
@@ -205,7 +212,10 @@ return (
                 <span className="red-text">{errors.newpassword2}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+                <Button variant="primary" type="submit" block>
+                  Change Password
+                </Button>
+                {/* <button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -216,7 +226,7 @@ return (
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Change Password
-                </button>
+                </button> */}
               </div>
             </form>
           </div>

@@ -302,14 +302,16 @@ router.route('/').get((req, res) => {
 //Adds a new user
 router.route('/add').post((req, res) => {
     const userID = req.body.userID;
-    const username = req.body.username;
+    const name = req.body.name;
+    const password = req.body.password;
     const email = req.body.email;
     const address = req.body.address;
     const number = req.body.number;
 
     const newUser = new User({
         userID,
-        username,
+        name,
+        password,
         email,
         address,
         number

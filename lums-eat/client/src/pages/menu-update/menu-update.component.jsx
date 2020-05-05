@@ -6,7 +6,9 @@ import Availability from '../../components/availability/availability.component';
 
 
 const CollectionPage = () => (
-     <Availability />
+    <div className='restaurantpage'>
+        <Availability />
+    </div>
  );
 
 export default CollectionPage;

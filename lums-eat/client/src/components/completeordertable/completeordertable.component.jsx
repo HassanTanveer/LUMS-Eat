@@ -23,14 +23,13 @@ const CompleteOrderTable = ({ OrderID, items, totalPrice, status, Type, userAddr
         })()}</td>
         <td className = 'font'>
             {items.map(item => {
-                return <span className = 'items'>{item[0]} - <span className = 'inside'>{item[1]}</span></span>
+                return <span className = 'items'>{item.name} - <span className = 'inside'>{item.quantity}</span></span>
             })}
         </td>
         <td className = 'font'>{totalPrice}</td>
         <td className = 'font'>{Type}</td>
         <td className = 'font'>{userAddress}</td>
-        <td className = 'font'>{status}</td>        
-        {/* <td className = 'font'>{status}</td>         */}
+        <td className = 'font'>{status}</td>
         <td className = 'font'>
           <Link className='FeedbackButton' to={{pathname: '/userfeedback', state: {order: OrderID, restaurant:RestaurantID, item: items}}}>
             Give Feedback

@@ -81,13 +81,8 @@ class InputForm extends React.Component {
   render() {
     return (
       <div className = 'check'>
-        <h1>Add Item to Menu</h1>
-        {/* <h1>
-          {this.state.check.map((item) =>
-            <h>{item.ItemID} </h>
-          )}
-        </h1> */}
-
+        <h4><b>Add Item to Menu</b> below</h4>
+    
         
         <Form onSubmit = {this.handleSubmit}>
           <Form.Group controlId="ItemID">
@@ -112,8 +107,10 @@ class InputForm extends React.Component {
 
             <Form.Group controlId="Price">
                 <Form.Label>Price</Form.Label>
-                <Form.Control type="number"
+                <Form.Control type="name"
                               placeholder="Enter price in pkr"
+                              pattern="[0-9]*"
+                              // className = 'number'
                               required
                               value ={this.state.price}
                               onChange = {this.updatePrice.bind(this)} />

@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/actions/authActions";
 import classnames from "classnames";
+import Button from 'react-bootstrap/Button'
+import './Login.styles.scss';
+
 
 class Login extends Component {
   constructor() {
@@ -63,26 +66,26 @@ this.props.loginUser(userData); // since we handle the redirect within our compo
   };
 render() {
     const { errors } = this.state;
-    // console.log(this.state.isRestuarant)
 return (
+      <div className = 'check'>
 
-      <div className="container">
+      <div >
         <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col s8 offset-s2">
+          <div className="col s8">
             <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
               home
             </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+            <div className="col s12">
               <h4>
                 <b>Login</b> below
               </h4>
               <p className="grey-text text-darken-1">
-                Don't have an account? <Link to="/register">Register</Link>
+                Don't have an account? <Link class = "colorc" to="/register">Register</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
+              <div className="input-field col">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -118,30 +121,24 @@ return (
               </div>
               <p style ={{ paddingLeft: "11.250px" }}>
               <label>
-                <input type="checkbox" onChange={ this.handleChecked }/>
+                <input class="filled-in checkbox-blue-grey" type="checkbox" onChange={ this.handleChecked }/>
                 <span>Login as Restuarant?</span>
               </label>
               <p className="grey-text text-darken-1">
                   <Link to="/reset-pass">Forgot your password?</Link>
               </p>
               </p>
+              
+              
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
+                <Button variant="primary" type="submit" block>
                   Login
-                </button>
+                </Button>
               </div>
             </form>
           </div>
         </div>
+      </div>
       </div>
     );
   }

@@ -114,7 +114,7 @@ const Header = ({ currentUser, hidden, check }) => {
 
      {localStorage.email ? (
        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-       <DropdownToggle caret color = 'light'>
+         <DropdownToggle caret color = 'light'>
          {localStorage.name}
          </DropdownToggle>
        <DropdownMenu right>

@@ -27,10 +27,14 @@ class OrderPage extends React.Component {
       fetch(`/users/neworders/${localStorage.userID}`)
       .then(res=> res.json())
       .then(unconfirmed => this.setState({unconfirmed}))
+
+      console.log(this.state.unconfirmed)
   
       fetch(`/users/pendingorders/${localStorage.userID}`)
       .then(res=> res.json())
       .then(active => this.setState({active}))
+
+      console.log(this.state.active)
   
       fetch(`/users/completedorders/${localStorage.userID}`)
       .then(res=> res.json())
@@ -55,13 +59,14 @@ class OrderPage extends React.Component {
           <Table responsive>
             <thead>
               <tr className = 'font'>
-                <th>Order number</th>
+                <th>Order ID</th>
                 <th>Restaurant</th>
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
                 <th>Address</th>
                 <th>Status</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -81,13 +86,14 @@ class OrderPage extends React.Component {
           <Table responsive>
             <thead>
                 <tr className = 'font'>
-                  <th>Order number</th>
+                  <th>Order ID</th>
                   <th>Restaurant</th>
                   <th>Items</th>
                   <th>Total Price</th>
                   <th>Order Type</th>
                   <th>Address</th>
                   <th>Status</th>
+                  <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -107,7 +113,7 @@ class OrderPage extends React.Component {
           <Table responsive>
             <thead>
                 <tr className = 'font'>
-                  <th>Order number</th>
+                  <th>Order ID</th>
                   <th>Restaurant</th>
                   <th>Items</th>
                   <th>Total Price</th>

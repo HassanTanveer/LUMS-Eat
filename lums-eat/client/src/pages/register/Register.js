@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import { registerUser } from "../../redux/actions/authActions.js";
 import classnames from "classnames";
 import localStorage from "redux-persist/es/storage";
+import Button from 'react-bootstrap/Button'
+import './Register.styles.scss';
+
 
 class Register extends Component {
   constructor() {
@@ -59,19 +62,21 @@ this.props.registerUser(newUser, this.props.history);
 render() {
     const { errors } = this.state;
 return (
-      <div className="container">
+      // <div className="container">
+      <div className = 'check'>
         <div className="row">
-          <div className="col s8 offset-s2">
+          {/* <div className="col s8 offset-s2"> */}
+          <div className="col s8">
             <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
+              <i className="material-icons left" color="F8A22F">keyboard_backspace</i> Back to
               home
-            </Link> 
+            </Link>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below
               </h4>
               <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
+                Already have an account? <Link class="colorc" to="/login">Log in</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
@@ -198,7 +203,11 @@ return (
                 <span className="red-text">{errors.answer}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+                <Button variant="primary" type="submit" block>
+                  Register
+                </Button>
+                
+                {/* <button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -209,7 +218,7 @@ return (
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Sign up
-                </button>
+                </button> */}
               </div>
             </form>
           </div>

@@ -6,13 +6,18 @@ import { withRouter } from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import './notifications.css';
 import './collection-item.styles.scss';
+import { createStructuredSelector } from 'reselect';
+
+import {
+  selectCartItems
+
+} from '../../redux/cart/cart.selectors';
 // import {compose} from 'redux';
 // import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 
-const CollectionItem = ({ item, addItem, history, match }) => {
+const CollectionItem = ({ item, addItem, history, match, cartItems }) => {
   const { name, price, imageurl } = item;
-
   return (
     <div className='collection-item'>
       <NotificationContainer/>
@@ -27,7 +32,7 @@ const CollectionItem = ({ item, addItem, history, match }) => {
         <span className='price'>PKR {price}</span>
       </div>
       {localStorage.email ?(
-      <CustomButton onClick={() => {addItem(item); NotificationManager.info('Item added to cart');}} inverted>
+      <CustomButton onClick={() => {addItem(item); NotificationManager.warning('Item added to cart');}} inverted>
         Add to cart
       </CustomButton>):
       (<CustomButton onClick={()=>  {history.push('/login'); window.location.reload()}}>
@@ -40,9 +45,17 @@ const CollectionItem = ({ item, addItem, history, match }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
+  addItem: item => dispatch(addItem(item)),
+
+});
+
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems
+  
+  
 });
 
 
 
-export default withRouter(connect(null, mapDispatchToProps)(CollectionItem))
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CollectionItem))

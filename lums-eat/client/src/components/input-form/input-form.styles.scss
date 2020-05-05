@@ -1,31 +1,26 @@
 .check {
     width: 35%;
     align-self: center;
-    // text-align: center;
-    // padding-top: 20px;
 }
-
-// .center {
-//     // width: 35%;
-//     // align-self: center;
-//     text-align: center;
-// }
 
 .btn-primary {
     color: #fff;
     background-color: #F8A22F;
     border-color: #F8A22F;
+    outline: none !important;
 }
 
 .btn-primary:hover {
     background-color: #d98d29;
     border-color: #d98d29;
+    outline: none !important;
 }
 
 .btn-primary:active, .btn-primary:focus {
     background-color: #d98d29 !important;
     border-color: #d98d29 !important;
-    // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #d98d29 !important;
+    outline: none !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #d98d29 !important;
 }
 
 // .btn-primary:active:focus{
@@ -47,6 +42,24 @@
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #F8A22F;
 }
 
+// .number {
+//     // border-color: #F8A22F !important;
+//     // outline-color: #F8A22F !important;
+//     // color: #F8A22F !important;
+//     border: #F8A22F !important;
+//     outline: thick !important;
+//     // border: inherit;
+// }
+
+// .number:active, .number:focus {
+//     border-color: #F8A22F !important;
+//     outline-color: #F8A22F !important;
+//     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #F8A22F !important;
+// //     border: none;
+// //     // color: #F8A22F !important;
+// //     // border: inherit;
+// }
+
 .modal{
     background: none;
-  }
+}

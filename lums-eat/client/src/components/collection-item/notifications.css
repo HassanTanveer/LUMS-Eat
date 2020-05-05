@@ -11,7 +11,7 @@
   box-sizing: border-box;
   position: fixed;
   top: 0;
-  right: 0;
+  right: 0.2;
   z-index: 999999;
   width: 320px;
   padding: 0px 15px;
@@ -19,7 +19,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   margin-top: 15px;
-  margin-right: 400px;
+  margin-right: 700px;
 }
 
 .notification {
@@ -101,6 +101,7 @@
 }
 
 .notification-warning {
+  margin-right: 50px;
   background-color: #f89406;
 }
 

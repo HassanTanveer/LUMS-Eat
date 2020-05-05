@@ -5,9 +5,10 @@ import Modal from 'react-bootstrap/Modal'
 import './userfeedback.styles.scss';
 
 import PropTypes from "prop-types";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { logoutUser } from "../../redux/actions/authActions";
+
 
 const axios = require('axios')
 
@@ -17,7 +18,7 @@ class UserFeedbackPage extends React.Component {
     
       this.state={
         UserID: '',
-        ItemID: '',
+        // ItemID: '',
         OrderID: '',
         RestaurantID: '',
         Feedback: '',
@@ -29,39 +30,23 @@ class UserFeedbackPage extends React.Component {
       }  
   }
 
-  updateUserID(event) {
-    this.setState({UserID: event.target.value})
-  }
-
-  updateItemID(event) {
-    this.setState({ItemID: event.target.value})
-  }
-
-  updateOrderID(event) {
-    this.setState({OrderID: event.target.value})
-  }
-
-  updateRestaurantID(event) {
-    this.setState({RestaurantID: event.target.value})
-  }
-
   updateFeedback(event) {
     this.setState({Feedback: event.target.value})
   }
 
-  handleSubmit = (text) => (event) => {
-    event.preventDefault();
+  onSubmit = e => {
+    e.preventDefault();
     let details = {
-      "UserID": text,
-      "ItemID": this.state.ItemID,
+      "UserID": localStorage.name,
+      // "ItemID": this.state.ItemID,
 	    "OrderID": this.state.OrderID,
 	    "RestaurantID": this.state.RestaurantID,
 	    "Feedback": this.state.Feedback
       }
     axios.post('/feedback/add', details)
       .then((res) => this.setState({text2: 'Feedback has been sent to restaurant!'}), this.setState({popupshow: true}))
-      .catch(err => this.setState({text: 'Error'}), this.setState({text2: 'Feedback already submitted for this order'}), this.setState({popupshow: true}))
-  }
+      .catch(err => this.setState({text2: 'Feedback for this order has already been submitted!'}), this.setState({text: 'Error'}), this.setState({popupshow: true}))
+  };
 
   refresh = (event) => {
     window.location.reload();
@@ -71,11 +56,10 @@ class UserFeedbackPage extends React.Component {
     {
       const { order } = this.props.location.state
       const { restaurant } = this.props.location.state
-      const { item } = this.props.location.state
+      // const { item } = this.props.location.state
       
       this.setState({RestaurantID: restaurant})
       this.setState({OrderID: order})
-      this.setState({ItemID: item[0][0]})
     }
 
   renderIcon(){
@@ -86,34 +70,47 @@ class UserFeedbackPage extends React.Component {
   }
 
   render() {
-    // const { user } = this.props.auth;
-    // const { order } = this.props.location.state
-    // const { restaurant } = this.props.location.state
-    // const { item } = this.props.location.state
     return (
       <dic className = 'restaurantpage'>
         <div className = 'check'>
-          <div className = 'center'>
+            <Link to="/orders" class = "a"> <i className="material-icons">close</i> </Link>
+          <div>
+            <h4>
+              <b>Submit</b> feedback 
+            </h4>
+            <p >
+              <b>Restaurant:</b> {this.state.RestaurantID.toUpperCase()}, <b>Order ID:</b> {this.state.OrderID}
+            </p>
+          </div>
+          {/* <div className="col s12">
+            <h4>
+              <b>Submit</b> feedback
+            </h4>
+            <p className="grey-text text-darken-1">
+              Restaurant: {this.state.RestaurantID.toUpperCase()}
+            </p>
+          </div> */}
+          {/* <div className = 'center'>
             <h1>Submit Feedback</h1>
             <h1>Restaurant: {this.state.RestaurantID.toUpperCase()}</h1>
             <h1>Order ID: {this.state.OrderID}</h1>
-          </div>
+          </div> */}
 
-          
-          <Form onSubmit = {this.handleSubmit(localStorage.name)}>
-              <Form.Group controlId="Feedback">
-                  <Form.Label>Feedback</Form.Label>
-                  <Form.Control type="name"
-                                placeholder="Enter Feedback"
-                                required
-                                value ={this.state.Feedback}
-                                onChange = {this.updateFeedback.bind(this)} />
-              </Form.Group>
+          <Form onSubmit = {this.onSubmit}>
+            <Form.Group controlId="Feedback">
+                <Form.Label>Feedback</Form.Label>
+                <Form.Control type="name"
+                              placeholder="Enter Feedback"
+                              required
+                              value ={this.state.Feedback}
+                              onChange = {this.updateFeedback.bind(this)} />
+            </Form.Group>
 
-              <Button variant="primary" type="submit" block>
-                  Submit
-              </Button>
+            <Button variant="primary" type="submit" block>
+                Submit
+            </Button>
           </Form>
+
           <Modal show={this.state.popupshow}>
             <Modal.Header closeButton onClick={()=> this.setState({popupshow: false})}>
               <Modal.Title> {this.state.text} </Modal.Title>
@@ -125,6 +122,7 @@ class UserFeedbackPage extends React.Component {
               </Button>
             </Modal.Footer>
           </Modal>
+
         </div>
       </dic>
     );

@@ -10,28 +10,42 @@
 }
 
 .disp{
-  color: white;
+  color: black;
   font-weight: bold;
-  background-color: rgb(40, 240, 40);
-  border-radius: 10px;
-  padding: 10px;
+  // background-color: rgb(40, 240, 40);
+  background-color: rgba(190, 211, 0, 0.9);
+  border-radius: 5px;
+  padding: 8px 10px;
   cursor: pointer;
+}
+.disp:hover{
+  background-color: rgba(158, 175, 5, 0.9);
 }
 
 .pend{
   font-weight: bold;
-  background-color: orange;
-  border-radius: 10px;
-  padding: 10px;
+  // background-color: orange;
+  background-color: #F8A22F;
+  border-radius: 5px;
+  // padding: 10px;
+  padding: 8px 12px;
   cursor: pointer;
+}
+.pend:hover {
+  background-color: #d98d29;
 }
 
 .complete{
+  color: white;
   font-weight: bold;
-  background-color: orange;
-  border-radius: 10px;
-  padding: 10px;
+  // background-color: orange;
+  background-color: rgba(255, 0, 0, 0.9);
+  border-radius: 5px;
+  padding: 8px 21px;
   cursor: pointer;
+}
+.complete:hover{
+  background-color: rgba(220, 0, 0, 0.9);
 }
 
 .inside{

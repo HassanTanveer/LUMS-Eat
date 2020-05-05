@@ -27,4 +27,9 @@
     margin-top: auto;
   }
 
+  button:active, button:focus {
+    outline-color: #F8A22F;
+    background-color: #FFFFFF;
+  }
+
 }

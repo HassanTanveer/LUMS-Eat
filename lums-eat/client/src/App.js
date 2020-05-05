@@ -31,6 +31,8 @@ import Authentication from './pages/authentication/authentication.component';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import ChangeInfo from './pages/change-user-info/change-user-info';
+import ForgetPass from './pages/forget-password/forget-password';
+import ResetPass from './pages/reset-password/reset-password';
 import Dashboard from './pages/Dashboard/Dashboard';
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
@@ -47,24 +49,12 @@ if (localStorage.jwtToken) {
 // Check for expired token
   const currentTime = Date.now() / 1000; // to get in milliseconds
   if (decoded.exp < currentTime) {
-    // Logout user
-    //store.dispatch(logoutUser());
-    // Redirect to login
     window.location.href = "./login";
   }
 }
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
-
-  // componentDidMount() {  
-
-  // }
-
-  // componentWillUnmount() {
-  //   this.unsubscribeFromAuth();
-  // }
-
   render() {
     return (
       <Switch>
@@ -88,6 +78,8 @@ class App extends React.Component {
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <Route path='/change-info' component={ChangeInfo} />
+          <PrivateRoute path='/forget-pass' component={ForgetPass} />
+          <PrivateRoute path='/reset-pass' component={ResetPass} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>

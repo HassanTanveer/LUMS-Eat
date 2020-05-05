@@ -33,6 +33,16 @@ const userSchema = new Schema({
         required: false,
         unique: false,
     },
+    question: {
+        type: String,
+        required: true,
+        unique: false
+    },
+    answer: {
+        type: String,
+        required: true,
+        unique: false,
+    },
    
 }, {
     timestamps: true,

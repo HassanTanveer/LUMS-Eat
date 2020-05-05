@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/actions/authActions";
 import classnames from "classnames";
-import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './Login.styles.scss';
 
@@ -67,43 +66,8 @@ this.props.loginUser(userData); // since we handle the redirect within our compo
   };
 render() {
     const { errors } = this.state;
-    // console.log(this.state.isRestuarant)
 return (
       <div className = 'check'>
-      {/* <div >
-        <h1>Login</h1>
-        
-        <Form noValidate onSubmit={this.onSubmit}>
-          <Form.Group controlId="ItemID">
-            <Form.Label>Email</Form.Label>
-            <Form.Control onChange={this.onChange}
-                          value={this.state.email}
-                          error={errors.email}
-                          id="email"
-                          type="email"
-                          className={classnames("", {
-                            invalid: errors.email || errors.emailnotfound
-                          })} />
-          </Form.Group>
-
-          <Form.Group controlId="Image">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-                          onChange={this.onChange}
-                          value={this.state.password}
-                          error={errors.password}
-                          id="password"
-                          type="password"
-                          className={classnames("", {
-                            invalid: errors.password || errors.passwordincorrect
-                          })} />
-          </Form.Group>
-
-          <Button variant="primary" type="submit" block>
-              Login
-          </Button>
-        </Form>
-      </div> */}
 
       <div >
         <div style={{ marginTop: "4rem" }} className="row">
@@ -121,7 +85,6 @@ return (
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              {/* <div className="input-field col s12"> */}
               <div className="input-field col">
                 <input
                   onChange={this.onChange}
@@ -161,6 +124,9 @@ return (
                 <input class="filled-in checkbox-blue-grey" type="checkbox" onChange={ this.handleChecked }/>
                 <span>Login as Restuarant?</span>
               </label>
+              <p className="grey-text text-darken-1">
+                  <Link to="/reset-pass">Forgot your password?</Link>
+              </p>
               </p>
               
               
@@ -168,18 +134,6 @@ return (
                 <Button variant="primary" type="submit" block>
                   Login
                 </Button>
-                {/* <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Login
-                </button> */}
               </div>
             </form>
           </div>

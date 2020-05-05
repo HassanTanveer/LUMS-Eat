@@ -18,11 +18,6 @@ import {
 
 const CollectionItem = ({ item, addItem, history, match, cartItems }) => {
   const { name, price, imageurl } = item;
-
-  
-
-
-
   return (
     <div className='collection-item'>
       <NotificationContainer/>

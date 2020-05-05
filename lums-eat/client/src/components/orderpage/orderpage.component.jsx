@@ -66,6 +66,7 @@ class OrderPage extends React.Component {
                 <th>Order Type</th>
                 <th>Address</th>
                 <th>Status</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -92,6 +93,7 @@ class OrderPage extends React.Component {
                   <th>Order Type</th>
                   <th>Address</th>
                   <th>Status</th>
+                  <th></th>
                 </tr>
             </thead>
             <tbody>

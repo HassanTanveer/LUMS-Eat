@@ -5,7 +5,10 @@ import { connect } from "react-redux";
 import { registerUser, changeInfo, changePass } from "../../redux/actions/authActions.js";
 import classnames from "classnames";
 import axios from "axios";
+import Button from 'react-bootstrap/Button'
 import "./reset.css"
+import './Reset.styles.scss';
+
 
 
 class ResetPass extends Component {
@@ -84,10 +87,12 @@ render() {
     const { errors } = this.state;
 return (
 
-    <div>
+    // <div>
+    <div className = 'check'>
         <div className="container">
         <div className="row">
-            <div className="col s8 offset-s2">
+            {/* <div className="col s8 offset-s2"> */}
+            <div className="col s8">
             <Link to="/login" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
                 login
@@ -113,7 +118,10 @@ return (
                 <span className="red-text">{errors.email}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+                <Button variant="primary" type="submit" block>
+                  Proceed
+                </Button>
+                {/* <button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -124,7 +132,7 @@ return (
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Proceed
-                </button>
+                </button> */}
               </div>
               </form>
           </div>
@@ -133,7 +141,8 @@ return (
 
     <div className="container" id = "myDIV">
         <div className="row">
-            <div className="col s8 offset-s2">
+            {/* <div className="col s8 offset-s2"> */}
+            <div className="col s8">
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Answer the security question</b>
@@ -158,7 +167,10 @@ return (
                 <span className="red-text">{errors.answer}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+                <Button variant="primary" type="submit" block>
+                  Proceed
+                </Button>
+                {/* <button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -169,7 +181,7 @@ return (
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Proceed
-                </button>
+                </button> */}
               </div>
               
             </form>

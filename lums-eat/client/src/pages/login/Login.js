@@ -69,8 +69,9 @@ render() {
 return (
       <div className = 'check'>
 
-      <div >
-        <div style={{ marginTop: "4rem" }} className="row">
+      <div className="container">
+        {/* <div style={{ marginTop: "4rem" }} className="row"> */}
+        <div className="row">
           <div className="col s8">
             <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
@@ -125,7 +126,7 @@ return (
                 <span>Login as Restuarant?</span>
               </label>
               <p className="grey-text text-darken-1">
-                  <Link to="/reset-pass">Forgot your password?</Link>
+                  <Link class = "colorc" to="/reset-pass">Forgot your password?</Link>
               </p>
               </p>
               

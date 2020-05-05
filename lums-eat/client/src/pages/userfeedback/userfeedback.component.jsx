@@ -44,7 +44,7 @@ class UserFeedbackPage extends React.Component {
 	    "Feedback": this.state.Feedback
       }
     axios.post('/feedback/add', details)
-      .then((res) => this.setState({text2: 'Feedback has been sent to restaurant!'}), this.setState({popupshow: true}))
+      .then((res) => this.setState({text2: 'Feedback has been sent to restaurant!'}), this.setState({text: 'Feedback Sent!'}), this.setState({popupshow: true}))
       .catch(err => this.setState({text2: 'Feedback for this order has already been submitted!'}), this.setState({text: 'Error'}), this.setState({popupshow: true}))
   };
 

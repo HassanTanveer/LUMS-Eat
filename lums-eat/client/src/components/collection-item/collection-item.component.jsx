@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import CustomButton from '../custom-button/custom-button.component';
 import { addItem } from '../../redux/cart/cart.actions';
 import { withRouter } from 'react-router-dom';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 import './notifications.css';
 import './collection-item.styles.scss';
 import { createStructuredSelector } from 'reselect';
@@ -20,7 +19,6 @@ const CollectionItem = ({ item, addItem, history, match, cartItems }) => {
   const { name, price, imageurl } = item;
   return (
     <div className='collection-item'>
-      <NotificationContainer/>
       <div
         className='image'
         style={{
@@ -32,7 +30,7 @@ const CollectionItem = ({ item, addItem, history, match, cartItems }) => {
         <span className='price'>PKR {price}</span>
       </div>
       {localStorage.email ?(
-      <CustomButton onClick={() => {addItem(item); NotificationManager.warning('Item added to cart');}} inverted>
+      <CustomButton onClick={() => {addItem(item) }} inverted>
         Add to cart
       </CustomButton>):
       (<CustomButton onClick={()=>  {history.push('/login'); window.location.reload()}}>

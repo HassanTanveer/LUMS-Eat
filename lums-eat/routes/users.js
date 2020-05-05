@@ -28,9 +28,8 @@ router.get("/security/:email", (req, res) => {
         .then((response) => res.json(response.question))
         .catch((err) => {
             console.log(err)
-            res.status(400).json({
-            'Status': 'Failed',
-            'Message': `${err}`
+            res.json({
+            "Errors": {"email": "No account associated with this email"}
     })})
 });
 

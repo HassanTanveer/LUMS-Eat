@@ -38,7 +38,7 @@ class Directory extends Component {
   };
 
   render() {
-    const { user } = this.props.auth;
+    // const { user } = this.props.auth;
     let filteredRestaurants = this.state.sections.filter(
       (MenuItem) => {
         return MenuItem.name.toUpperCase().indexOf(this.state.search.toUpperCase()) !== -1;

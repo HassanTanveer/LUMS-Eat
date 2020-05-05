@@ -107,7 +107,7 @@ class OrderView extends React.Component {
 
         <div className='restaurant-menu'>
           <div className="top">
-            Completed Orders <span className="number">{this.state.complete.length}</span> 
+            Completed Orders <span className="completed-number">{this.state.complete.length}</span> 
           </div>
           <Table responsive>
             <thead>

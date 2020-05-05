@@ -25,6 +25,10 @@
 
   button {
     margin-top: auto;
+    background-color: #d98d29 !important;
+    border-color: #d98d29 !important;
+    outline: none !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #d98d29 !important;
   }
 
   button:active, button:focus {

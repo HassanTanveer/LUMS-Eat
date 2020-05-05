@@ -14,15 +14,10 @@ import {
 } from '../../redux/cart/cart.selectors';
 
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
-// import {compose} from 'redux';
-// import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import { Link } from 'react-router-dom';
+
 
 const CollectionItem = ({ item, addItem, history, match, cartItems, itemCount }) => {
   const { name, price, imageurl } = item;
-
-  
-  
 
   return (
     <div className='collection-item'>
@@ -47,12 +42,10 @@ const CollectionItem = ({ item, addItem, history, match, cartItems, itemCount })
         if(itemCount===0){
         addItem(item);
         NotificationManager.warning('Item added to cart');
-
         }      
-        
          if(rid=== item.RestaurantID){ addItem(item);  NotificationManager.warning('Item added to cart'); }
         
-        else if(rid!==item.RestaurantID&& itemCount!==0) {  NotificationManager.warning('Can not add items from multiple restaurants');    }
+        else if(rid!==item.RestaurantID&& itemCount!==0) {  NotificationManager.error('Can not add items from multiple restaurants');    }
         }} inverted>
         Add to cart 
       </CustomButton>):
@@ -74,8 +67,6 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   itemCount: selectCartItemsCount
-  
-  
 });
 
 

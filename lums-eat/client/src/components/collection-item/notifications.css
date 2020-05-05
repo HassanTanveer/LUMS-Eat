@@ -93,7 +93,8 @@
 }
 
 .notification-success {
-  background-color: #51a351;
+  margin-right: 50px;
+  background-color: orange;
 }
 
 .notification-success:before {
@@ -102,14 +103,15 @@
 
 .notification-warning {
   margin-right: 50px;
-  background-color: #f89406;
+  background-color: rgb(226, 43, 10);
 }
 
 .notification-warning:before {
-  content: "";
+  content: "";
 }
 
 .notification-error {
+  margin-right: 50px;
   background-color: #bd362f;
 }
 

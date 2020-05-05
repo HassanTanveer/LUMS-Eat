@@ -38,7 +38,6 @@ class Directory extends Component {
   };
 
   render() {
-    // const { user } = this.props.auth;
     let filteredRestaurants = this.state.sections.filter(
       (MenuItem) => {
         return MenuItem.name.toUpperCase().indexOf(this.state.search.toUpperCase()) !== -1;
@@ -46,21 +45,10 @@ class Directory extends Component {
     )
     return (
       <div className='directory-menu'>
-        {/* {localStorage.name ? (
-          <b>Hey there, {localStorage.name}</b>
-        ) : (
-          <b>Hey there!</b>
-        )} */}
         <div className='search'>
-          {/* <input type = "text"
-              className = 'search'
-              placeholder = "search..."
-              value ={this.state.search} 
-              onChange = {this.updateSearch.bind(this)}/> */}
           <Form>
               <Form.Control type="name"
                             block
-                            // className = 'search'
                             placeholder="search..."
                             value ={this.state.search} 
                             onChange = {this.updateSearch.bind(this)}/>

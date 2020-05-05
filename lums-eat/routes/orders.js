@@ -4,17 +4,6 @@ let Orders = require('../models/orders.model');
 let Users = require('../models/user.model');
 let Menu = require('../models/menuitems.model');
 
-
-//Gets all the orders
-router.route('/').get((req, res) => {
-    Orders.find()
-        .then(orders => res.json(orders))
-        .catch(err => res.status(400).json({
-            'Status': 'Failed',
-            'Message': `${err}`
-        }))
-});
-
 //Gets the orders with the status "New"
 router.route('/new/:RestaurantID').get((req, res) => {
     Orders.find({RestaurantID: req.params.RestaurantID, status: "New"})

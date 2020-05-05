@@ -20,6 +20,8 @@ import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
 
 const CollectionItem = ({ item, addItem, history, match, cartItems, itemCount }) => {
   const { name, price, imageurl } = item;
+
+  
   
 
   return (
@@ -40,12 +42,17 @@ const CollectionItem = ({ item, addItem, history, match, cartItems, itemCount })
         var rid
         rid= cartItems.map((item =>  item.RestaurantID))
         rid= rid[0]
-        console.log(rid)
-        console.log(item.RestaurantID)        
         
-         if(rid=== item.RestaurantID){addItem(item);  NotificationManager.warning('Item added to cart'); }
         
-         else if(rid!==item.RestaurantID) {  NotificationManager.warning('Can not add items from multiple restaurants');    }
+        if(itemCount===0){
+        addItem(item);
+        NotificationManager.warning('Item added to cart');
+
+        }      
+        
+         if(rid=== item.RestaurantID){ addItem(item);  NotificationManager.warning('Item added to cart'); }
+        
+        else if(rid!==item.RestaurantID&& itemCount!==0) {  NotificationManager.warning('Can not add items from multiple restaurants');    }
         }} inverted>
         Add to cart 
       </CustomButton>):

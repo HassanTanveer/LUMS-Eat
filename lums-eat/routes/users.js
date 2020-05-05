@@ -179,7 +179,9 @@ router.post("/register", (req, res) => {
                 password: req.body.password,
                 userID: req.body.userID,
                 number: req.body.number,
-                address: req.body.address
+                address: req.body.address,
+                question: req.body.question,
+                answer: req.body.answer,
             });
             // Hash password before saving in database
             bcrypt.genSalt(10, (err, salt) => {

@@ -41,20 +41,21 @@ onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
 onSubmit = e => {
-    e.preventDefault();
-const newUser = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2,
-      address: this.state.address,
-      number: this.state.number,
-      userID: this.state.userID,
-      question: this.state.question,
-      answer: this.state.answer
-    };
+  e.preventDefault();
+  const newUser = {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        password2: this.state.password2,
+        address: this.state.address,
+        number: this.state.number,
+        userID: this.state.userID,
+        question: this.state.question,
+        answer: this.state.answer
+      };
 this.props.registerUser(newUser, this.props.history); 
-  };
+};
+
 render() {
     const { errors } = this.state;
 return (
@@ -110,7 +111,7 @@ return (
                   id="address"
                   type="address"
                 >
-                  <option value="" disabled selected>Choose your option</option>
+                  <option value="" disabled selected>Address</option>
                   <option value="F1">F1</option>
                   <option value="F2">F2</option>
                   <option value="F3">F3</option>

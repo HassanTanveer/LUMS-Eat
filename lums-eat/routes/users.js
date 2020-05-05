@@ -14,6 +14,47 @@ const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
 const validateChangeInfoInput = require("../validation/changeinfo");
 const validateChangePassInput = require("../validation/changepass");
+const validateResetPassInput = require("../validation/resetpass");
+
+router.get("/security/:email", (req, res) => {
+    const { errors, isValid } = validateResetPassInput(req.params);
+    // Check validation
+    if (!isValid) {
+        return res.json({"Errors": errors});
+    }
+
+    const email = req.body.email;
+    User.findOne({email: req.params.email})
+        .then((response) => res.json(response.question))
+        .catch((err) => {
+            console.log(err)
+            res.status(400).json({
+            'Status': 'Failed',
+            'Message': `${err}`
+    })})
+});
+
+router.post("/checkanswer", (req, res) => {
+
+    User.findOne({email: req.body.email})
+        .then((response) => {
+            if(response.answer == req.body.answer){
+                res.json("Correct")
+            }
+            else{
+                res.json({
+                    'Status': 'Failed',
+                    'Message': "Answer not matched"
+                })
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+            res.status(400).json({
+            'Status': 'Failed',
+            'Message': `${err}`
+    })})
+});
 
 router.post("/changeinfo", (req, res) => {
     const { errors, isValid } = validateChangeInfoInput(req.body);
@@ -47,6 +88,35 @@ router.post("/changeinfo", (req, res) => {
             'Status': 'Failed',
             'Message': `${err}`
     }))
+});
+
+router.post("/changepass", (req, res) => {
+    console.log(req.body)
+    const { errors, isValid } = validateChangePassInput(req.body);
+    // Check validation
+    if (!isValid) {
+        return res.json(errors);
+    }
+    User.findOne({ email: req.body.email }).then(user => {
+        const newpassword =  req.body.newpassword
+        // Hash password before saving in database
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newpassword, salt, (err, hash) => {
+                if (err) throw err;
+                console.log(hash)
+                update = {
+                    "password": hash
+                };
+                User.findOneAndUpdate({email: req.body.email}, update, {useFindAndModify: false})
+                .then((response) => {
+                    User.findOne({userID: req.body.userID})
+                        .then(resp => res.status(200).json("Success"))
+                        .catch(err => res.status(400).json("Error"))
+                })
+                .catch((err) => res.status(400).json("Error"))
+            });
+        });
+    });
 });
 
 router.post("/changepass", (req, res) => {

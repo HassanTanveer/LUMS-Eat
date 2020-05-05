@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../redux/actions/authActions.js";
 import classnames from "classnames";
+import localStorage from "redux-persist/es/storage";
 
 class Register extends Component {
   constructor() {
@@ -16,13 +17,15 @@ class Register extends Component {
       address: "",
       number: "",
       userID: '_' + Math.random().toString(36).substr(2, 9),
+      question: "",
+      answer: "",
       errors: {}
     };
   }
 
 componentDidMount() {
   // If logged in and user navigates to Register page, should redirect them to dashboard
-  if (this.props.auth.isAuthenticated) {
+  if (localStorage.email) {
     this.props.history.push("/");
   }
 }
@@ -46,7 +49,9 @@ const newUser = {
       password2: this.state.password2,
       address: this.state.address,
       number: this.state.number,
-      userID: this.state.userID
+      userID: this.state.userID,
+      question: this.state.question,
+      answer: this.state.answer
     };
 this.props.registerUser(newUser, this.props.history); 
   };
@@ -161,6 +166,35 @@ return (
                 />
                 <label htmlFor="number">Number (923...)</label>
                 <span className="red-text">{errors.number}</span>
+              </div>
+              <div class="input-field col s12">
+                <select class="browser-default" 
+                  onChange={this.onChange}
+                  value={this.state.question}
+                  error={errors.question}
+                  id="question"
+                  type="question"
+                >
+                  <option value="" disabled selected>Choose your secret question</option>
+                  <option value="What is my hometown?">What is my hometown?</option>
+                  <option value="What is my nickname?">What is my nickname? </option>
+                  <option value="What is my grandfather's name?">What is my grandfather's name?</option>
+                  <option value="What is my pet's name?">What is my pet's name?</option>
+                </select>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.answer}
+                  error={errors.answer}
+                  id="answer"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.answer
+                  })}
+                />
+                <label htmlFor="answer">Answer to secret question</label>
+                <span className="red-text">{errors.answer}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button

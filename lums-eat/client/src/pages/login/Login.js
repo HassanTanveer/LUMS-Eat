@@ -121,6 +121,9 @@ return (
                 <input type="checkbox" onChange={ this.handleChecked }/>
                 <span>Login as Restuarant?</span>
               </label>
+              <p className="grey-text text-darken-1">
+                  <Link to="/reset-pass">Forgot your password?</Link>
+              </p>
               </p>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button

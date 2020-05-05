@@ -58,7 +58,7 @@ class OrderView extends React.Component {
           <Table responsive>
             <thead>
               <tr className = 'font'>
-                <th>Order number</th>
+                <th>Order ID</th>
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
@@ -85,7 +85,7 @@ class OrderView extends React.Component {
           <Table responsive>
             <thead>
               <tr className = 'font'>
-                <th>Order number</th>
+                <th>Order ID</th>
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>
@@ -112,7 +112,7 @@ class OrderView extends React.Component {
           <Table responsive>
             <thead>
               <tr className = 'font'>
-                <th>Order number</th>
+                <th>Order ID</th>
                 <th>Items</th>
                 <th>Total Price</th>
                 <th>Order Type</th>

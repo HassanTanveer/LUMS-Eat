@@ -59,7 +59,7 @@ class OrderPage extends React.Component {
           <Table responsive>
             <thead>
               <tr className = 'font'>
-                <th>Order number</th>
+                <th>Order ID</th>
                 <th>Restaurant</th>
                 <th>Items</th>
                 <th>Total Price</th>
@@ -85,7 +85,7 @@ class OrderPage extends React.Component {
           <Table responsive>
             <thead>
                 <tr className = 'font'>
-                  <th>Order number</th>
+                  <th>Order ID</th>
                   <th>Restaurant</th>
                   <th>Items</th>
                   <th>Total Price</th>
@@ -111,7 +111,7 @@ class OrderPage extends React.Component {
           <Table responsive>
             <thead>
                 <tr className = 'font'>
-                  <th>Order number</th>
+                  <th>Order ID</th>
                   <th>Restaurant</th>
                   <th>Items</th>
                   <th>Total Price</th>

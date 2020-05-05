@@ -37,7 +37,7 @@ router.route('/complete/:RestaurantID').get((req, res) => {
 });
 
 router.route('/complete/:Date/:RestaurantID').get((req, res) => {
-    Orders.find({RestaurantID: req.params.RestaurantID, status: "Complete", createdAt: { $gte : new Date(req.params.Date).toISOString() } })
+    Orders.find({RestaurantID: req.params.RestaurantID, status: "Complete", updatedAt: { $gte : new Date(req.params.Date).toISOString() } })
         .then(orders => res.json(orders))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });

@@ -46,11 +46,11 @@ class Directory extends Component {
     )
     return (
       <div className='directory-menu'>
-        {user.name ? (
-          <b>Hey there, {user.name}</b>
+        {/* {localStorage.name ? (
+          <b>Hey there, {localStorage.name}</b>
         ) : (
           <b>Hey there!</b>
-        )}
+        )} */}
         <div className='search'>
           {/* <input type = "text"
               className = 'search'
@@ -69,7 +69,6 @@ class Directory extends Component {
         <hr/>
         <div className='directory-menu'>
           {filteredRestaurants.map(({ _id, ...otherSectionProps }) => (
-         
             <MenuItem key={_id} {...otherSectionProps} />
           ))}
         </div>

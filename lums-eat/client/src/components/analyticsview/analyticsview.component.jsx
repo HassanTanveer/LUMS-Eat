@@ -35,7 +35,7 @@ class AnalyticsView extends React.Component {
 
     for (let i = 0; i < this.state.sections.length; i++)
     {
-      var check = this.state.sections[i];
+      var check = this.state.sections[i];    
 
       if(check)
       {
@@ -45,13 +45,16 @@ class AnalyticsView extends React.Component {
       for (let j = 0; j < check2.length; j++)
       {
         var found = 0;
-        var check3 = check2[j];
+        if(check2)
+        {
+          var check3 = check2[j];
+        }
 
         for (let c = 0; c < most.length; c++)
         {
-          if(most[c].key === check3[0])
+          if(most[c].key === check3.name)
           {
-            most[c].value = most[c].value + parseInt(check3[1]);
+            most[c].value = most[c].value + parseInt(check3.quantity);
             found = 1;
           }
         }
@@ -59,8 +62,8 @@ class AnalyticsView extends React.Component {
         if(found === 0)
         {
           most.push({
-            key:   check3[0],
-            value: parseInt(check3[1])
+            key:   check3.name,
+            value: parseInt(check3.quantity)
           });
         }
       }

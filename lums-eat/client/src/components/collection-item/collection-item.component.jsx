@@ -6,19 +6,25 @@ import { withRouter } from 'react-router-dom';
 import './notifications.css';
 import './collection-item.styles.scss';
 import { createStructuredSelector } from 'reselect';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import {
   selectCartItems
 
 } from '../../redux/cart/cart.selectors';
+
+import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
 // import {compose} from 'redux';
 // import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 
-const CollectionItem = ({ item, addItem, history, match, cartItems }) => {
+const CollectionItem = ({ item, addItem, history, match, cartItems, itemCount }) => {
   const { name, price, imageurl } = item;
+  
+
   return (
     <div className='collection-item'>
+       <NotificationContainer/>
       <div
         className='image'
         style={{
@@ -30,8 +36,18 @@ const CollectionItem = ({ item, addItem, history, match, cartItems }) => {
         <span className='price'>PKR {price}</span>
       </div>
       {localStorage.email ?(
-      <CustomButton onClick={() => {addItem(item) }} inverted>
-        Add to cart
+      <CustomButton onClick={() => {
+        var rid
+        rid= cartItems.map((item =>  item.RestaurantID))
+        rid= rid[0]
+        console.log(rid)
+        console.log(item.RestaurantID)        
+        
+         if(rid=== item.RestaurantID){addItem(item);  NotificationManager.warning('Item added to cart'); }
+        
+         else if(rid!==item.RestaurantID) {  NotificationManager.warning('Can not add items from multiple restaurants');    }
+        }} inverted>
+        Add to cart 
       </CustomButton>):
       (<CustomButton onClick={()=>  {history.push('/login'); window.location.reload()}}>
         Add to cart
@@ -44,11 +60,13 @@ const CollectionItem = ({ item, addItem, history, match, cartItems }) => {
 
 const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item)),
+  
 
 });
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems
+  cartItems: selectCartItems,
+  itemCount: selectCartItemsCount
   
   
 });

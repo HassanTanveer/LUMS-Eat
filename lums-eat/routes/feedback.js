@@ -38,6 +38,7 @@ router.route('/add').post((req, res) => {
     // const ItemID = req.body.ItemID;
     const OrderID = req.body.OrderID
     const RestaurantID = req.body.RestaurantID;
+    const Rating = req.body.Rating;
     const Feedback = req.body.Feedback
 
     const newfeedback = new Fback({
@@ -45,6 +46,7 @@ router.route('/add').post((req, res) => {
         // ItemID,
         OrderID,
         RestaurantID,
+        Rating,
         Feedback
     });
 

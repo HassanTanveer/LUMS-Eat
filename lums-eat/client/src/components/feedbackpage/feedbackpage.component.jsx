@@ -35,6 +35,7 @@ class FeedbackPage extends React.Component {
                 <th>User</th>
                 <th>Order ID</th>
                 <th>Feedback</th>
+                <th>Rating</th>
               </tr>
             </thead>
             <tbody>

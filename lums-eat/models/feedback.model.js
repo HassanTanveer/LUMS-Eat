@@ -27,6 +27,12 @@ const feedbackSchema = new Schema({
         unique: false
     },
 
+    Rating: {
+        type: Number,
+        required: true,
+        unique: true
+    },
+
     Feedback: {
         type: String,
         required: false,

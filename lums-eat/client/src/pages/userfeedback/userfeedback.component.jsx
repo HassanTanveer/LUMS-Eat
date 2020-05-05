@@ -21,17 +21,22 @@ class UserFeedbackPage extends React.Component {
         // ItemID: '',
         OrderID: '',
         RestaurantID: '',
+        Rating: Number,
         Feedback: '',
 
         popupshow: false,
-        text: 'Feedback Sent!',
+        text: 'Feedback!',
         text2: 'Feedback has been sent to restaurant!'
-
       }  
   }
 
   updateFeedback(event) {
     this.setState({Feedback: event.target.value})
+  }
+
+  updateRating(event) {
+    this.setState({Rating: event.target.value})
+    // console.log(event.target.value);
   }
 
   onSubmit = e => {
@@ -40,12 +45,13 @@ class UserFeedbackPage extends React.Component {
       "UserID": localStorage.name,
       // "ItemID": this.state.ItemID,
 	    "OrderID": this.state.OrderID,
-	    "RestaurantID": this.state.RestaurantID,
+      "RestaurantID": this.state.RestaurantID,
+      "Rating": this.state.Rating,
 	    "Feedback": this.state.Feedback
       }
     axios.post('/feedback/add', details)
-      .then((res) => this.setState({text2: 'Feedback has been sent to restaurant!'}), this.setState({text: 'Feedback Sent!'}), this.setState({popupshow: true}))
-      .catch(err => this.setState({text2: 'Feedback for this order has already been submitted!'}), this.setState({text: 'Error'}), this.setState({popupshow: true}))
+      .then((res) => this.setState({text2: 'Feedback has been sent to restaurant!'}), this.setState({text: 'Feedback'}), this.setState({popupshow: true}))
+      .catch(err => this.setState({text2: 'Error: Feedback for this order has already been sent to restaurant!'}), this.setState({popupshow: true}))
   };
 
   refresh = (event) => {
@@ -76,27 +82,49 @@ class UserFeedbackPage extends React.Component {
             <Link to="/orders" class = "a"> <i className="material-icons">close</i> </Link>
           <div>
             <h4>
-              <b>Submit</b> feedback 
+              <b>Submit</b> feedback
             </h4>
             <p >
               <b>Restaurant:</b> {this.state.RestaurantID.toUpperCase()}, <b>Order ID:</b> {this.state.OrderID}
             </p>
           </div>
-          {/* <div className="col s12">
-            <h4>
-              <b>Submit</b> feedback
-            </h4>
-            <p className="grey-text text-darken-1">
-              Restaurant: {this.state.RestaurantID.toUpperCase()}
-            </p>
-          </div> */}
-          {/* <div className = 'center'>
-            <h1>Submit Feedback</h1>
-            <h1>Restaurant: {this.state.RestaurantID.toUpperCase()}</h1>
-            <h1>Order ID: {this.state.OrderID}</h1>
-          </div> */}
 
           <Form onSubmit = {this.onSubmit}>
+
+            <Form.Label>Rating</Form.Label>
+            <div class="demo" onChange={this.updateRating.bind(this)} >
+              <span>
+                <label>
+                  <input name="group1" value="1" type="radio" />
+                  <span>1</span>
+                </label>
+              </span>
+              <span>
+                <label>
+                  <input name="group1" value="2" type="radio" />
+                  <span>2</span>
+                </label>
+              </span>
+              <span>
+                <label>
+                  <input name="group1" value="3" type="radio" required />
+                  <span>3</span>
+                </label>
+              </span>
+              <span>
+                <label>
+                  <input name="group1" value="4" type="radio" />
+                  <span>4</span>
+                </label>
+              </span>
+              <span>
+                <label>
+                  <input name="group1" value="5" type="radio" />
+                  <span>5</span>
+                </label>
+              </span>
+            </div>
+
             <Form.Group controlId="Feedback">
                 <Form.Label>Feedback</Form.Label>
                 <Form.Control type="name"

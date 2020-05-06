@@ -162,6 +162,7 @@ router.post("/changepass", (req, res) => {
 });
 
 //Registration route
+//Code taken from https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
     // Check validation
@@ -197,6 +198,7 @@ router.post("/register", (req, res) => {
     });
 });
 
+//Code taken from https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669
 router.post("/login", (req, res) => {
         // Form validation
     const { errors, isValid } = validateLoginInput(req.body);

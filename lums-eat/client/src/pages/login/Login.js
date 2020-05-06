@@ -1,3 +1,5 @@
+//Code partially taken from https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -24,7 +26,6 @@ componentDidMount() {
   // If logged in and user navigates to Login page, should redirect them to dashboard
   if (this.props.auth.isAuthenticated) {
     if(!localStorage.isRest){
-      //console.log(this.props.location.pathname)
       this.props.history.push('/');}
      else {
       this.props.history.push("/restaurant");
@@ -70,7 +71,6 @@ return (
       <div className = 'check'>
 
       <div className="container">
-        {/* <div style={{ marginTop: "4rem" }} className="row"> */}
         <div className="row">
           <div className="col s8">
             <Link to="/" className="btn-flat waves-effect">
